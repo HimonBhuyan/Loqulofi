@@ -101,7 +101,7 @@
 
             <!-- Hero Action Buttons -->
             <div class="hero-cta-buttons">
-                <a href="#services" class="btn-gold btn-xl magnetic-btn">
+                <a href="index.php?page=services" class="btn-gold btn-xl magnetic-btn">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                         <rect x="3" y="3" width="7" height="7"></rect>
                         <rect x="14" y="3" width="7" height="7"></rect>
