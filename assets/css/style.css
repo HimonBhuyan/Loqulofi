@@ -189,6 +189,9 @@ body.theme-transitioning *::after {
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 body {
@@ -197,6 +200,8 @@ body {
   color: var(--text-secondary);
   line-height: 1.65;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
   position: relative;
   min-height: 100vh;
   -webkit-font-smoothing: antialiased;
@@ -5064,12 +5069,8 @@ a:hover {
 
 /* --- Infinite Fintech Ticker Ribbon (Slice Marquee) --- */
 .infinite-ticker-band {
-  width: 100vw;
+  width: 100%;
   position: relative;
-  left: 50%;
-  right: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
   background: linear-gradient(135deg, #09192E 0%, #05101E 100%);
   border-top: 1.5px solid var(--gold-border-bright);
   border-bottom: 1.5px solid var(--gold-border-bright);
