@@ -116,47 +116,4 @@
                 <p class="calc-disclaimer">Rates and terms depend on project assessment, asset valuation, and banking underwriting parameters.</p>
             </div>
     </div>
-
-    <!-- Yearly Amortization Cash-Flow Schedule Section -->
-    <div class="amortization-schedule-section" id="amortization-section">
-        <div class="amortization-header-bar">
-            <div class="amort-title-group">
-                <span class="gold-pill-tag">CASH FLOW PROJECTION</span>
-                <h4 class="amort-title">YEAR-ON-YEAR AMORTIZATION & BALANCE REDUCTION</h4>
-                <p class="amort-sub">Indicative annual principal vs. interest breakdown on standard reducing balance method.</p>
-            </div>
-            <div class="amort-actions">
-                <button type="button" class="btn-gold-sm" id="btn-toggle-amortization">
-                    <i class="fa-solid fa-table-list"></i> <span id="amort-toggle-text">View Amortization Table</span>
-                </button>
-                <button type="button" class="btn-outline-gold-sm" id="btn-print-schedule" title="Print this schedule">
-                    <i class="fa-solid fa-print"></i> Print Schedule
-                </button>
-            </div>
-        </div>
-
-        <div class="amortization-table-wrap" id="amortization-table-wrap" style="display: none;">
-            <div class="table-responsive">
-                <table class="luxury-amort-table" id="amortization-table">
-                    <thead>
-                        <tr>
-                            <th>Year</th>
-                            <th>Opening Balance</th>
-                            <th>Annual Repayment (EMI)</th>
-                            <th>Principal Paid</th>
-                            <th>Interest Paid</th>
-                            <th>Closing Balance</th>
-                            <th>Repayment Ratio</th>
-                        </tr>
-                    </thead>
-                    <tbody id="amortization-tbody">
-                        <!-- Populated dynamically by main.js -->
-                    </tbody>
-                </table>
-            </div>
-            <div class="amort-footer-note">
-                <i class="fa-solid fa-circle-info"></i> Note: For bullet repayments, moratorium/construction phase interest capitalizations, or customized structured debts (LBO/Mezzanine), speak directly with our Senior Directors.
-            </div>
-        </div>
-    </div>
 </div>
