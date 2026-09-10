@@ -251,16 +251,13 @@
                         </div>
 
                         <div class="sidebar-actions">
-                            <button type="button" class="btn-gold btn-block open-inquiry-modal">
-                                <i class="fa-solid fa-paper-plane"></i> Request Deal Consultation
-                            </button>
-                            <a href="https://wa.me/916232046473?text=Hello%20Liqulofi%20Team,%20I%20want%20to%20structure%20{{ urlencode($service['title']) }}%20({{ urlencode($service['ticket_size']) }})." 
+                            <a href="https://wa.me/918780181897?text=Hello%20Liqulofi%20Team,%20I%20want%20to%20structure%20{{ urlencode($service['title']) }}%20({{ urlencode($service['ticket_size']) }})." 
                                target="_blank" 
                                rel="noopener noreferrer" 
-                               class="btn-outline-gold btn-block mt-2">
+                               class="btn-gold btn-block">
                                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Director Desk
                             </a>
-                            <a href="assets/docs/Liqulofi_Private_Limited.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-ghost-gold btn-block mt-2">
+                            <a href="assets/docs/Liqulofi_Private_Limited.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-outline-gold btn-block mt-2">
                                 <i class="fa-solid fa-download"></i> Download Brochure (PDF)
                             </a>
                         </div>
@@ -319,8 +316,8 @@
                 @endphp
                 @foreach($selectedAdjacents as $adj)
                     <div class="adjacent-card">
-                        <div class="adj-thumb-wrap">
-                            <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" loading="lazy">
+                        <div class="adj-thumb-wrap" style="height: 165px; max-height: 165px; overflow: hidden; position: relative;">
+                            <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
                             <span class="adj-ticket-tag">{{ $adj['ticket_size'] }}</span>
                         </div>
                         <div class="adj-body">

@@ -40,7 +40,7 @@
     </script>
 
     <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style.css?v={{ time() }}">
     
     @yield('extra_css')
 </head>
@@ -89,7 +89,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 
     <!-- Main Application Scripts -->
-    <script src="assets/js/main.js"></script>
+    <script src="assets/js/main.js?v={{ time() }}"></script>
     @yield('extra_js')
 </body>
 </html>
