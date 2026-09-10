@@ -93,7 +93,7 @@
                     </div>
                     <div class="badge-body">
                         <span class="badge-title">EMAIL ID</span>
-                        <span class="badge-desc">{{ $company['email'] ?? 'info@liqulofi.com' }}</span>
+                        <span class="badge-desc">{{ $company['email'] ?? 'finance@liqulofipvtltd.com' }}</span>
                     </div>
                 </div>
 

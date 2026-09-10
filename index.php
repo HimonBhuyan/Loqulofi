@@ -39,7 +39,7 @@ $company = [
     'headquarters' => 'Office No. 203, Scheme No. 54, Dhan Trident, Vijay Nagar, Indore, Madhya Pradesh',
     'coverage' => 'Working PAN INDIA',
     'ticket_size_range' => '1 CR to 1000 CR',
-    'email' => 'info@liqulofi.com',
+    'email' => 'finance@liqulofipvtltd.com',
     'website' => 'www.liqulofi.com',
     'directors' => [
         [
