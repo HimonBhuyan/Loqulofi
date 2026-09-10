@@ -316,15 +316,15 @@
                 @endphp
                 @foreach($selectedAdjacents as $adj)
                     <div class="adjacent-card">
-                        <div class="adj-thumb-wrap" style="height: 165px; max-height: 165px; overflow: hidden; position: relative;">
-                            <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" style="width: 100%; height: 100%; object-fit: cover;" loading="lazy">
+                        <div class="adj-thumb-wrap">
+                            <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" loading="lazy">
                             <span class="adj-ticket-tag">{{ $adj['ticket_size'] }}</span>
                         </div>
                         <div class="adj-body">
                             <span class="adj-cat">{{ $adj['category'] }}</span>
                             <h4 class="adj-title">{{ $adj['title'] }}</h4>
-                            <p class="adj-desc">{{ substr($adj['short_desc'], 0, 110) }}...</p>
-                            <a href="index.php?page=service&id={{ $adj['id'] }}" class="btn-ghost-gold btn-sm mt-2">
+                            <p class="adj-desc">{{ $adj['short_desc'] }}</p>
+                            <a href="index.php?page=service&id={{ $adj['id'] }}" class="btn-ghost-gold btn-sm">
                                 View Solution Specs &rarr;
                             </a>
                         </div>
