@@ -45,9 +45,9 @@
                     Directors Contact:
                 </span>
                 <div class="liner-directors-links">
-                    <a href="tel:+916232046473" title="Call Abhishek Bhatnagar">Abhishek: +91 62320 46473</a>
-                    <span class="dot">•</span>
                     <a href="tel:+918780181897" title="Call Ritu Rami">Ritu: +91 8780181897</a>
+                    <span class="dot">•</span>
+                    <a href="tel:+916232046473" title="Call Abhishek Bhatnagar">Abhishek: +91 62320 46473</a>
                     <span class="dot">•</span>
                     <a href="tel:+919232978262" title="Call Saket Dubey">Saket: +91 92329 78262</a>
                 </div>

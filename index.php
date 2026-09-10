@@ -43,20 +43,20 @@ $company = [
     'website' => 'www.liqulofi.com',
     'directors' => [
         [
-            'name' => 'ABHISHEK BHATNAGAR',
-            'phone' => '+91 62320 46473',
-            'raw_phone' => '+916232046473',
-            'role' => 'Director',
-            'avatar_initials' => 'AB',
-            'image' => 'assets/images/directors/abhishek-bhatnagar.jpg'
-        ],
-        [
             'name' => 'RITU RAMI',
             'phone' => '+91 8780181897',
             'raw_phone' => '+918780181897',
             'role' => 'Director',
             'avatar_initials' => 'RR',
             'image' => 'assets/images/directors/ritu-rami.jpg'
+        ],
+        [
+            'name' => 'ABHISHEK BHATNAGAR',
+            'phone' => '+91 62320 46473',
+            'raw_phone' => '+916232046473',
+            'role' => 'Director',
+            'avatar_initials' => 'AB',
+            'image' => 'assets/images/directors/abhishek-bhatnagar.jpg'
         ],
         [
             'name' => 'SAKET DUBEY',
