@@ -6338,8 +6338,21 @@ a:hover {
   .mobile-menu-toggle {
     display: flex !important;
   }
+  .header-download-btn {
+    display: none !important; /* Conceal bulky brochure button on compact headers; accessible in drawer */
+  }
+  .floating-theme-toggle {
+    display: none !important; /* Hide floating bottom-left moon button so it does not overlap cards/dock */
+  }
   .header-fluid {
-    padding: 0.75rem 1.25rem;
+    padding: 0.65rem 1.15rem;
+  }
+  .site-header .brand-tagline {
+    display: none !important;
+  }
+  .brand-crest.header img {
+    height: 48px !important;
+    max-width: 65px !important;
   }
   .container {
     padding: 0 1.25rem;
@@ -6397,6 +6410,35 @@ a:hover {
   }
   .mobile-action-bar {
     display: block;
+  }
+  .floating-theme-toggle {
+    display: none !important;
+  }
+  .header-download-btn {
+    display: none !important;
+  }
+  .site-header .brand-tagline {
+    display: none !important;
+  }
+  .brand-crest.header img {
+    height: 42px !important;
+    max-width: 55px !important;
+  }
+  .brand-crest.hero img {
+    height: 125px !important;
+    max-width: 175px !important;
+  }
+  .brand-name {
+    font-size: 1.25rem !important;
+  }
+  .brand-sub {
+    font-size: 0.58rem !important;
+    letter-spacing: 0.2em !important;
+  }
+  .header-action-group {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
   }
   .container {
     padding: 0 1rem;
