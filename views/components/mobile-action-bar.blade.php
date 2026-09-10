@@ -1,6 +1,6 @@
 @php
     $companyData = $company ?? [];
-    $primaryDirector = $companyData['directors'][0] ?? ['name' => 'Ritu Rami', 'phone' => '+91 8780181897', 'raw_phone' => '+918780181897'];
+    $primaryDirector = $companyData['directors'][0] ?? ['name' => 'Abhishek Bhatnagar', 'phone' => '+91 62320 46473', 'raw_phone' => '+916232046473'];
 @endphp
 
 <!-- Mobile Bottom Sticky Quick Action Bar (Screens <= 768px) -->
