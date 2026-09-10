@@ -4602,36 +4602,40 @@ a:hover {
 
 /* Mobile Responsiveness for Concierge */
 @media (max-width: 768px) {
+  /* Hide the floating trigger pill on mobile viewports since the bottom action dock provides the WhatsApp concierge button */
+  .whatsapp-concierge-trigger {
+    display: none !important;
+  }
+
   .whatsapp-concierge-container {
-    bottom: 75px;
-    right: 15px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    pointer-events: none;
+    z-index: 1050;
+  }
+
+  .whatsapp-concierge-container.is-open {
+    pointer-events: auto;
   }
 
   .whatsapp-concierge-drawer {
-    bottom: calc(100% + 12px);
-    right: 0;
-    width: calc(100vw - 30px);
-    max-width: 360px;
-  }
-
-  .whatsapp-concierge-trigger {
-    padding: 0.5rem 1rem 0.5rem 0.65rem;
-  }
-
-  .wc-trigger-icon-box {
-    width: 36px;
-    height: 36px;
-    font-size: 1.2rem;
-  }
-
-  .wc-trigger-main {
-    font-size: 0.88rem;
-  }
-
-  .wc-trigger-sub {
-    font-size: 0.68rem;
+    position: fixed !important;
+    bottom: calc(env(safe-area-inset-bottom, 0px) + 68px) !important;
+    left: 12px !important;
+    right: 12px !important;
+    width: calc(100vw - 24px) !important;
+    max-width: 380px !important;
+    margin: 0 auto !important;
+    max-height: calc(100vh - 90px) !important;
+    overflow-y: auto !important;
+    border-radius: 16px !important;
+    transform-origin: center bottom !important;
   }
 }
+
 
 /* CTA Banner Section */
 .cta-banner-section {
@@ -6311,82 +6315,437 @@ a:hover {
 }
 
 /* ==========================================================================
-   RESPONSIVE DESIGN (MEDIA QUERIES)
+   RESPONSIVE DESIGN SYSTEM (MEDIA QUERIES)
+   Comprehensive responsiveness for Desktop, Tablet, Phablet & Mobile Viewports
    ========================================================================== */
+
+/* --- 1. Large Tablets & Small Laptops (<= 1200px) --- */
 @media (max-width: 1200px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
   }
+  .hero-badges-row {
+    gap: 1rem;
+  }
 }
 
+/* --- 2. Tablets & Landscape Handhelds (<= 992px) --- */
 @media (max-width: 992px) {
   .desktop-nav {
-    display: none;
+    display: none !important;
   }
   .mobile-menu-toggle {
-    display: flex;
+    display: flex !important;
   }
   .header-fluid {
-    padding: 0.75rem 1.5rem;
+    padding: 0.75rem 1.25rem;
   }
   .container {
-    padding: 0 1.5rem;
+    padding: 0 1.25rem;
   }
   .hero-brand-title {
-    font-size: 3.2rem;
+    font-size: 2.8rem;
   }
   .pillars-grid-4 {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
   }
-  .two-col-showcase, .services-cards-grid, .why-cards-grid, .bank-categories-grid, .directors-grid, .calc-body-grid, .service-detail-layout, .contact-two-col-grid {
+  .two-col-showcase, 
+  .services-cards-grid, 
+  .why-cards-grid, 
+  .bank-categories-grid, 
+  .directors-grid, 
+  .calc-body-grid, 
+  .service-detail-layout, 
+  .contact-two-col-grid,
+  .adjacent-cards-grid,
+  .corporate-details-grid-4 {
     grid-template-columns: 1fr;
   }
   .process-grid {
     grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
   .step-connector {
     display: none;
   }
   .bank-strengths-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  .gold-box-frame {
+    padding: 2.25rem 1.5rem;
+  }
+  .service-full-card {
+    padding: 2rem 1.5rem;
+  }
+  .service-card-media {
+    margin: -2rem -1.5rem 1.5rem -1.5rem;
+  }
+  .sticky-detail-sidebar {
+    position: relative;
+    top: 0;
   }
 }
 
-@media (max-width: 640px) {
+/* --- 3. Mobile Devices & Phablets (<= 768px) --- */
+@media (max-width: 768px) {
+  /* Body & Layout Ergonomics */
+  body {
+    padding-bottom: 72px; /* Clearance for sticky bottom action dock */
+  }
+  .mobile-action-bar {
+    display: block;
+  }
+  .container {
+    padding: 0 1rem;
+  }
+  .section-padding {
+    padding: 3.25rem 0;
+  }
+
+  /* Typography Scaling */
   .hero-brand-title {
-    font-size: 2.4rem;
+    font-size: clamp(2rem, 7vw, 2.5rem);
+    line-height: 1.18;
   }
   .hero-brand-sub .sub-text {
-    font-size: 0.95rem;
-    letter-spacing: 0.25em;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
   }
   .hero-tagline {
-    font-size: 1.15rem;
-    letter-spacing: 0.15em;
+    font-size: 1.05rem;
+    letter-spacing: 0.08em;
+  }
+  .section-heading {
+    font-size: clamp(1.6rem, 5.5vw, 2.1rem);
+    line-height: 1.25;
+  }
+  .section-subtitle {
+    font-size: 0.95rem;
+  }
+  .gold-pill-tag {
+    font-size: 0.68rem;
+    padding: 0.28rem 0.85rem;
+  }
+
+  /* Hero Section */
+  .hero-section {
+    padding: 3rem 0 3.5rem 0;
+  }
+  .hero-badges-row {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
   }
   .hero-badge-card {
-    flex: 1 1 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0.85rem 1rem;
+  }
+  .hero-stats-bar {
+    flex-direction: column;
+    gap: 0.75rem;
+    width: 100%;
+  }
+  .hero-stat-card {
+    width: 100%;
+  }
+  .hero-cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+  .hero-cta-buttons .btn-gold,
+  .hero-cta-buttons .btn-outline-gold,
+  .hero-cta-buttons .btn-ghost-gold,
+  .hero-cta-buttons .btn-xl {
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Frames & Service Cards */
+  .gold-box-frame {
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+  }
+  .service-full-card {
+    padding: 1.35rem 1rem;
+    border-radius: 14px;
+  }
+  .service-card-media {
+    margin: -1.35rem -1rem 1.25rem -1rem;
+    height: 185px;
+    border-radius: 12px 12px 0 0;
+  }
+  .srv-media-header-bar {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+  }
+  .srv-media-header-bar .page-marker {
+    font-size: 0.68rem;
+    padding: 0.25rem 0.65rem;
+  }
+  .srv-media-category-badge {
+    bottom: 0.75rem;
+    left: 0.75rem;
+    font-size: 0.7rem;
+    padding: 0.25rem 0.75rem;
+  }
+  .srv-ticket-box {
+    padding: 0.35rem 0.7rem;
+  }
+  .srv-ticket-box .ticket-val {
+    font-size: 0.84rem;
+  }
+  .service-main-title {
+    font-size: 1.35rem;
+  }
+  .service-main-subtitle {
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+  }
+  .service-short-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+  }
+  .service-slogan-strip {
+    font-size: 0.82rem;
+    padding: 0.65rem 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  /* CRITICAL MULTI-COLUMN GRIDS CONVERTED TO RESPONSIVE SINGLE COLUMNS */
+  .sub-sectors-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
+  }
+  .wc-services-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .mission-values-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .purposes-pills-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+  }
+  .purpose-item {
+    width: 100% !important;
+  }
+  .features-mini-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 0.65rem !important;
+  }
+  .visions-grid-3 {
+    grid-template-columns: 1fr !important;
+    gap: 0.85rem !important;
   }
   .pillars-grid-4 {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .why-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .bank-strengths-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+  .bank-categories-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+  }
+  .directors-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1.25rem !important;
+    margin-top: 1.5rem !important;
+  }
+  .adjacent-cards-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .corporate-details-grid-4 {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+  .summary-metrics-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.75rem !important;
+  }
+
+  /* Vision / Mission / Approach Cards */
+  .our-approach-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+  .approach-title {
+    font-size: 1.2rem;
+  }
+  .approach-text {
+    font-size: 0.92rem;
+  }
+  .brochure-quote-banner {
+    padding: 1.25rem 1rem;
+  }
+  .quote-body-italic {
+    font-size: 1.15rem;
+  }
+  .special-vp-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.15rem 1rem;
+  }
+  .contact-brochure-card {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    padding: 1.5rem 1rem;
+    gap: 1rem;
+  }
+  .contact-brochure-card .cb-text {
+    min-width: unset;
+    width: 100%;
+  }
+
+  /* Modals & Forms */
+  .modal-content {
+    width: calc(100vw - 24px);
+    max-width: 520px;
+    margin: 1rem auto;
+    padding: 1.5rem 1.15rem;
   }
   .form-row {
     flex-direction: column;
     gap: 0;
   }
+
+  /* Footer on Mobile */
   .footer-grid {
     grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .footer-bottom-bar {
     flex-direction: column;
     gap: 0.85rem;
     text-align: center;
   }
-  .whatsapp-float-btn .whatsapp-label {
-    display: none;
+  .director-card {
+    padding: 1.75rem 1.15rem;
+  }
+  .detail-hero-media {
+    height: 210px;
   }
 }
+
+/* --- 4. Small Mobile Devices (<= 480px) --- */
+@media (max-width: 480px) {
+  .header-fluid {
+    padding: 0.55rem 0.75rem;
+  }
+  .brand-link {
+    gap: 0.65rem;
+  }
+  .brand-name {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+  }
+  .brand-sub {
+    font-size: 0.56rem;
+    letter-spacing: 0.16em;
+  }
+  .brand-crest .crest-official-img {
+    width: 36px;
+    height: 36px;
+  }
+  .container {
+    padding: 0 0.85rem;
+  }
+  .gold-box-frame {
+    padding: 1.25rem 0.85rem;
+  }
+  .service-full-card {
+    padding: 1.15rem 0.85rem;
+  }
+  .service-card-media {
+    margin: -1.15rem -0.85rem 1rem -0.85rem;
+    height: 160px;
+  }
+  .features-mini-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-brand-title {
+    font-size: 1.95rem;
+  }
+  .section-heading {
+    font-size: 1.48rem;
+  }
+  .service-main-title {
+    font-size: 1.24rem;
+  }
+  .btn-card-learn {
+    font-size: 0.82rem;
+  }
+  .corp-detail-card {
+    padding: 1.15rem 0.85rem;
+    gap: 0.85rem;
+  }
+  .corp-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+  .corp-val {
+    font-size: 0.95rem;
+  }
+  .calc-summary-box {
+    padding: 1.25rem 0.95rem;
+  }
+  .amortization-header-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.85rem;
+  }
+  .why-card {
+    padding: 1.15rem 0.85rem;
+    gap: 0.85rem;
+  }
+  .why-card-icon-box {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
+  }
+  .why-footer-highlight {
+    flex-direction: column;
+    text-align: center;
+    padding: 1.25rem 0.85rem;
+    gap: 0.75rem;
+  }
+  .bank-category-card {
+    padding: 1.25rem 0.85rem;
+  }
+  .bank-pill-item {
+    padding: 0.55rem 0.75rem;
+  }
+  .bank-logo-box {
+    width: 32px;
+    height: 32px;
+  }
+}
+
 
 /* ==========================================================================
    LUXURY GOLD BREADCRUMBS COMPONENT
@@ -6988,21 +7347,6 @@ a:hover {
   font-weight: 800;
 }
 
-@media (max-width: 768px) {
-  .mobile-action-bar {
-    display: block;
-  }
-  body {
-    padding-bottom: 72px; /* Prevent fixed bottom bar from obscuring footer content */
-  }
-  .whatsapp-float-btn {
-    bottom: 84px; /* Float above the mobile action bar */
-    right: 14px;
-  }
-  .adjacent-cards-grid {
-    grid-template-columns: 1fr;
-  }
-}
 
 /* ==========================================================================
    PRINT STYLESHEET (Clean Amortization Schedule & Proposals)
@@ -7158,10 +7502,6 @@ a:hover {
   color: #94A3B8;
 }
 
-@media (max-width: 992px) {
-  .corporate-details-grid-4 {
-    grid-template-columns: 1fr;
-  }
-}
+
 
 
