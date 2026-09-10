@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ECC870" />
+      <stop offset="25%" stop-color="#D4AF37" />
+      <stop offset="50%" stop-color="#FFF3C4" />
+      <stop offset="75%" stop-color="#C5A059" />
+      <stop offset="100%" stop-color="#996515" />
+    </linearGradient>
+    <linearGradient id="goldGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5B8" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#D4AF37" stop-opacity="0.2" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+
+  <g transform="translate(0, 10)">
+    <!-- Crown Top -->
+    <path d="M 200,65 L 215,30 L 235,55 L 250,15 L 265,55 L 285,30 L 300,65 Z" fill="url(#goldGradient)" stroke="#996515" stroke-width="1.5" />
+    <!-- Crown Base -->
+    <rect x="200" y="65" width="100" height="15" rx="3" fill="url(#goldGradient)" stroke="#996515" stroke-width="1.5" />
+    <!-- Crown Jewels -->
+    <circle cx="215" cy="72.5" r="3" fill="#060e1a" />
+    <circle cx="232.5" cy="72.5" r="3.5" fill="#060e1a" />
+    <circle cx="250" cy="72.5" r="4" fill="#060e1a" />
+    <circle cx="267.5" cy="72.5" r="3.5" fill="#060e1a" />
+    <circle cx="285" cy="72.5" r="3" fill="#060e1a" />
+
+    <circle cx="215" cy="28" r="3.5" fill="url(#goldGradient)" />
+    <circle cx="250" cy="13" r="4.5" fill="url(#goldGradient)" />
+    <circle cx="285" cy="28" r="3.5" fill="url(#goldGradient)" />
+
+    <!-- Left Rearing Horse/Lion -->
+    <g transform="translate(110, 60)">
+      <path d="M 70,30 C 50,20 30,30 20,50 C 10,70 15,95 25,115 C 35,135 50,150 70,165 C 55,145 45,120 50,95 C 55,70 65,50 70,30 Z" fill="url(#goldGradient)" />
+      <path d="M 60,35 C 40,25 25,50 15,75 C 20,70 30,65 40,65 C 30,75 25,90 20,105 C 30,95 40,90 50,90 C 35,105 30,125 30,140 C 45,130 55,115 65,95 Z" fill="url(#goldGradient)" opacity="0.9" />
+      <path d="M 20,40 C 15,35 10,38 12,48 C 15,55 20,58 25,55 Z" fill="url(#goldGradient)" />
+    </g>
+
+    <!-- Right Rearing Lion -->
+    <g transform="translate(290, 60)">
+      <path d="M 30,30 C 50,20 70,30 80,50 C 90,70 85,95 75,115 C 65,135 50,150 30,165 C 45,145 55,120 50,95 C 45,70 35,50 30,30 Z" fill="url(#goldGradient)" />
+      <path d="M 40,35 C 60,25 75,50 85,75 C 80,70 70,65 60,65 C 70,75 75,90 80,105 C 70,95 60,90 50,90 C 65,105 70,125 70,140 C 55,130 45,115 35,95 Z" fill="url(#goldGradient)" opacity="0.9" />
+      <path d="M 80,40 C 85,35 90,38 88,48 C 85,55 80,58 75,55 Z" fill="url(#goldGradient)" />
+    </g>
+
+    <!-- Center Monogram Shield Outer -->
+    <path d="M 210,95 L 290,95 C 290,95 295,160 250,195 C 205,160 210,95 210,95 Z" fill="#081426" stroke="url(#goldGradient)" stroke-width="4" />
+    <path d="M 218,103 L 282,103 C 282,103 286,155 250,183 C 214,155 218,103 218,103 Z" fill="none" stroke="url(#goldGradient)" stroke-width="1.5" stroke-dasharray="3,2" />
+
+    <!-- "LL" Interlocking Monogram in Shield -->
+    <g transform="translate(225, 110)">
+      <path d="M 12,8 L 22,8 L 22,42 L 38,42 L 38,50 L 12,50 Z" fill="url(#goldGradient)" />
+      <path d="M 24,18 L 34,18 L 34,52 L 50,52 L 50,60 L 24,60 Z" fill="url(#goldGradient)" opacity="0.95" />
+      <rect x="9" y="8" width="8" height="3" fill="url(#goldGradient)" />
+      <rect x="21" y="18" width="8" height="3" fill="url(#goldGradient)" />
+      <rect x="36" y="39" width="3" height="12" fill="url(#goldGradient)" />
+      <rect x="48" y="49" width="3" height="12" fill="url(#goldGradient)" />
+    </g>
+
+    <!-- Bottom Elephant Head -->
+    <g transform="translate(210, 185)">
+      <path d="M 40,0 C 25,10 15,25 20,40 C 25,50 35,55 40,75 C 45,55 55,50 60,40 C 65,25 55,10 40,0 Z" fill="url(#goldGradient)" />
+      <path d="M 20,20 C 5,20 0,35 5,50 C 10,60 20,55 25,45 Z" fill="url(#goldGradient)" opacity="0.85" />
+      <path d="M 60,20 C 75,20 80,35 75,50 C 70,60 60,55 55,45 Z" fill="url(#goldGradient)" opacity="0.85" />
+      <path d="M 28,48 C 22,55 20,65 15,70 C 22,67 28,60 32,52 Z" fill="#FFF8DC" />
+      <path d="M 52,48 C 58,55 60,65 65,70 C 58,67 52,60 48,52 Z" fill="#FFF8DC" />
+      <circle cx="40" cy="74" r="4.5" fill="url(#goldGradient)" />
+    </g>
+
+    <!-- Filigree Scroll Wings -->
+    <g stroke="url(#goldGradient)" stroke-width="2" fill="none">
+      <path d="M 190,170 C 150,180 120,150 140,120 C 150,105 170,110 160,130 C 155,140 140,140 145,155 C 150,170 180,180 210,185" />
+      <path d="M 310,170 C 350,180 380,150 360,120 C 350,105 330,110 340,130 C 345,140 360,140 355,155 C 350,170 320,180 290,185" />
+    </g>
+
+    <!-- Bottom Ribbon Ornament -->
+    <path d="M 160,265 C 205,278 295,278 340,265 C 315,273 185,273 160,265 Z" fill="url(#goldGradient)" />
+    <circle cx="250" cy="272" r="3.5" fill="url(#goldGradient)" />
+    <circle cx="230" cy="271" r="2.5" fill="url(#goldGradient)" />
+    <circle cx="270" cy="271" r="2.5" fill="url(#goldGradient)" />
+  </g>
+</svg>
