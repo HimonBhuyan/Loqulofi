@@ -318,7 +318,7 @@
                     $selectedAdjacents = array_slice($otherSrvs, 0, 3);
                 @endphp
                 @foreach($selectedAdjacents as $adj)
-                    <div class="adjacent-card gold-box-frame">
+                    <div class="adjacent-card">
                         <div class="adj-thumb-wrap">
                             <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" loading="lazy">
                             <span class="adj-ticket-tag">{{ $adj['ticket_size'] }}</span>
