@@ -101,10 +101,7 @@
             </div>
 
                 <div class="calc-action-buttons-group">
-                    <button type="button" class="btn-gold btn-block open-modal-btn" data-modal="inquiry-modal" style="margin-bottom: 0.75rem;">
-                        <i class="fa-solid fa-file-signature"></i> Request Term Sheet Structuring
-                    </button>
-                    <a href="assets/docs/Liqulofi_Private_Limited.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-outline-gold btn-block" id="calc-download-btn">
+                    <a href="assets/docs/Liqulofi_Private_Limited.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-gold btn-block" id="calc-download-btn">
                         <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
