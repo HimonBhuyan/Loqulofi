@@ -6488,9 +6488,144 @@ a:hover {
   .amortization-table-wrap {
     display: block !important;
   }
-  .luxury-amort-table th {
-    background: #EEEEEE !important;
-    color: #000000 !important;
+}
+
+/* ==========================================================================
+   CORPORATE PROFILE & DETAILS (CONTACT PAGE)
+   ========================================================================== */
+.corporate-details-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.corp-detail-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.25rem;
+  background: linear-gradient(145deg, #FFFFFF 0%, #FAF5EB 100%);
+  border: 1.2px solid rgba(195, 145, 30, 0.3);
+  border-radius: 14px;
+  padding: 1.6rem;
+  box-shadow: 0 6px 20px rgba(120, 85, 20, 0.05);
+  transition: all var(--tr-fast);
+}
+
+.corp-detail-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold-primary);
+  box-shadow: 0 12px 28px rgba(201, 151, 38, 0.2);
+}
+
+.corp-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--gold-pill-bg);
+  border: 1.2px solid rgba(201, 151, 38, 0.4);
+  color: var(--gold-deep);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.corp-icon .rupee-sym {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.corp-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.corp-lbl {
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  color: var(--gold-deep);
+  margin-bottom: 0.35rem;
+}
+
+.corp-val {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.45;
+  margin-bottom: 0.25rem;
+}
+
+.corp-val.highlight-gold {
+  color: var(--gold-deep);
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.corp-sub {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.contact-brochure-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: linear-gradient(135deg, #091A33 0%, #040E1D 100%);
+  border: 1.5px solid var(--gold-primary);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  color: #FFFFFF;
+  box-shadow: 0 10px 30px rgba(9, 26, 51, 0.35), 0 0 20px rgba(201, 151, 38, 0.2);
+}
+
+.contact-brochure-card .cb-icon {
+  font-size: 2.2rem;
+}
+
+.contact-brochure-card .cb-text {
+  flex: 1;
+  min-width: 260px;
+}
+
+.contact-brochure-card .cb-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.25rem;
+}
+
+.contact-brochure-card .cb-desc {
+  font-size: 0.86rem;
+  color: #CBD5E1;
+  margin-bottom: 0;
+}
+
+[data-theme="dark"] .corp-detail-card {
+  background: linear-gradient(145deg, #0B1729 0%, #06101E 100%);
+  border-color: rgba(229, 184, 66, 0.3);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+}
+
+[data-theme="dark"] .corp-val {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .corp-sub {
+  color: #94A3B8;
+}
+
+@media (max-width: 992px) {
+  .corporate-details-grid-4 {
+    grid-template-columns: 1fr;
   }
 }
+
 
