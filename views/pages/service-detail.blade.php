@@ -315,15 +315,15 @@
                     $selectedAdjacents = array_slice($otherSrvs, 0, 3);
                 @endphp
                 @foreach($selectedAdjacents as $adj)
-                    <div class="adjacent-card">
-                        <div class="adj-thumb-wrap">
-                            <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" loading="lazy">
-                            <span class="adj-ticket-tag">{{ $adj['ticket_size'] }}</span>
+                    <div class="adjacent-card" style="padding: 1rem; border-radius: 14px; display: flex; flex-direction: column; justify-content: space-between; overflow: hidden;">
+                        <div class="adj-thumb-wrap" style="position: relative; width: 100%; height: 120px; max-height: 120px; min-height: 120px; border-radius: 8px; overflow: hidden; margin-bottom: 0.85rem; flex-shrink: 0;">
+                            <img src="assets/images/services/{{ $adj['id'] }}-doodle.jpg" alt="{{ $adj['title'] }}" class="adj-thumb-img" style="width: 100%; height: 120px; max-height: 120px; object-fit: cover; object-position: center; display: block;" loading="lazy">
+                            <span class="adj-ticket-tag" style="position: absolute; top: 8px; right: 8px; font-size: 0.68rem; font-weight: 800; padding: 0.2rem 0.55rem; z-index: 2;">{{ $adj['ticket_size'] }}</span>
                         </div>
                         <div class="adj-body">
                             <span class="adj-cat">{{ $adj['category'] }}</span>
                             <h4 class="adj-title">{{ $adj['title'] }}</h4>
-                            <p class="adj-desc">{{ $adj['short_desc'] }}</p>
+                            <p class="adj-desc" style="font-size: 0.82rem; line-height: 1.45; margin-bottom: 0.85rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden;">{{ $adj['short_desc'] }}</p>
                             <a href="index.php?page=service&id={{ $adj['id'] }}" class="btn-ghost-gold btn-sm">
                                 View Solution Specs &rarr;
                             </a>
