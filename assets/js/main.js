@@ -876,6 +876,97 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =========================================================================
+    // 12. MULTI-DIRECTOR WHATSAPP CONCIERGE DRAWER INTERACTIVITY
+    // =========================================================================
+    function initWhatsAppConcierge() {
+        const widget = document.getElementById('whatsapp-concierge-widget');
+        if (!widget) return;
+
+        const triggerBtn = document.getElementById('whatsapp-concierge-trigger');
+        const drawer = document.getElementById('whatsapp-concierge-drawer');
+        const backdrop = document.getElementById('whatsapp-concierge-backdrop');
+        const closeBtn = document.getElementById('wc-drawer-close-btn');
+        const mobileWaButtons = document.querySelectorAll('.trigger-whatsapp-concierge, #mob-action-wa-btn');
+
+        function openConcierge() {
+            widget.classList.add('is-open');
+            if (triggerBtn) {
+                triggerBtn.setAttribute('aria-expanded', 'true');
+            }
+            if (drawer) {
+                drawer.setAttribute('aria-hidden', 'false');
+            }
+        }
+
+        function closeConcierge() {
+            widget.classList.remove('is-open');
+            if (triggerBtn) {
+                triggerBtn.setAttribute('aria-expanded', 'false');
+            }
+            if (drawer) {
+                drawer.setAttribute('aria-hidden', 'true');
+            }
+        }
+
+        function toggleConcierge() {
+            if (widget.classList.contains('is-open')) {
+                closeConcierge();
+            } else {
+                openConcierge();
+            }
+        }
+
+        if (triggerBtn && !triggerBtn._hasConciergeListener) {
+            triggerBtn._hasConciergeListener = true;
+            triggerBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                toggleConcierge();
+            });
+        }
+
+        if (closeBtn && !closeBtn._hasConciergeListener) {
+            closeBtn._hasConciergeListener = true;
+            closeBtn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                closeConcierge();
+            });
+        }
+
+        if (backdrop && !backdrop._hasConciergeListener) {
+            backdrop._hasConciergeListener = true;
+            backdrop.addEventListener('click', function() {
+                closeConcierge();
+            });
+        }
+
+        mobileWaButtons.forEach(btn => {
+            if (!btn._hasConciergeListener) {
+                btn._hasConciergeListener = true;
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    openConcierge();
+                });
+            }
+        });
+
+        // Close on escape key
+        if (!window._hasConciergeKeydownListener) {
+            window._hasConciergeKeydownListener = true;
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    const activeWidget = document.getElementById('whatsapp-concierge-widget');
+                    if (activeWidget && activeWidget.classList.contains('is-open')) {
+                        activeWidget.classList.remove('is-open');
+                    }
+                }
+            });
+        }
+    }
+
+    // =========================================================================
     // MASTER COMPONENT RE-INITIALIZER FOR PAGE SWAPS
     // =========================================================================
     function reinitPageComponents() {
@@ -888,6 +979,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initServiceFilters();
         initCalculator();
         initConsultationModal();
+        initWhatsAppConcierge();
     }
     reinitPageComponents();
 

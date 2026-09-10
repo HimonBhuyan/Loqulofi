@@ -75,6 +75,9 @@
     <!-- Mobile Sticky Quick Action Dock (Screens <= 768px) -->
     @include('components.mobile-action-bar')
 
+    <!-- Multi-Director WhatsApp Concierge Widget -->
+    @include('components.whatsapp-concierge')
+
     <!-- Floating Theme Toggle (Bottom Left) -->
     <button type="button" class="floating-theme-toggle" id="floating-theme-toggle" aria-label="Toggle Dark / Light Theme" title="Toggle Theme (Dark / Light)">
         <span class="float-theme-sun"><i class="fa-solid fa-sun"></i></span>

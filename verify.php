@@ -98,6 +98,28 @@ foreach ($preloaderChecks as $chkName => $status) {
     }
 }
 
+echo "----------------------------------------------------------------------------------------\n";
+echo " MULTI-DIRECTOR WHATSAPP CONCIERGE DRAWER VERIFICATION:\n";
+echo "----------------------------------------------------------------------------------------\n";
+$waChecks = [
+    'WhatsApp Concierge Widget Container' => (strpos($homeHtml, 'whatsapp-concierge-widget') !== false),
+    'WhatsApp Trigger Button' => (strpos($homeHtml, 'whatsapp-concierge-trigger') !== false),
+    'Expandable Drawer Component' => (strpos($homeHtml, 'whatsapp-concierge-drawer') !== false),
+    'Director 1: Ritu Rami (+91 8780181897)' => (strpos($homeHtml, 'Ritu Rami') !== false && strpos($homeHtml, '918780181897') !== false),
+    'Director 2: Abhishek Bhatnagar (+91 62320 46473)' => (strpos($homeHtml, 'Abhishek Bhatnagar') !== false && strpos($homeHtml, '916232046473') !== false),
+    'Director 3: Saket Dubey (+91 92329 78262)' => (strpos($homeHtml, 'Saket Dubey') !== false && strpos($homeHtml, '919232978262') !== false),
+    'Direct WhatsApp Click-to-Chat Deep-Links' => (strpos($homeHtml, 'https://wa.me/918780181897') !== false),
+    'Drawer Backdrop Overlay' => (strpos($homeHtml, 'whatsapp-concierge-backdrop') !== false),
+];
+
+foreach ($waChecks as $chkName => $status) {
+    if ($status) {
+        printf(" [PASS] %s\n", $chkName);
+    } else {
+        printf(" [FAIL] %s\n", $chkName);
+    }
+}
+
 echo "========================================================================================\n";
 echo " TOTAL PASSED: $passCount / " . (count($routes) + 1) . "\n";
 echo "========================================================================================\n";

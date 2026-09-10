@@ -14,17 +14,16 @@
             <span class="mob-btn-label">Call Us</span>
         </a>
 
-        <!-- WhatsApp Quick Chat Action -->
-        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $primaryDirector['raw_phone']) }}?text=Hello%20Liqulofi%20Team,%20I%20am%20interested%20in%20high-ticket%20funding%20solutions%20(1%20CR%20-%201000%20CR).%20Please%20connect%20with%20me." 
-           target="_blank" 
-           rel="noopener noreferrer" 
-           class="mob-action-btn mob-whatsapp-btn" 
-           title="WhatsApp Executive Chat">
+        <!-- WhatsApp Quick Chat Action (Opens Multi-Director Concierge Drawer) -->
+        <button type="button" 
+                class="mob-action-btn mob-whatsapp-btn trigger-whatsapp-concierge" 
+                id="mob-action-wa-btn"
+                title="WhatsApp Leadership Concierge (Choose Director)">
             <span class="mob-btn-icon">
                 <i class="fa-brands fa-whatsapp"></i>
             </span>
             <span class="mob-btn-label">WhatsApp</span>
-        </a>
+        </button>
 
         <!-- View All Portfolios Action -->
         <a href="index.php?page=services" class="mob-action-btn mob-brochure-btn" title="View Funding Portfolios">
