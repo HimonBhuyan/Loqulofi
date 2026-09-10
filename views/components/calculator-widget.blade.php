@@ -115,7 +115,6 @@
                 </div>
                 <p class="calc-disclaimer">Rates and terms depend on project assessment, asset valuation, and banking underwriting parameters.</p>
             </div>
-        </div>
     </div>
 
     <!-- Yearly Amortization Cash-Flow Schedule Section -->
