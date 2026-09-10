@@ -24,7 +24,7 @@ echo "==========================================================================
 
 $passCount = 0;
 foreach ($routes as $route => $name) {
-    $url = 'http://127.0.0.1:8088' . $route;
+    $url = 'http://127.0.0.1:8000' . $route;
     $content = @file_get_contents($url);
     if ($content !== false && strlen($content) > 1000) {
         $passCount++;
@@ -53,7 +53,7 @@ $opts = [
     ]
 ];
 $context = stream_context_create($opts);
-$postResult = @file_get_contents('http://127.0.0.1:8088/index.php?action=inquire', false, $context);
+$postResult = @file_get_contents('http://127.0.0.1:8000/index.php?action=inquire', false, $context);
 $postJson = json_decode($postResult, true);
 
 if ($postJson && ($postJson['status'] ?? '') === 'success') {
@@ -75,10 +75,10 @@ $checks = [
 ];
 
 // Verify Preloader is ONLY present on Home page and omitted on all subpages
-$homeHtml = @file_get_contents('http://127.0.0.1:8088/');
-$aboutHtml = @file_get_contents('http://127.0.0.1:8088/?page=about');
-$servicesHtml = @file_get_contents('http://127.0.0.1:8088/?page=services');
-$contactHtml = @file_get_contents('http://127.0.0.1:8088/?page=contact');
+$homeHtml = @file_get_contents('http://127.0.0.1:8000/');
+$aboutHtml = @file_get_contents('http://127.0.0.1:8000/?page=about');
+$servicesHtml = @file_get_contents('http://127.0.0.1:8000/?page=services');
+$contactHtml = @file_get_contents('http://127.0.0.1:8000/?page=contact');
 
 $preloaderChecks = [
     'Home Page Has Intro Preloader' => (strpos($homeHtml, 'luxury-preloader') !== false),

@@ -175,53 +175,56 @@
             </button>
         </div>
     </div>
+</header>
 
-    <!-- Mobile Drawer Nav -->
-    <div class="mobile-drawer" id="mobile-drawer">
-        <div class="drawer-header">
-            <div class="drawer-brand">
-                <span class="brand-name">LIQULOFI</span>
-                <span class="brand-tagline">CAPITAL BEYOND LIMITS</span>
-            </div>
-            <button type="button" class="drawer-close" id="drawer-close">&times;</button>
+<!-- Mobile Drawer Backdrop Overlay -->
+<div class="mobile-drawer-backdrop" id="mobile-drawer-backdrop"></div>
+
+<!-- Mobile Drawer Navigation (Fixed to Viewport) -->
+<div class="mobile-drawer" id="mobile-drawer" aria-label="Mobile Navigation">
+    <div class="drawer-header">
+        <div class="drawer-brand">
+            <span class="brand-name">LIQULOFI</span>
+            <span class="brand-tagline">CAPITAL BEYOND LIMITS</span>
         </div>
-        <div class="drawer-body">
-            <!-- Mobile Drawer Theme Switch -->
-            <div class="drawer-theme-switch-card">
-                <div class="drawer-theme-left">
-                    <span class="drawer-theme-icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
-                    <span class="drawer-theme-label">Theme Mode</span>
-                </div>
-                <button type="button" class="drawer-theme-btn" id="drawer-theme-toggle">
-                    <span class="theme-status-text">Light Mode</span>
-                    <i class="fa-solid fa-repeat"></i>
-                </button>
+        <button type="button" class="drawer-close" id="drawer-close" aria-label="Close navigation">&times;</button>
+    </div>
+    <div class="drawer-body">
+        <!-- Mobile Drawer Theme Switch -->
+        <div class="drawer-theme-switch-card">
+            <div class="drawer-theme-left">
+                <span class="drawer-theme-icon"><i class="fa-solid fa-circle-half-stroke"></i></span>
+                <span class="drawer-theme-label">Theme Mode</span>
             </div>
+            <button type="button" class="drawer-theme-btn" id="drawer-theme-toggle">
+                <span class="theme-status-text">Light Mode</span>
+                <i class="fa-solid fa-repeat"></i>
+            </button>
+        </div>
 
-            <ul class="mobile-nav-list">
-                <li><a href="index.php" class="mobile-nav-link">Home</a></li>
-                <li><a href="index.php?page=about" class="mobile-nav-link">About Us & Vision</a></li>
-                <li><a href="index.php?page=services" class="mobile-nav-link">All Funding Solutions</a></li>
-                <li><a href="index.php?page=calculator" class="mobile-nav-link">EMI & Structuring Calculator</a></li>
-                <li><a href="index.php?page=partners" class="mobile-nav-link">Bank & NBFC Tie-Ups</a></li>
-                <li><a href="index.php?page=contact" class="mobile-nav-link">Directors & Contact</a></li>
-            </ul>
+        <ul class="mobile-nav-list">
+            <li><a href="index.php" class="mobile-nav-link">Home</a></li>
+            <li><a href="index.php?page=about" class="mobile-nav-link">About Us & Vision</a></li>
+            <li><a href="index.php?page=services" class="mobile-nav-link">All Funding Solutions</a></li>
+            <li><a href="index.php?page=calculator" class="mobile-nav-link">EMI & Structuring Calculator</a></li>
+            <li><a href="index.php?page=partners" class="mobile-nav-link">Bank & NBFC Tie-Ups</a></li>
+            <li><a href="index.php?page=contact" class="mobile-nav-link">Directors & Contact</a></li>
+        </ul>
 
-            <div class="drawer-directors-box">
-                <span class="d-box-title">DIRECTORS DIRECT HELPLINE</span>
-                <div class="drawer-directors-list">
-                    @foreach($companyData['directors'] ?? [] as $dir)
-                        <div class="drawer-dir-row">
-                            <span class="dir-name">{{ $dir['name'] }}</span>
-                            <a href="tel:{{ $dir['raw_phone'] }}" class="dir-phone">{{ $dir['phone'] }}</a>
-                        </div>
-                    @endforeach
-                </div>
+        <div class="drawer-directors-box">
+            <span class="d-box-title">DIRECTORS DIRECT HELPLINE</span>
+            <div class="drawer-directors-list">
+                @foreach($companyData['directors'] ?? [] as $dir)
+                    <div class="drawer-dir-row">
+                        <span class="dir-name">{{ $dir['name'] }}</span>
+                        <a href="tel:{{ $dir['raw_phone'] }}" class="dir-phone">{{ $dir['phone'] }}</a>
+                    </div>
+                @endforeach
             </div>
+        </div>
 
-            <div class="drawer-actions">
-                <a href="assets/docs/Liqulofi_Private_Limited.pdf" download class="btn-gold btn-block">Download Brochure (PDF)</a>
-            </div>
+        <div class="drawer-actions">
+            <a href="assets/docs/Liqulofi_Private_Limited.pdf" download class="btn-gold btn-block">Download Brochure (PDF)</a>
         </div>
     </div>
-</header>
+</div>

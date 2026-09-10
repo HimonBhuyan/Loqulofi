@@ -505,32 +505,62 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =========================================================================
-    // 8. MOBILE DRAWER MENU NAVIGATION
+    // 8. MOBILE DRAWER MENU NAVIGATION (FIXED VIEWPORT + BACKDROP OVERLAY)
     // =========================================================================
     function initMobileDrawer() {
         const mobileToggle = document.getElementById('mobile-toggle');
         const mobileDrawer = document.getElementById('mobile-drawer');
         const drawerClose = document.getElementById('drawer-close');
+        const drawerBackdrop = document.getElementById('mobile-drawer-backdrop');
 
-        if (mobileToggle && mobileDrawer && !mobileToggle.dataset.drawerBound) {
-            mobileToggle.dataset.drawerBound = 'true';
-            mobileToggle.addEventListener('click', function () {
+        if (mobileDrawer) {
+            function openDrawer() {
                 mobileDrawer.classList.add('open');
+                if (drawerBackdrop) drawerBackdrop.classList.add('open');
+                document.body.classList.add('drawer-open');
                 document.body.style.overflow = 'hidden';
-            });
+            }
 
-            if (drawerClose) {
-                drawerClose.addEventListener('click', function () {
-                    mobileDrawer.classList.remove('open');
-                    document.body.style.overflow = '';
+            function closeDrawer() {
+                mobileDrawer.classList.remove('open');
+                if (drawerBackdrop) drawerBackdrop.classList.remove('open');
+                document.body.classList.remove('drawer-open');
+                document.body.style.overflow = '';
+            }
+
+            if (mobileToggle && !mobileToggle.dataset.drawerBound) {
+                mobileToggle.dataset.drawerBound = 'true';
+                mobileToggle.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openDrawer();
                 });
             }
 
-            mobileDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
-                link.addEventListener('click', function () {
-                    mobileDrawer.classList.remove('open');
-                    document.body.style.overflow = '';
+            if (drawerClose && !drawerClose.dataset.drawerBound) {
+                drawerClose.dataset.drawerBound = 'true';
+                drawerClose.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    closeDrawer();
                 });
+            }
+
+            if (drawerBackdrop && !drawerBackdrop.dataset.drawerBound) {
+                drawerBackdrop.dataset.drawerBound = 'true';
+                drawerBackdrop.addEventListener('click', function () {
+                    closeDrawer();
+                });
+            }
+
+            mobileDrawer.querySelectorAll('.mobile-nav-link, .drawer-actions a').forEach(link => {
+                link.addEventListener('click', function () {
+                    closeDrawer();
+                });
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && mobileDrawer.classList.contains('open')) {
+                    closeDrawer();
+                }
             });
         }
     }
