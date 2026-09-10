@@ -983,8 +983,9 @@ a:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  gap: 0.65rem;
+  gap: 0.75rem;
   box-shadow: var(--shadow-card);
   transition: all var(--tr-fast);
 }
@@ -1020,6 +1021,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   color: var(--gold-deep);
+  margin: 0 auto;
 }
 
 .badge-icon-box.gold-icon {
@@ -1037,20 +1039,30 @@ a:hover {
 .badge-body {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
 }
 
 .badge-title {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 0.12em;
   color: var(--gold-deep);
-  margin-bottom: 2px;
+  margin-bottom: 4px;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .badge-desc {
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--text-heading);
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .hero-cta-buttons {
@@ -6478,13 +6490,33 @@ a:hover {
   }
   .hero-badges-row {
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 0.85rem;
     width: 100%;
+    align-items: center;
+    justify-content: center;
   }
   .hero-badge-card {
     width: 100%;
     max-width: 100%;
-    padding: 0.85rem 1rem;
+    padding: 1.25rem 1.15rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.65rem;
+  }
+  .badge-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+  .badge-title, .badge-desc {
+    text-align: center;
+    width: 100%;
   }
   .hero-stats-bar {
     flex-direction: column;
