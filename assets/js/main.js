@@ -1,16 +1,14 @@
 /**
  * LIQULOFI PRIVATE LIMITED - CAPITAL BEYOND LIMITS
- * Slice-Style Kinetic Typography & Interactive Animation Engine
+ * Slice-Style Kinetic Typography, SPA Navigation & Interactive Animation Engine
  */
 
 document.addEventListener('DOMContentLoaded', function () {
     // =========================================================================
-    // 0. CINEMATIC ROYAL INTRO PRELOADER CONTROLLER
+    // 0. CINEMATIC ROYAL INTRO PRELOADER CONTROLLER (Runs Once Per Session)
     // =========================================================================
     const preloader = document.getElementById('luxury-preloader');
     if (preloader) {
-        document.body.style.overflow = 'hidden';
-
         function dismissPreloader() {
             if (!preloader.classList.contains('fade-out')) {
                 preloader.classList.add('fade-out');
@@ -21,40 +19,54 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
-        // Luxurious logo reveal sequence duration (~3.6s)
-        const preloaderTimer = setTimeout(dismissPreloader, 3600);
+        // Show preloader only on the first visit of the session
+        if (sessionStorage.getItem('liqulofi_preloader_seen')) {
+            preloader.style.display = 'none';
+            document.body.style.overflow = '';
+        } else {
+            sessionStorage.setItem('liqulofi_preloader_seen', 'true');
+            document.body.style.overflow = 'hidden';
 
-        // Allow fast skip on click
-        preloader.addEventListener('click', () => {
-            clearTimeout(preloaderTimer);
-            dismissPreloader();
-        });
+            // Luxurious logo reveal sequence duration (~3.6s)
+            const preloaderTimer = setTimeout(dismissPreloader, 3600);
 
-        // Allow fast skip on keypress (Esc, Space, Enter)
-        window.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') {
-                if (preloader && !preloader.classList.contains('fade-out')) {
-                    clearTimeout(preloaderTimer);
-                    dismissPreloader();
+            // Allow fast skip on click
+            preloader.addEventListener('click', () => {
+                clearTimeout(preloaderTimer);
+                dismissPreloader();
+            });
+
+            // Allow fast skip on keypress (Esc, Space, Enter)
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' || e.key === ' ' || e.key === 'Enter') {
+                    if (!preloader.classList.contains('fade-out')) {
+                        clearTimeout(preloaderTimer);
+                        dismissPreloader();
+                    }
                 }
-            }
-        }, { once: true });
+            }, { once: true });
+        }
     }
 
     // =========================================================================
     // 0.1 LOGO HOVER & CLICK ROTATE & SCALE DYNAMICS
     // =========================================================================
-    const crestWrappers = document.querySelectorAll('.hero-crest-wrapper, .brand-crest');
-    crestWrappers.forEach(wrap => {
-        wrap.addEventListener('click', function () {
-            const img = wrap.querySelector('.crest-official-img');
-            if (img) {
-                img.style.animation = 'none';
-                img.offsetHeight; // trigger reflow
-                img.style.animation = 'logoRotateYScaleCycle 1.7s cubic-bezier(0.4, 0, 0.2, 1) forwards';
-            }
+    function initLogoDynamics() {
+        const crestWrappers = document.querySelectorAll('.hero-crest-wrapper, .brand-crest');
+        crestWrappers.forEach(wrap => {
+            if (wrap.dataset.bound) return;
+            wrap.dataset.bound = 'true';
+            wrap.addEventListener('click', function () {
+                const img = wrap.querySelector('.crest-official-img');
+                if (img) {
+                    img.style.animation = 'none';
+                    img.offsetHeight; // trigger reflow
+                    img.style.animation = 'logoRotateYScaleCycle 1.7s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+                }
+            });
         });
-    });
+    }
+    initLogoDynamics();
 
     // =========================================================================
     // 0.2 LUXURY DARK / LIGHT THEME TOGGLE SYSTEM
@@ -73,6 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 }, 600);
             }
             root.setAttribute('data-theme', theme);
+            root.style.backgroundColor = theme === 'dark' ? '#050B14' : '#F3ECE1';
             try {
                 localStorage.setItem('liqulofi_theme', theme);
             } catch (e) {}
@@ -91,6 +104,8 @@ document.addEventListener('DOMContentLoaded', function () {
         applyTheme(initialTheme, false);
 
         themeToggleBtns.forEach(btn => {
+            if (btn.dataset.bound) return;
+            btn.dataset.bound = 'true';
             btn.addEventListener('click', function (e) {
                 e.preventDefault();
                 const currentTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
@@ -98,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
-
     initThemeSystem();
 
     // =========================================================================
@@ -106,7 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // =========================================================================
     function initLiveAmbientCanvas() {
         const canvas = document.getElementById('live-ambient-canvas');
-        if (!canvas) return;
+        if (!canvas || canvas.dataset.initialized) return;
+        canvas.dataset.initialized = 'true';
 
         const ctx = canvas.getContext('2d');
         if (!ctx) return;
@@ -154,24 +169,21 @@ document.addEventListener('DOMContentLoaded', function () {
                 this.alpha = this.baseAlpha;
                 this.pulseSpeed = Math.random() * 0.02 + 0.008;
                 this.pulseOffset = Math.random() * Math.PI * 2;
-                this.isSpecial = Math.random() > 0.82; // Special shimmering golden stars
+                this.isSpecial = Math.random() > 0.82;
             }
 
             update(time) {
                 this.x += this.vx;
                 this.y += this.vy;
 
-                // Seamless edge wrap
                 if (this.x < -15) this.x = width + 15;
                 if (this.x > width + 15) this.x = -15;
                 if (this.y < -15) this.y = height + 15;
                 if (this.y > height + 15) this.y = -15;
 
-                // Breathing pulse
                 this.alpha = this.baseAlpha + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.22;
                 this.alpha = Math.max(0.08, Math.min(0.9, this.alpha));
 
-                // Mouse interaction with smooth physics
                 if (mouse.x !== null && mouse.y !== null) {
                     const dx = mouse.x - this.x;
                     const dy = mouse.y - this.y;
@@ -198,7 +210,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 ctx.fillStyle = colPrefix + this.alpha + ')';
                 ctx.fill();
 
-                // Subtle glowing halo on special star particles
                 if (this.isSpecial && this.radius > 1.4) {
                     ctx.beginPath();
                     ctx.arc(this.x, this.y, this.radius * 2.8, 0, Math.PI * 2);
@@ -222,7 +233,6 @@ document.addEventListener('DOMContentLoaded', function () {
             const colors = getThemeColors();
             const maxDistance = width < 768 ? 90 : 130;
 
-            // 1. Draw connecting constellation filaments between neighboring particles
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -241,7 +251,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // 2. Connect particles to cursor on hover
             if (mouse.x !== null && mouse.y !== null) {
                 for (let i = 0; i < particles.length; i++) {
                     const dx = mouse.x - particles[i].x;
@@ -260,7 +269,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
-            // 3. Update and draw all particles
             for (let i = 0; i < particles.length; i++) {
                 particles[i].update(timestamp * 0.05);
                 particles[i].draw(colors);
@@ -281,7 +289,6 @@ document.addEventListener('DOMContentLoaded', function () {
             mouse.y = null;
         });
 
-        // Pause animation when tab is not active to optimize CPU & battery
         document.addEventListener('visibilitychange', () => {
             if (document.hidden) {
                 if (animationFrameId) cancelAnimationFrame(animationFrameId);
@@ -293,7 +300,6 @@ document.addEventListener('DOMContentLoaded', function () {
         resize();
         animationFrameId = requestAnimationFrame(animate);
     }
-
     initLiveAmbientCanvas();
 
     // =========================================================================
@@ -317,7 +323,7 @@ document.addEventListener('DOMContentLoaded', function () {
     updateScrollProgress();
 
     // =========================================================================
-    // 2. STICKY NAVBAR SCROLL STATE & ACTIVE SCROLLSPY
+    // 2. STICKY NAVBAR SCROLL STATE
     // =========================================================================
     const siteHeader = document.getElementById('main-header');
     function handleNavbarScroll() {
@@ -333,69 +339,71 @@ document.addEventListener('DOMContentLoaded', function () {
     handleNavbarScroll();
 
     // =========================================================================
-    // 3. KINETIC SCROLL & REVEAL ENGINE
+    // 3 & 4. SCROLL REVEAL OBSERVER FOR HEADINGS, STATS & CARDS
     // =========================================================================
-    const heroBrandTitle = document.querySelector('.hero-brand-title');
-    if (heroBrandTitle) {
-        heroBrandTitle.style.visibility = 'visible';
-    }
+    let revealObserver = null;
 
-    // =========================================================================
-    // 4. SCROLL REVEAL OBSERVER FOR HEADINGS, STATS & CARDS
-    // =========================================================================
-    const revealElements = [];
+    function initScrollReveals() {
+        const heroBrandTitle = document.querySelector('.hero-brand-title');
+        if (heroBrandTitle) {
+            heroBrandTitle.style.visibility = 'visible';
+        }
 
-    function registerReveal(selector, revealClass = 'reveal', isStaggered = false) {
-        const nodes = document.querySelectorAll(selector);
-        nodes.forEach((el, index) => {
-            el.classList.add(revealClass);
-            if (isStaggered) {
-                const delayIndex = (index % 5) + 1;
-                el.classList.add(`reveal-delay-${delayIndex}`);
-            }
-            revealElements.push(el);
-        });
-    }
+        const revealElements = [];
 
-    registerReveal('.section-header-ornate, .process-header, .bank-network-header, .page-hero-header, .gold-badge-banner', 'reveal');
-    registerReveal('.hero-badge-card', 'reveal', true);
-    registerReveal('.hero-cta-buttons', 'reveal-scale');
-    registerReveal('.about-lead-block, .our-approach-card, .brochure-quote-banner', 'reveal');
-    registerReveal('.pillar-card', 'reveal', true);
-    registerReveal('.showcase-col:first-child', 'reveal-left');
-    registerReveal('.showcase-col:last-child', 'reveal-right');
-    registerReveal('.why-card', 'reveal', true);
-    registerReveal('.service-full-card', 'reveal', true);
-    registerReveal('.process-step-card', 'reveal-scale', true);
-    registerReveal('.calc-card, .calculator-container', 'reveal');
-    registerReveal('.bank-category-card', 'reveal', true);
-    registerReveal('.strength-card', 'reveal', true);
-    registerReveal('.director-card, .corp-detail-card, .contact-brochure-card', 'reveal', true);
-    registerReveal('.cta-inner-box', 'reveal-scale');
-
-    if ('IntersectionObserver' in window) {
-        const revealObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-
-                    // If it has rolling counters
-                    const counters = entry.target.querySelectorAll('.counter-val');
-                    counters.forEach(animateCounter);
-
-                    observer.unobserve(entry.target);
+        function registerReveal(selector, revealClass = 'reveal', isStaggered = false) {
+            const nodes = document.querySelectorAll(selector);
+            nodes.forEach((el, index) => {
+                if (!el.classList.contains('reveal') && !el.classList.contains('reveal-scale') && !el.classList.contains('reveal-left') && !el.classList.contains('reveal-right')) {
+                    el.classList.add(revealClass);
+                    if (isStaggered) {
+                        const delayIndex = (index % 5) + 1;
+                        el.classList.add(`reveal-delay-${delayIndex}`);
+                    }
                 }
+                revealElements.push(el);
             });
-        }, {
-            root: null,
-            rootMargin: '0px 0px -40px 0px',
-            threshold: 0.12
-        });
+        }
 
-        revealElements.forEach(el => revealObserver.observe(el));
-    } else {
-        revealElements.forEach(el => el.classList.add('revealed'));
-        document.querySelectorAll('.counter-val').forEach(animateCounter);
+        registerReveal('.section-header-ornate, .process-header, .bank-network-header, .page-hero-header, .gold-badge-banner', 'reveal');
+        registerReveal('.hero-badge-card', 'reveal', true);
+        registerReveal('.hero-cta-buttons', 'reveal-scale');
+        registerReveal('.about-lead-block, .our-approach-card, .brochure-quote-banner', 'reveal');
+        registerReveal('.pillar-card', 'reveal', true);
+        registerReveal('.showcase-col:first-child', 'reveal-left');
+        registerReveal('.showcase-col:last-child', 'reveal-right');
+        registerReveal('.why-card', 'reveal', true);
+        registerReveal('.service-full-card', 'reveal', true);
+        registerReveal('.process-step-card', 'reveal-scale', true);
+        registerReveal('.calc-card, .calculator-container', 'reveal');
+        registerReveal('.bank-category-card', 'reveal', true);
+        registerReveal('.strength-card', 'reveal', true);
+        registerReveal('.director-card, .corp-detail-card, .contact-brochure-card', 'reveal', true);
+        registerReveal('.cta-inner-box', 'reveal-scale');
+
+        if ('IntersectionObserver' in window) {
+            if (revealObserver) revealObserver.disconnect();
+
+            revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('revealed');
+                        const counters = entry.target.querySelectorAll('.counter-val');
+                        counters.forEach(animateCounter);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                root: null,
+                rootMargin: '0px 0px -30px 0px',
+                threshold: 0.08
+            });
+
+            revealElements.forEach(el => revealObserver.observe(el));
+        } else {
+            revealElements.forEach(el => el.classList.add('revealed'));
+            document.querySelectorAll('.counter-val').forEach(animateCounter);
+        }
     }
 
     // =========================================================================
@@ -406,14 +414,13 @@ document.addEventListener('DOMContentLoaded', function () {
         el.dataset.animated = 'true';
 
         const target = parseFloat(el.getAttribute('data-target')) || parseFloat(el.textContent) || 0;
-        const duration = 1800; // ms
+        const duration = 1800;
         const startTime = performance.now();
         const startVal = 0;
 
         function updateCounter(currentTime) {
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
-            // EaseOutExpo
             const easeProgress = progress === 1 ? 1 : 1 - Math.pow(2, -10 * progress);
             const currentVal = Math.round(startVal + (target - startVal) * easeProgress);
 
@@ -430,33 +437,41 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // =========================================================================
-    // 6. DYNAMIC SPOTLIGHT GLOW ON CARDS (SLICE SPOTLIGHT)
+    // 6. DYNAMIC SPOTLIGHT GLOW ON CARDS
     // =========================================================================
-    const spotlightCards = document.querySelectorAll('.spotlight-card, .hero-badge-card, .pillar-card, .service-full-card, .why-card, .strength-card');
+    function initSpotlightCards() {
+        const spotlightCards = document.querySelectorAll('.spotlight-card, .hero-badge-card, .pillar-card, .service-full-card, .why-card, .strength-card');
 
-    spotlightCards.forEach(card => {
-        card.classList.add('spotlight-card');
-        card.addEventListener('mousemove', function (e) {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            card.style.setProperty('--spotlight-x', `${x}px`);
-            card.style.setProperty('--spotlight-y', `${y}px`);
+        spotlightCards.forEach(card => {
+            if (card.dataset.spotlightBound) return;
+            card.dataset.spotlightBound = 'true';
+            card.classList.add('spotlight-card');
+
+            card.addEventListener('mousemove', function (e) {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--spotlight-x', `${x}px`);
+                card.style.setProperty('--spotlight-y', `${y}px`);
+            });
         });
-    });
+    }
 
     // =========================================================================
-    // 7. MAGNETIC INTERACTIVE BUTTONS & CARDS (SLICE MAGNETIC TOUCH)
+    // 7. MAGNETIC INTERACTIVE BUTTONS & CARDS
     // =========================================================================
-    if (window.matchMedia('(pointer: fine)').matches) {
+    function initMagneticTouch() {
+        if (!window.matchMedia('(pointer: fine)').matches) return;
+
         const magneticElements = document.querySelectorAll('.magnetic-btn, .btn-gold, .btn-outline-gold');
-
         magneticElements.forEach(btn => {
+            if (btn.dataset.magneticBound) return;
+            btn.dataset.magneticBound = 'true';
+
             btn.addEventListener('mousemove', function (e) {
                 const rect = btn.getBoundingClientRect();
                 const x = e.clientX - rect.left - rect.width / 2;
                 const y = e.clientY - rect.top - rect.height / 2;
-
                 btn.style.transform = `translate(${x * 0.22}px, ${y * 0.22}px) scale(1.02)`;
             });
 
@@ -465,10 +480,11 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
 
-        // 3D Tilt on Hero & Pillar Cards
         const tiltCards = document.querySelectorAll('.hero-badge-card, .pillar-card, .strength-card, .director-card');
-
         tiltCards.forEach(card => {
+            if (card.dataset.tiltBound) return;
+            card.dataset.tiltBound = 'true';
+
             card.addEventListener('mousemove', function (e) {
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
@@ -491,299 +507,311 @@ document.addEventListener('DOMContentLoaded', function () {
     // =========================================================================
     // 8. MOBILE DRAWER MENU NAVIGATION
     // =========================================================================
-    const mobileToggle = document.getElementById('mobile-toggle');
-    const mobileDrawer = document.getElementById('mobile-drawer');
-    const drawerClose = document.getElementById('drawer-close');
+    function initMobileDrawer() {
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const mobileDrawer = document.getElementById('mobile-drawer');
+        const drawerClose = document.getElementById('drawer-close');
 
-    if (mobileToggle && mobileDrawer) {
-        mobileToggle.addEventListener('click', function () {
-            mobileDrawer.classList.add('open');
-            document.body.style.overflow = 'hidden';
-        });
+        if (mobileToggle && mobileDrawer && !mobileToggle.dataset.drawerBound) {
+            mobileToggle.dataset.drawerBound = 'true';
+            mobileToggle.addEventListener('click', function () {
+                mobileDrawer.classList.add('open');
+                document.body.style.overflow = 'hidden';
+            });
 
-        if (drawerClose) {
-            drawerClose.addEventListener('click', function () {
-                mobileDrawer.classList.remove('open');
-                document.body.style.overflow = '';
+            if (drawerClose) {
+                drawerClose.addEventListener('click', function () {
+                    mobileDrawer.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
+            }
+
+            mobileDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
+                link.addEventListener('click', function () {
+                    mobileDrawer.classList.remove('open');
+                    document.body.style.overflow = '';
+                });
             });
         }
-
-        mobileDrawer.querySelectorAll('.mobile-nav-link').forEach(link => {
-            link.addEventListener('click', function () {
-                mobileDrawer.classList.remove('open');
-                document.body.style.overflow = '';
-            });
-        });
     }
+    initMobileDrawer();
 
     // =========================================================================
     // 9. SERVICE FILTER TABS WITH KINETIC FADE
     // =========================================================================
-    const filterButtons = document.querySelectorAll('.filter-tab-btn');
-    const serviceCards = document.querySelectorAll('.service-full-card');
+    function initServiceFilters() {
+        const filterButtons = document.querySelectorAll('.filter-tab-btn');
+        const serviceCards = document.querySelectorAll('.service-full-card');
 
-    if (filterButtons.length > 0 && serviceCards.length > 0) {
-        filterButtons.forEach(btn => {
-            btn.addEventListener('click', function () {
-                filterButtons.forEach(b => b.classList.remove('active'));
-                this.classList.add('active');
+        if (filterButtons.length > 0 && serviceCards.length > 0) {
+            filterButtons.forEach(btn => {
+                if (btn.dataset.filterBound) return;
+                btn.dataset.filterBound = 'true';
 
-                const filterVal = this.getAttribute('data-filter');
+                btn.addEventListener('click', function () {
+                    filterButtons.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
 
-                serviceCards.forEach(card => {
-                    const cardCat = card.getAttribute('data-category');
-                    if (filterVal === 'all' || cardCat === filterVal) {
-                        card.style.display = 'flex';
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(24px)';
-                        setTimeout(() => {
-                            card.style.transition = 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, 20);
-                    } else {
-                        card.style.display = 'none';
-                    }
+                    const filterVal = this.getAttribute('data-filter');
+
+                    serviceCards.forEach(card => {
+                        const cardCat = card.getAttribute('data-category');
+                        if (filterVal === 'all' || cardCat === filterVal) {
+                            card.style.display = 'flex';
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(24px)';
+                            setTimeout(() => {
+                                card.style.transition = 'opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.45s cubic-bezier(0.16, 1, 0.3, 1)';
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 20);
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
                 });
             });
-        });
-    }
-
-    // =========================================================================
-    // 10. HIGH-TICKET LOAN & EMI STRUCTURING CALCULATOR & AMORTIZATION TABLE
-    // =========================================================================
-    const calcAmount = document.getElementById('calc-amount');
-    const calcRate = document.getElementById('calc-rate');
-    const calcTenure = document.getElementById('calc-tenure');
-    const calcProductSelect = document.getElementById('calc-product-select');
-
-    const amountDisplay = document.getElementById('calc-amount-text');
-    const rateDisplay = document.getElementById('calc-rate-text');
-    const tenureDisplay = document.getElementById('calc-tenure-text');
-
-    const emiDisplay = document.getElementById('calc-emi-display');
-    const principalDisplay = document.getElementById('calc-principal-display');
-    const totalInterestDisplay = document.getElementById('calc-total-interest');
-    const totalPayableDisplay = document.getElementById('calc-total-payable');
-
-    const amortTbody = document.getElementById('amortization-tbody');
-    const btnToggleAmort = document.getElementById('btn-toggle-amortization');
-    const amortTableWrap = document.getElementById('amortization-table-wrap');
-    const amortToggleText = document.getElementById('amort-toggle-text');
-    const btnPrintSchedule = document.getElementById('btn-print-schedule');
-
-    function formatIndianCurrency(numInRupees) {
-        if (numInRupees >= 10000000) {
-            const cr = (numInRupees / 10000000).toFixed(2);
-            return '₹ ' + cr + ' Cr';
-        } else if (numInRupees >= 100000) {
-            const lk = (numInRupees / 100000).toFixed(2);
-            return '₹ ' + lk + ' Lakhs';
-        } else {
-            return '₹ ' + Math.round(numInRupees).toLocaleString('en-IN');
         }
     }
 
-    function triggerMetricFlash() {
-        const metrics = document.querySelectorAll('.metric-item, .emi-result-card');
-        metrics.forEach(m => {
-            m.classList.add('val-updated');
-            setTimeout(() => m.classList.remove('val-updated'), 250);
-        });
-    }
+    // =========================================================================
+    // 10. HIGH-TICKET LOAN & EMI CALCULATOR & AMORTIZATION TABLE
+    // =========================================================================
+    function initCalculator() {
+        const calcAmount = document.getElementById('calc-amount');
+        const calcRate = document.getElementById('calc-rate');
+        const calcTenure = document.getElementById('calc-tenure');
 
-    function generateAmortizationSchedule(principal, annualRate, years, monthlyEMI) {
-        if (!amortTbody) return;
-
-        let balance = principal;
-        const monthlyRate = annualRate / (12 * 100);
-        let rowsHtml = '';
-
-        for (let yr = 1; yr <= years; yr++) {
-            const openingBal = balance;
-            let yrPrincipalPaid = 0;
-            let yrInterestPaid = 0;
-
-            for (let m = 1; m <= 12; m++) {
-                if (balance <= 0) break;
-                const monthlyInterest = balance * monthlyRate;
-                let monthlyPrincipal = monthlyEMI - monthlyInterest;
-
-                if (monthlyPrincipal > balance) {
-                    monthlyPrincipal = balance;
-                }
-
-                yrInterestPaid += monthlyInterest;
-                yrPrincipalPaid += monthlyPrincipal;
-                balance = Math.max(0, balance - monthlyPrincipal);
-            }
-
-            const yrTotalPaid = yrPrincipalPaid + yrInterestPaid;
-            const principalPct = yrTotalPaid > 0 ? Math.round((yrPrincipalPaid / yrTotalPaid) * 100) : 50;
-            const interestPct = 100 - principalPct;
-
-            rowsHtml += `
-                <tr>
-                    <td class="amort-col-year">
-                        <span class="year-badge">Year ${yr}</span>
-                    </td>
-                    <td class="amort-col-opening"><strong>${formatIndianCurrency(openingBal)}</strong></td>
-                    <td class="amort-col-emi">${formatIndianCurrency(yrTotalPaid)}</td>
-                    <td class="amort-col-principal"><span class="principal-text">${formatIndianCurrency(yrPrincipalPaid)}</span></td>
-                    <td class="amort-col-interest"><span class="interest-text">${formatIndianCurrency(yrInterestPaid)}</span></td>
-                    <td class="amort-col-closing"><strong>${formatIndianCurrency(balance)}</strong></td>
-                    <td class="amort-col-ratio">
-                        <div class="ratio-bar-wrap" title="Principal: ${principalPct}% | Interest: ${interestPct}%">
-                            <div class="ratio-bar-fill-principal" style="width: ${principalPct}%;"></div>
-                            <div class="ratio-bar-fill-interest" style="width: ${interestPct}%;"></div>
-                        </div>
-                        <span class="ratio-legend">${principalPct}% P / ${interestPct}% I</span>
-                    </td>
-                </tr>
-            `;
-        }
-
-        amortTbody.innerHTML = rowsHtml;
-    }
-
-    function calculateEMI() {
         if (!calcAmount || !calcRate || !calcTenure) return;
 
-        const pCrores = parseFloat(calcAmount.value) || 25;
-        const principal = pCrores * 10000000;
-        const annualRate = parseFloat(calcRate.value) || 8.5;
-        const years = parseInt(calcTenure.value) || 10;
-        const months = years * 12;
+        const amountDisplay = document.getElementById('calc-amount-text');
+        const rateDisplay = document.getElementById('calc-rate-text');
+        const tenureDisplay = document.getElementById('calc-tenure-text');
 
-        const monthlyRate = annualRate / (12 * 100);
+        const emiDisplay = document.getElementById('calc-emi-display');
+        const principalDisplay = document.getElementById('calc-principal-display');
+        const totalInterestDisplay = document.getElementById('calc-total-interest');
+        const totalPayableDisplay = document.getElementById('calc-total-payable');
 
-        let emi = 0;
-        if (monthlyRate > 0) {
-            emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
-        } else {
-            emi = principal / months;
+        const amortTbody = document.getElementById('amortization-tbody');
+        const btnToggleAmort = document.getElementById('btn-toggle-amortization');
+        const amortTableWrap = document.getElementById('amortization-table-wrap');
+        const amortToggleText = document.getElementById('amort-toggle-text');
+        const btnPrintSchedule = document.getElementById('btn-print-schedule');
+
+        function formatIndianCurrency(numInRupees) {
+            if (numInRupees >= 10000000) {
+                const cr = (numInRupees / 10000000).toFixed(2);
+                return '₹ ' + cr + ' Cr';
+            } else if (numInRupees >= 100000) {
+                const lk = (numInRupees / 100000).toFixed(2);
+                return '₹ ' + lk + ' Lakhs';
+            } else {
+                return '₹ ' + Math.round(numInRupees).toLocaleString('en-IN');
+            }
         }
 
-        const totalPayable = emi * months;
-        const totalInterest = totalPayable - principal;
+        function triggerMetricFlash() {
+            const metrics = document.querySelectorAll('.metric-item, .emi-result-card');
+            metrics.forEach(m => {
+                m.classList.add('val-updated');
+                setTimeout(() => m.classList.remove('val-updated'), 250);
+            });
+        }
 
-        if (amountDisplay) amountDisplay.textContent = '₹ ' + pCrores.toFixed(2) + ' Crore';
-        if (rateDisplay) rateDisplay.textContent = annualRate.toFixed(2) + ' %';
-        if (tenureDisplay) tenureDisplay.textContent = years + (years === 1 ? ' Year' : ' Years');
+        function generateAmortizationSchedule(principal, annualRate, years, monthlyEMI) {
+            if (!amortTbody) return;
 
-        if (emiDisplay) emiDisplay.textContent = formatIndianCurrency(emi) + ' / mo';
-        if (principalDisplay) principalDisplay.textContent = '₹ ' + pCrores.toFixed(2) + ' Cr';
-        if (totalInterestDisplay) totalInterestDisplay.textContent = formatIndianCurrency(totalInterest);
-        if (totalPayableDisplay) totalPayableDisplay.textContent = formatIndianCurrency(totalPayable);
+            let balance = principal;
+            const monthlyRate = annualRate / (12 * 100);
+            let rowsHtml = '';
 
-        generateAmortizationSchedule(principal, annualRate, years, emi);
-        triggerMetricFlash();
-    }
+            for (let yr = 1; yr <= years; yr++) {
+                const openingBal = balance;
+                let yrPrincipalPaid = 0;
+                let yrInterestPaid = 0;
 
-    if (calcAmount && calcRate && calcTenure) {
-        calcAmount.addEventListener('input', calculateEMI);
-        calcRate.addEventListener('input', calculateEMI);
-        calcTenure.addEventListener('input', calculateEMI);
-        calculateEMI();
-    }
+                for (let m = 1; m <= 12; m++) {
+                    if (balance <= 0) break;
+                    const monthlyInterest = balance * monthlyRate;
+                    let monthlyPrincipal = monthlyEMI - monthlyInterest;
 
-    if (btnToggleAmort && amortTableWrap) {
-        btnToggleAmort.addEventListener('click', function () {
-            const isHidden = amortTableWrap.style.display === 'none' || amortTableWrap.style.display === '';
-            if (isHidden) {
-                amortTableWrap.style.display = 'block';
-                if (amortToggleText) amortToggleText.textContent = 'Hide Amortization Table';
-                btnToggleAmort.classList.add('is-expanded');
+                    if (monthlyPrincipal > balance) {
+                        monthlyPrincipal = balance;
+                    }
+
+                    yrInterestPaid += monthlyInterest;
+                    yrPrincipalPaid += monthlyPrincipal;
+                    balance = Math.max(0, balance - monthlyPrincipal);
+                }
+
+                const yrTotalPaid = yrPrincipalPaid + yrInterestPaid;
+                const principalPct = yrTotalPaid > 0 ? Math.round((yrPrincipalPaid / yrTotalPaid) * 100) : 50;
+                const interestPct = 100 - principalPct;
+
+                rowsHtml += `
+                    <tr>
+                        <td class="amort-col-year"><span class="year-badge">Year ${yr}</span></td>
+                        <td class="amort-col-opening"><strong>${formatIndianCurrency(openingBal)}</strong></td>
+                        <td class="amort-col-emi">${formatIndianCurrency(yrTotalPaid)}</td>
+                        <td class="amort-col-principal"><span class="principal-text">${formatIndianCurrency(yrPrincipalPaid)}</span></td>
+                        <td class="amort-col-interest"><span class="interest-text">${formatIndianCurrency(yrInterestPaid)}</span></td>
+                        <td class="amort-col-closing"><strong>${formatIndianCurrency(balance)}</strong></td>
+                        <td class="amort-col-ratio">
+                            <div class="ratio-bar-wrap" title="Principal: ${principalPct}% | Interest: ${interestPct}%">
+                                <div class="ratio-bar-fill-principal" style="width: ${principalPct}%;"></div>
+                                <div class="ratio-bar-fill-interest" style="width: ${interestPct}%;"></div>
+                            </div>
+                            <span class="ratio-legend">${principalPct}% P / ${interestPct}% I</span>
+                        </td>
+                    </tr>
+                `;
+            }
+
+            amortTbody.innerHTML = rowsHtml;
+        }
+
+        function calculateEMI() {
+            const pCrores = parseFloat(calcAmount.value) || 25;
+            const principal = pCrores * 10000000;
+            const annualRate = parseFloat(calcRate.value) || 8.5;
+            const years = parseInt(calcTenure.value) || 10;
+            const months = years * 12;
+
+            const monthlyRate = annualRate / (12 * 100);
+
+            let emi = 0;
+            if (monthlyRate > 0) {
+                emi = (principal * monthlyRate * Math.pow(1 + monthlyRate, months)) / (Math.pow(1 + monthlyRate, months) - 1);
             } else {
-                amortTableWrap.style.display = 'none';
-                if (amortToggleText) amortToggleText.textContent = 'View Amortization Table';
-                btnToggleAmort.classList.remove('is-expanded');
+                emi = principal / months;
             }
-        });
-    }
 
-    if (btnPrintSchedule) {
-        btnPrintSchedule.addEventListener('click', function () {
-            if (amortTableWrap && amortTableWrap.style.display === 'none') {
-                amortTableWrap.style.display = 'block';
-                if (amortToggleText) amortToggleText.textContent = 'Hide Amortization Table';
-            }
-            window.print();
-        });
+            const totalPayable = emi * months;
+            const totalInterest = totalPayable - principal;
+
+            if (amountDisplay) amountDisplay.textContent = '₹ ' + pCrores.toFixed(2) + ' Crore';
+            if (rateDisplay) rateDisplay.textContent = annualRate.toFixed(2) + ' %';
+            if (tenureDisplay) tenureDisplay.textContent = years + (years === 1 ? ' Year' : ' Years');
+
+            if (emiDisplay) emiDisplay.textContent = formatIndianCurrency(emi) + ' / mo';
+            if (principalDisplay) principalDisplay.textContent = '₹ ' + pCrores.toFixed(2) + ' Cr';
+            if (totalInterestDisplay) totalInterestDisplay.textContent = formatIndianCurrency(totalInterest);
+            if (totalPayableDisplay) totalPayableDisplay.textContent = formatIndianCurrency(totalPayable);
+
+            generateAmortizationSchedule(principal, annualRate, years, emi);
+            triggerMetricFlash();
+        }
+
+        if (!calcAmount.dataset.calcBound) {
+            calcAmount.dataset.calcBound = 'true';
+            calcAmount.addEventListener('input', calculateEMI);
+            calcRate.addEventListener('input', calculateEMI);
+            calcTenure.addEventListener('input', calculateEMI);
+        }
+        calculateEMI();
+
+        if (btnToggleAmort && amortTableWrap && !btnToggleAmort.dataset.bound) {
+            btnToggleAmort.dataset.bound = 'true';
+            btnToggleAmort.addEventListener('click', function () {
+                const isHidden = amortTableWrap.style.display === 'none' || amortTableWrap.style.display === '';
+                if (isHidden) {
+                    amortTableWrap.style.display = 'block';
+                    if (amortToggleText) amortToggleText.textContent = 'Hide Amortization Table';
+                    btnToggleAmort.classList.add('is-expanded');
+                } else {
+                    amortTableWrap.style.display = 'none';
+                    if (amortToggleText) amortToggleText.textContent = 'View Amortization Table';
+                    btnToggleAmort.classList.remove('is-expanded');
+                }
+            });
+        }
+
+        if (btnPrintSchedule && !btnPrintSchedule.dataset.bound) {
+            btnPrintSchedule.dataset.bound = 'true';
+            btnPrintSchedule.addEventListener('click', function () {
+                if (amortTableWrap && amortTableWrap.style.display === 'none') {
+                    amortTableWrap.style.display = 'block';
+                    if (amortToggleText) amortToggleText.textContent = 'Hide Amortization Table';
+                }
+                window.print();
+            });
+        }
     }
 
     // =========================================================================
     // 11. CONSULTATION MODAL & SPRING ANIMATIONS
     // =========================================================================
-    const modalBackdrop = document.getElementById('inquiry-modal');
-    const openModalBtns = document.querySelectorAll('.open-modal-btn, .open-inquiry-modal');
-    const closeModalBtns = document.querySelectorAll('.modal-close-btn, .modal-cancel-btn');
-    const modalServiceSelect = document.getElementById('modal-service');
-    const modalTicketSelect = document.getElementById('modal-ticket');
+    function initConsultationModal() {
+        const modalBackdrop = document.getElementById('inquiry-modal');
+        const openModalBtns = document.querySelectorAll('.open-modal-btn, .open-inquiry-modal');
+        const closeModalBtns = document.querySelectorAll('.modal-close-btn, .modal-cancel-btn');
+        const modalServiceSelect = document.getElementById('modal-service');
+        const modalTicketSelect = document.getElementById('modal-ticket');
 
-    function openInquiryModal(serviceId = null, prefillAmount = null) {
-        if (!modalBackdrop) return;
-        modalBackdrop.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
+        function openInquiryModal(serviceId = null, prefillAmount = null) {
+            if (!modalBackdrop) return;
+            modalBackdrop.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
 
-        requestAnimationFrame(() => {
-            modalBackdrop.classList.add('is-active');
-        });
+            requestAnimationFrame(() => {
+                modalBackdrop.classList.add('is-active');
+            });
 
-        if (serviceId && modalServiceSelect) {
-            modalServiceSelect.value = serviceId;
-        }
+            if (serviceId && modalServiceSelect) {
+                modalServiceSelect.value = serviceId;
+            }
 
-        if (prefillAmount && modalTicketSelect) {
-            if (prefillAmount <= 5) {
-                modalTicketSelect.value = '₹1 Cr - ₹5 Cr';
-            } else if (prefillAmount <= 25) {
-                modalTicketSelect.value = '₹5 Cr - ₹25 Cr';
-            } else if (prefillAmount <= 100) {
-                modalTicketSelect.value = '₹25 Cr - ₹100 Cr';
-            } else if (prefillAmount <= 500) {
-                modalTicketSelect.value = '₹100 Cr - ₹500 Cr';
-            } else {
-                modalTicketSelect.value = '₹500 Cr - ₹1000 Cr';
+            if (prefillAmount && modalTicketSelect) {
+                if (prefillAmount <= 5) {
+                    modalTicketSelect.value = '₹1 Cr - ₹5 Cr';
+                } else if (prefillAmount <= 25) {
+                    modalTicketSelect.value = '₹5 Cr - ₹25 Cr';
+                } else if (prefillAmount <= 100) {
+                    modalTicketSelect.value = '₹25 Cr - ₹100 Cr';
+                } else if (prefillAmount <= 500) {
+                    modalTicketSelect.value = '₹100 Cr - ₹500 Cr';
+                } else {
+                    modalTicketSelect.value = '₹500 Cr - ₹1000 Cr';
+                }
             }
         }
-    }
 
-    function closeInquiryModal() {
-        if (!modalBackdrop) return;
-        modalBackdrop.classList.remove('is-active');
-        document.body.style.overflow = '';
-        setTimeout(() => {
-            modalBackdrop.style.display = 'none';
-        }, 350);
-    }
-
-    openModalBtns.forEach(btn => {
-        btn.addEventListener('click', function (e) {
-            e.preventDefault();
-            const srvId = this.getAttribute('data-service');
-            let amount = null;
-            openInquiryModal(srvId, amount);
-        });
-    });
-
-    closeModalBtns.forEach(btn => {
-        btn.addEventListener('click', closeInquiryModal);
-    });
-
-    if (modalBackdrop) {
-        modalBackdrop.addEventListener('click', function (e) {
-            if (e.target === modalBackdrop) {
-                closeInquiryModal();
-            }
-        });
-    }
-
-    document.addEventListener('keydown', function (e) {
-        if (e.key === 'Escape' && modalBackdrop && modalBackdrop.classList.contains('is-active')) {
-            closeInquiryModal();
+        function closeInquiryModal() {
+            if (!modalBackdrop) return;
+            modalBackdrop.classList.remove('is-active');
+            document.body.style.overflow = '';
+            setTimeout(() => {
+                modalBackdrop.style.display = 'none';
+            }, 350);
         }
-    });
+
+        openModalBtns.forEach(btn => {
+            if (btn.dataset.modalBound) return;
+            btn.dataset.modalBound = 'true';
+            btn.addEventListener('click', function (e) {
+                e.preventDefault();
+                const srvId = this.getAttribute('data-service');
+                openInquiryModal(srvId);
+            });
+        });
+
+        closeModalBtns.forEach(btn => {
+            if (btn.dataset.modalBound) return;
+            btn.dataset.modalBound = 'true';
+            btn.addEventListener('click', closeInquiryModal);
+        });
+
+        if (modalBackdrop && !modalBackdrop.dataset.backdropBound) {
+            modalBackdrop.dataset.backdropBound = 'true';
+            modalBackdrop.addEventListener('click', function (e) {
+                if (e.target === modalBackdrop) {
+                    closeInquiryModal();
+                }
+            });
+        }
+    }
+    initConsultationModal();
 
     // =========================================================================
     // 12. AJAX FORM SUBMISSION FOR INQUIRIES
@@ -791,7 +819,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const inquiryForm = document.getElementById('funding-inquiry-form');
     const modalAlert = document.getElementById('modal-alert-box');
 
-    if (inquiryForm) {
+    if (inquiryForm && !inquiryForm.dataset.formBound) {
+        inquiryForm.dataset.formBound = 'true';
         inquiryForm.addEventListener('submit', function (e) {
             e.preventDefault();
             const submitBtn = document.getElementById('modal-submit-btn');
@@ -806,9 +835,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
             fetch('index.php?action=inquire', {
                 method: 'POST',
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
+                headers: { 'X-Requested-With': 'XMLHttpRequest' },
                 body: formData
             })
             .then(res => res.json())
@@ -830,7 +857,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     submitBtn.innerHTML = originalText;
                 }
                 setTimeout(() => {
-                    closeInquiryModal();
                     if (modalAlert) modalAlert.style.display = 'none';
                 }, 3500);
             })
@@ -848,4 +874,117 @@ document.addEventListener('DOMContentLoaded', function () {
             });
         });
     }
+
+    // =========================================================================
+    // MASTER COMPONENT RE-INITIALIZER FOR PAGE SWAPS
+    // =========================================================================
+    function reinitPageComponents() {
+        initLogoDynamics();
+        initThemeSystem();
+        initScrollReveals();
+        initSpotlightCards();
+        initMagneticTouch();
+        initMobileDrawer();
+        initServiceFilters();
+        initCalculator();
+        initConsultationModal();
+    }
+    reinitPageComponents();
+
+    // =========================================================================
+    // 13. INSTANT SEAMLESS SPA PAGE ROUTER (ZERO BLINK NAVBAR SWITCHER)
+    // =========================================================================
+    function initSpaRouter() {
+        const mainContent = document.getElementById('main-content');
+        if (!mainContent) return;
+
+        function updateActiveNavLinks(urlStr) {
+            const urlObj = new URL(urlStr, window.location.origin);
+            const pageParam = urlObj.searchParams.get('page') || 'home';
+
+            const navLinks = document.querySelectorAll('.nav-link, .mobile-nav-link');
+            navLinks.forEach(link => {
+                const linkHref = link.getAttribute('href') || '';
+                const linkUrlObj = new URL(linkHref, window.location.origin);
+                const linkPageParam = linkUrlObj.searchParams.get('page') || 'home';
+
+                if (linkPageParam === pageParam || (pageParam === 'service' && linkPageParam === 'services')) {
+                    link.classList.add('active');
+                } else {
+                    link.classList.remove('active');
+                }
+            });
+        }
+
+        async function loadPage(url, pushState = true) {
+            try {
+                // Gentle instant fade out
+                mainContent.style.transition = 'opacity 0.12s cubic-bezier(0.25, 1, 0.5, 1)';
+                mainContent.style.opacity = '0.35';
+
+                const response = await fetch(url, {
+                    headers: { 'X-Requested-With': 'XMLHttpRequest' }
+                });
+
+                if (!response.ok) {
+                    window.location.href = url;
+                    return;
+                }
+
+                const htmlText = await response.text();
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(htmlText, 'text/html');
+
+                const newContent = doc.getElementById('main-content');
+                if (!newContent) {
+                    window.location.href = url;
+                    return;
+                }
+
+                if (doc.title) {
+                    document.title = doc.title;
+                }
+
+                mainContent.innerHTML = newContent.innerHTML;
+
+                if (pushState) {
+                    window.history.pushState({}, '', url);
+                }
+
+                updateActiveNavLinks(url);
+
+                window.scrollTo({ top: 0, behavior: 'instant' });
+
+                mainContent.style.opacity = '1';
+
+                reinitPageComponents();
+            } catch (err) {
+                console.error('SPA Navigation error:', err);
+                window.location.href = url;
+            }
+        }
+
+        document.body.addEventListener('click', function (e) {
+            const anchor = e.target.closest('a');
+            if (!anchor) return;
+
+            const href = anchor.getAttribute('href');
+            if (!href || href.startsWith('#') || href.startsWith('javascript:') || href.startsWith('mailto:') || href.startsWith('tel:') || anchor.hasAttribute('download') || anchor.getAttribute('target') === '_blank') {
+                return;
+            }
+
+            if (href.endsWith('.pdf') || href.endsWith('.zip')) return;
+
+            const targetUrl = new URL(href, window.location.origin);
+            if (targetUrl.origin === window.location.origin) {
+                e.preventDefault();
+                loadPage(href);
+            }
+        });
+
+        window.addEventListener('popstate', function () {
+            loadPage(window.location.href, false);
+        });
+    }
+    initSpaRouter();
 });

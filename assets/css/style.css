@@ -131,38 +131,37 @@ body.theme-transitioning *::after {
   transition-delay: 0s !important;
 }
 
-/* Default smooth transitions for core surfaces and typography */
-body,
-.site-header,
-.hero-wrapper,
-.about-executive-wrap,
-.pillar-card,
-.service-full-card,
-.gold-box-frame,
-.why-card,
-.director-card,
-.bank-cat-card,
-.calculator-wrapper,
-.contact-card,
-.point-item-card,
-.sidebar-card,
-.other-services-nav-card,
-.expanded-vertical-card,
-.sub-sector-box,
-.filter-tab-btn,
-.feat-pill,
-.purpose-item,
-.val-pill,
-.vision-card-sm,
-.service-slogan-strip,
-.srv-media-category-badge,
-.srv-media-header-bar .page-marker,
-.footer-royal,
-.modal-content,
-.glass-card,
-.floating-theme-toggle,
-.theme-toggle-btn,
-.mobile-drawer {
+/* Smooth transitions for theme switching applied strictly when active */
+.theme-transitioning .site-header,
+.theme-transitioning .hero-wrapper,
+.theme-transitioning .about-executive-wrap,
+.theme-transitioning .pillar-card,
+.theme-transitioning .service-full-card,
+.theme-transitioning .gold-box-frame,
+.theme-transitioning .why-card,
+.theme-transitioning .director-card,
+.theme-transitioning .bank-cat-card,
+.theme-transitioning .calculator-wrapper,
+.theme-transitioning .contact-card,
+.theme-transitioning .point-item-card,
+.theme-transitioning .sidebar-card,
+.theme-transitioning .other-services-nav-card,
+.theme-transitioning .expanded-vertical-card,
+.theme-transitioning .sub-sector-box,
+.theme-transitioning .filter-tab-btn,
+.theme-transitioning .feat-pill,
+.theme-transitioning .purpose-item,
+.theme-transitioning .val-pill,
+.theme-transitioning .vision-card-sm,
+.theme-transitioning .service-slogan-strip,
+.theme-transitioning .srv-media-category-badge,
+.theme-transitioning .srv-media-header-bar .page-marker,
+.theme-transitioning .footer-royal,
+.theme-transitioning .modal-content,
+.theme-transitioning .glass-card,
+.theme-transitioning .floating-theme-toggle,
+.theme-transitioning .theme-toggle-btn,
+.theme-transitioning .mobile-drawer {
   transition: background-color 0.5s cubic-bezier(0.25, 1, 0.5, 1),
               color 0.4s cubic-bezier(0.25, 1, 0.5, 1),
               border-color 0.5s cubic-bezier(0.25, 1, 0.5, 1),
@@ -959,16 +958,19 @@ a:hover {
   }
 }
 
-/* Hero 5 Key Highlights Cards Bar (Full-Width Grid) */
+/* Hero 5 Key Highlights Cards Bar */
 .hero-badges-row {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
   gap: 1.5rem;
   margin-bottom: 3.5rem;
   width: 100%;
 }
 
 .hero-badge-card {
+  flex: 1 1 220px;
   background: var(--bg-card);
   border: 1.5px solid var(--gold-border);
   border-radius: 12px;
@@ -5754,9 +5756,6 @@ a:hover {
    RESPONSIVE DESIGN (MEDIA QUERIES)
    ========================================================================== */
 @media (max-width: 1200px) {
-  .hero-badges-row {
-    grid-template-columns: repeat(3, 1fr);
-  }
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
@@ -5778,9 +5777,6 @@ a:hover {
   }
   .hero-brand-title {
     font-size: 3.2rem;
-  }
-  .hero-badges-row {
-    grid-template-columns: repeat(2, 1fr);
   }
   .pillars-grid-4 {
     grid-template-columns: repeat(2, 1fr);
@@ -5811,8 +5807,8 @@ a:hover {
     font-size: 1.15rem;
     letter-spacing: 0.15em;
   }
-  .hero-badges-row {
-    grid-template-columns: 1fr;
+  .hero-badge-card {
+    flex: 1 1 100%;
   }
   .pillars-grid-4 {
     grid-template-columns: 1fr;

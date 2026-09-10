@@ -28,18 +28,19 @@
     <!-- FontAwesome 6 Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    <!-- Main Stylesheet -->
-    <link rel="stylesheet" href="assets/css/style.css">
-    
-    <!-- Immediate Theme Initialization (Prevents FOUC) -->
+    <!-- Immediate Theme Initialization (Prevents FOUC & Page Flash) -->
     <script>
         (function() {
             try {
                 var savedTheme = localStorage.getItem('liqulofi_theme') || 'light';
                 document.documentElement.setAttribute('data-theme', savedTheme);
+                document.documentElement.style.backgroundColor = savedTheme === 'dark' ? '#050B14' : '#F3ECE1';
             } catch (e) {}
         })();
     </script>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="assets/css/style.css">
     
     @yield('extra_css')
 </head>
