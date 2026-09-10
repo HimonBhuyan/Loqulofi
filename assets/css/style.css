@@ -2766,19 +2766,26 @@ a:hover {
 }
 
 .director-avatar-wrapper {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.5rem;
+  position: relative;
 }
 
 .director-avatar-ring {
-  width: 76px;
-  height: 76px;
+  width: 104px;
+  height: 104px;
   border-radius: 50%;
   background: var(--grad-gold-button);
-  padding: 2.5px;
+  padding: 3px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 15px rgba(201, 151, 38, 0.35);
+  box-shadow: 0 8px 25px rgba(201, 151, 38, 0.42), 0 0 18px rgba(201, 151, 38, 0.2);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
+}
+
+.director-card:hover .director-avatar-ring {
+  transform: scale(1.06);
+  box-shadow: 0 12px 32px rgba(201, 151, 38, 0.6), 0 0 24px rgba(201, 151, 38, 0.35);
 }
 
 .director-avatar {
@@ -2790,6 +2797,21 @@ a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.director-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.director-card:hover .director-avatar-img {
+  transform: scale(1.08);
 }
 
 .director-name {

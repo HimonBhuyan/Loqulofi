@@ -1,13 +1,13 @@
 @php
     $companyData = $company ?? [];
-    $primaryDirector = $companyData['directors'][0] ?? ['phone' => '+91 62320 46473', 'raw_phone' => '+916232046473'];
+    $primaryDirector = $companyData['directors'][0] ?? ['name' => 'Ritu Rami', 'phone' => '+91 8780181897', 'raw_phone' => '+918780181897'];
 @endphp
 
 <!-- Mobile Bottom Sticky Quick Action Bar (Screens <= 768px) -->
 <aside class="mobile-action-bar" id="mobile-action-bar" aria-label="Quick Actions">
     <div class="mobile-action-container">
         <!-- Direct Phone Call Action -->
-        <a href="tel:{{ $primaryDirector['raw_phone'] }}" class="mob-action-btn mob-call-btn" title="Call Director Hotline">
+        <a href="tel:{{ $primaryDirector['raw_phone'] }}" class="mob-action-btn mob-call-btn" title="Call Director Hotline ({{ $primaryDirector['name'] }})">
             <span class="mob-btn-icon">
                 <i class="fa-solid fa-phone"></i>
             </span>
@@ -15,7 +15,7 @@
         </a>
 
         <!-- WhatsApp Quick Chat Action -->
-        <a href="https://wa.me/916232046473?text=Hello%20Liqulofi%20Team,%20I%20am%20interested%20in%20high-ticket%20funding%20solutions%20(1%20CR%20-%201000%20CR).%20Please%20connect%20with%20me." 
+        <a href="https://wa.me/{{ preg_replace('/[^0-9]/', '', $primaryDirector['raw_phone']) }}?text=Hello%20Liqulofi%20Team,%20I%20am%20interested%20in%20high-ticket%20funding%20solutions%20(1%20CR%20-%201000%20CR).%20Please%20connect%20with%20me." 
            target="_blank" 
            rel="noopener noreferrer" 
            class="mob-action-btn mob-whatsapp-btn" 

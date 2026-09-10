@@ -13,10 +13,14 @@
     <div class="director-avatar-wrapper">
         <div class="director-avatar-ring">
             <div class="director-avatar">
-                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="12" cy="7" r="4"></circle>
-                </svg>
+                @if(!empty($director['image']))
+                    <img src="{{ $director['image'] }}" alt="{{ $director['name'] }}" class="director-avatar-img" loading="lazy">
+                @else
+                    <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                @endif
             </div>
         </div>
     </div>
