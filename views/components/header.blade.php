@@ -24,7 +24,7 @@
                     <a href="index.php" class="nav-link {{ $currentPage === 'home' ? 'active' : '' }}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?page=about" class="nav-link {{ $currentPage === 'about' ? 'active' : '' }}">About Us</a>
+                    <a href="index.php?page=about" class="nav-link {{ $currentPage === 'about' || $currentPage === 'contact' ? 'active' : '' }}">About &amp; Contact</a>
                 </li>
                 
                 <!-- Services Mega Dropdown -->
@@ -137,9 +137,7 @@
                 <li class="nav-item">
                     <a href="index.php?page=partners" class="nav-link {{ $currentPage === 'partners' ? 'active' : '' }}">Bank Tie-Ups</a>
                 </li>
-                <li class="nav-item">
-                    <a href="index.php?page=contact" class="nav-link {{ $currentPage === 'contact' ? 'active' : '' }}">Directors & Contact</a>
-                </li>
+
             </ul>
         </nav>
 
@@ -204,11 +202,10 @@
 
         <ul class="mobile-nav-list">
             <li><a href="index.php" class="mobile-nav-link">Home</a></li>
-            <li><a href="index.php?page=about" class="mobile-nav-link">About Us & Vision</a></li>
+            <li><a href="index.php?page=about" class="mobile-nav-link">About &amp; Contact</a></li>
             <li><a href="index.php?page=services" class="mobile-nav-link">All Funding Solutions</a></li>
-            <li><a href="index.php?page=calculator" class="mobile-nav-link">EMI & Structuring Calculator</a></li>
-            <li><a href="index.php?page=partners" class="mobile-nav-link">Bank & NBFC Tie-Ups</a></li>
-            <li><a href="index.php?page=contact" class="mobile-nav-link">Directors & Contact</a></li>
+            <li><a href="index.php?page=calculator" class="mobile-nav-link">EMI &amp; Structuring Calculator</a></li>
+            <li><a href="index.php?page=partners" class="mobile-nav-link">Bank &amp; NBFC Tie-Ups</a></li>
         </ul>
 
         <div class="drawer-directors-box">

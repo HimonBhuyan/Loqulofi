@@ -154,20 +154,22 @@
                     </div>
                 </div>
 
-                <div class="footer-brochure-download-card">
-                    <div class="card-icon">📄</div>
-                    <div class="card-info">
-                        <span class="title">Official PDF Brochure</span>
-                        <span class="sub">16-Page High-Ticket Profile</span>
+                <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="footer-brochure-download-card" title="Download Official Brochure">
+                    <div class="card-left-content">
+                        <span class="card-doc-icon">📄</span>
+                        <div class="card-text-single">
+                            <span class="card-doc-title">Official PDF Brochure</span>
+                            <span class="card-doc-tag">16-Page Profile</span>
+                        </div>
                     </div>
-                    <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-download-sm" title="Download Brochure">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                    <span class="btn-download-sm">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
                         </svg>
-                    </a>
-                </div>
+                    </span>
+                </a>
             </div>
         </div>
 
@@ -188,16 +190,7 @@
                 &copy; {{ date('Y') }} <strong>LIQULOFI PRIVATE LIMITED</strong>. All Rights Reserved. Capital Beyond Limits.
             </div>
             <div class="footer-credit-line">
-                Designed by <a href="https://ziago.in" target="_blank" rel="noopener noreferrer" class="credit-brand-link"><strong>Ziago Technologies</strong></a>
-            </div>
-            <div class="bottom-links">
-                <a href="index.php?page=about">About Company</a>
-                <span class="dot">•</span>
-                <a href="index.php?page=services">Funding Portfolios</a>
-                <span class="dot">•</span>
-                <a href="index.php?page=partners">Banking Tie-Ups</a>
-                <span class="dot">•</span>
-                <a href="index.php?page=contact">Contact Leadership</a>
+                Designed &amp; Developed by <a href="https://ziagotechnologies.com/" target="_blank" rel="noopener noreferrer" class="credit-brand-link"><strong>Ziago Technologies</strong></a>
             </div>
         </div>
     </div>
