@@ -187,6 +187,9 @@
             <div class="copyright-text">
                 &copy; {{ date('Y') }} <strong>LIQULOFI PRIVATE LIMITED</strong>. All Rights Reserved. Capital Beyond Limits.
             </div>
+            <div class="footer-credit-line">
+                Designed by <a href="https://ziago.in" target="_blank" rel="noopener noreferrer" class="credit-brand-link"><strong>Ziago Technologies</strong></a>
+            </div>
             <div class="bottom-links">
                 <a href="index.php?page=about">About Company</a>
                 <span class="dot">•</span>

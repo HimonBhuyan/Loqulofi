@@ -3261,12 +3261,37 @@ body.drawer-open {
   padding-top: 1.5rem;
   font-size: 0.85rem;
   color: #94A3B8;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-credit-line {
+  color: #94A3B8;
+  font-size: 0.85rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.footer-credit-line .credit-brand-link {
+  color: var(--gold-light, #E2B774);
+  font-weight: 700;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.02em;
+}
+
+.footer-credit-line .credit-brand-link:hover {
+  color: #FFFFFF;
+  text-shadow: 0 0 10px rgba(226, 183, 116, 0.6);
+  text-decoration: underline;
 }
 
 .bottom-links {
   display: flex;
   align-items: center;
   gap: 0.6rem;
+  flex-wrap: wrap;
 }
 
 .bottom-links a {
