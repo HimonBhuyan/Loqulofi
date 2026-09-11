@@ -131,7 +131,7 @@
                     <li><a href="index.php?page=service&id=mortgage-loans">Valuation & Project Report (VP)</a></li>
                     <li><a href="index.php?page=calculator">Loan & EMI Calculator</a></li>
                     <li><a href="index.php?page=partners">Bank & NBFC Network</a></li>
-                    <li><a href="assets/docs/Liqulofi_Private_Limited.pdf" download>Download Official Brochure</a></li>
+                    <li><a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf">Download Official Brochure</a></li>
                 </ul>
             </div>
 
@@ -160,7 +160,7 @@
                         <span class="title">Official PDF Brochure</span>
                         <span class="sub">16-Page High-Ticket Profile</span>
                     </div>
-                    <a href="assets/docs/Liqulofi_Private_Limited.pdf" download class="btn-download-sm" title="Download Brochure">
+                    <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-download-sm" title="Download Brochure">
                         <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>

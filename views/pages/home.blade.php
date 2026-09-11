@@ -110,7 +110,7 @@
                     </svg>
                     <span>Explore Solutions</span>
                 </a>
-                <a href="assets/docs/Liqulofi_Private_Limited.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-outline-gold btn-xl magnetic-btn">
+                <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-outline-gold btn-xl magnetic-btn">
                     <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                         <polyline points="7 10 12 15 17 10"></polyline>
@@ -543,14 +543,6 @@
     </div>
 </section>
 
-<!-- =========================================================================
-     INTERACTIVE HIGH-TICKET CALCULATOR
-     ========================================================================= -->
-<section class="section-padding calculator-section" id="calculator">
-    <div class="container">
-        @include('components.calculator-widget', ['services' => $services])
-    </div>
-</section>
 
 <!-- =========================================================================
      PAGE 16: CONNECTING ALL BANKS - BANK TIE-UPS (Brochure Page 16)

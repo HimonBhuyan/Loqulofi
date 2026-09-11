@@ -257,7 +257,7 @@
                                class="btn-gold btn-block">
                                 <i class="fa-brands fa-whatsapp"></i> WhatsApp Director Desk
                             </a>
-                            <a href="assets/docs/Liqulofi_Private_Limited.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-outline-gold btn-block mt-2">
+                            <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-outline-gold btn-block mt-2">
                                 <i class="fa-solid fa-download"></i> Download Brochure (PDF)
                             </a>
                         </div>
