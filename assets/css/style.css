@@ -1277,16 +1277,35 @@ body.drawer-open {
 }
 
 .pillar-icon-box {
-  width: 56px;
-  height: 56px;
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
   background: var(--gold-pill-bg);
-  border: 1px solid rgba(201, 151, 38, 0.4);
+  border: 1.5px solid rgba(201, 151, 38, 0.4);
   color: var(--gold-deep);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.25rem auto;
+  font-size: 1.5rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pillar-icon-box i {
+  font-size: 1.5rem;
+  color: var(--gold-deep);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.pillar-card:hover .pillar-icon-box {
+  background: linear-gradient(135deg, rgba(201, 151, 38, 0.2) 0%, rgba(226, 183, 116, 0.35) 100%);
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 15px rgba(201, 151, 38, 0.25);
+}
+
+.pillar-card:hover .pillar-icon-box i {
+  transform: scale(1.15) rotate(4deg);
+  color: var(--gold-rich);
 }
 
 .pillar-title {
@@ -1552,16 +1571,35 @@ body.drawer-open {
 }
 
 .why-card-icon-box {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border-radius: 50%;
   background: var(--gold-pill-bg);
-  border: 1px solid rgba(201, 151, 38, 0.4);
+  border: 1.5px solid rgba(201, 151, 38, 0.4);
   color: var(--gold-deep);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  font-size: 1.15rem;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.why-card-icon-box i {
+  font-size: 1.15rem;
+  color: var(--gold-deep);
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+.why-card:hover .why-card-icon-box {
+  background: linear-gradient(135deg, rgba(201, 151, 38, 0.2) 0%, rgba(226, 183, 116, 0.35) 100%);
+  border-color: var(--gold-primary);
+  box-shadow: 0 4px 12px rgba(201, 151, 38, 0.25);
+}
+
+.why-card:hover .why-card-icon-box i {
+  transform: scale(1.15) rotate(4deg);
+  color: var(--gold-rich);
 }
 
 .why-item-title {
@@ -5883,6 +5921,15 @@ body.drawer-open {
   color: #F5C75A !important;
 }
 
+[data-theme="dark"] .pillar-icon-box i {
+  color: #F5C75A !important;
+}
+
+[data-theme="dark"] .pillar-card:hover .pillar-icon-box i {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 10px rgba(245, 199, 90, 0.6);
+}
+
 [data-theme="dark"] .our-approach-card {
   background: linear-gradient(135deg, #0B1729 0%, #060E1A 100%);
   border: 1.5px solid rgba(229, 184, 66, 0.4);
@@ -6159,6 +6206,15 @@ body.drawer-open {
   background: rgba(229, 184, 66, 0.16) !important;
   border-color: rgba(229, 184, 66, 0.4) !important;
   color: #F5C75A !important;
+}
+
+[data-theme="dark"] .why-card-icon-box i {
+  color: #F5C75A !important;
+}
+
+[data-theme="dark"] .why-card:hover .why-card-icon-box i {
+  color: #FFFFFF !important;
+  text-shadow: 0 0 10px rgba(245, 199, 90, 0.6);
 }
 
 [data-theme="dark"] .why-footer-highlight {

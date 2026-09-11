@@ -49,7 +49,17 @@
                 @foreach($about['pillars'] as $p)
                     <div class="pillar-card">
                         <div class="pillar-icon-box">
-                            <span class="pillar-gold-dot">✦</span>
+                            @if($p['title'] === 'TRUST')
+                                <i class="fa-solid fa-handshake"></i>
+                            @elseif($p['title'] === 'EXPERTISE')
+                                <i class="fa-solid fa-award"></i>
+                            @elseif($p['title'] === 'INTEGRITY')
+                                <i class="fa-solid fa-shield-halved"></i>
+                            @elseif($p['title'] === 'COMMITMENT')
+                                <i class="fa-solid fa-bullseye"></i>
+                            @else
+                                <i class="fa-solid fa-{{ $p['icon'] ?? 'star' }}"></i>
+                            @endif
                         </div>
                         <h3 class="pillar-title">{{ $p['title'] }}</h3>
                         <p class="pillar-desc">{{ $p['desc'] }}</p>
@@ -171,7 +181,31 @@
             <div class="why-cards-grid">
                 @foreach($why_choose['items'] as $item)
                     <div class="why-card">
-                        <div class="why-card-icon-box">✦</div>
+                        <div class="why-card-icon-box">
+                            @if($item['title'] === 'HIGH-TICKET FOCUS')
+                                <i class="fa-solid fa-sack-dollar"></i>
+                            @elseif($item['title'] === 'SPEED & EFFICIENCY')
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                            @elseif($item['title'] === 'CUSTOMIZED SOLUTIONS')
+                                <i class="fa-solid fa-sliders"></i>
+                            @elseif($item['title'] === 'TRANSPARENCY & INTEGRITY')
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            @elseif($item['title'] === 'STRONG LENDER NETWORK')
+                                <i class="fa-solid fa-building-columns"></i>
+                            @elseif($item['title'] === 'EXPERTISE YOU CAN TRUST')
+                                <i class="fa-solid fa-user-tie"></i>
+                            @elseif($item['title'] === 'PAN INDIA PRESENCE')
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            @elseif($item['title'] === 'COMPLETE CONFIDENTIALITY')
+                                <i class="fa-solid fa-lock"></i>
+                            @elseif($item['title'] === 'FLEXIBLE & INNOVATIVE SOLUTIONS')
+                                <i class="fa-solid fa-lightbulb"></i>
+                            @elseif($item['title'] === 'LONG TERM PARTNERSHIP')
+                                <i class="fa-solid fa-handshake-angle"></i>
+                            @else
+                                <i class="fa-solid fa-star"></i>
+                            @endif
+                        </div>
                         <div class="why-card-body">
                             <h4 class="why-item-title">{{ $item['title'] }}</h4>
                             <p class="why-item-desc">{{ $item['desc'] }}</p>

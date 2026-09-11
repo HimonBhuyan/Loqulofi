@@ -178,28 +178,15 @@
                     <div class="pillar-card">
                         <div class="pillar-icon-box">
                             @if($p['title'] === 'TRUST')
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="9" cy="7" r="4"></circle>
-                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
-                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                                </svg>
+                                <i class="fa-solid fa-handshake"></i>
                             @elseif($p['title'] === 'EXPERTISE')
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                    <circle cx="12" cy="7" r="4"></circle>
-                                </svg>
+                                <i class="fa-solid fa-award"></i>
                             @elseif($p['title'] === 'INTEGRITY')
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
-                                    <polyline points="9 12 11 14 15 10"></polyline>
-                                </svg>
+                                <i class="fa-solid fa-shield-halved"></i>
+                            @elseif($p['title'] === 'COMMITMENT')
+                                <i class="fa-solid fa-bullseye"></i>
                             @else
-                                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2">
-                                    <circle cx="12" cy="12" r="10"></circle>
-                                    <circle cx="12" cy="12" r="6"></circle>
-                                    <circle cx="12" cy="12" r="2"></circle>
-                                </svg>
+                                <i class="fa-solid fa-{{ $p['icon'] ?? 'star' }}"></i>
                             @endif
                         </div>
                         <h3 class="pillar-title">{{ $p['title'] }}</h3>
@@ -352,10 +339,29 @@
                 @foreach($why_choose['items'] as $item)
                     <div class="why-card">
                         <div class="why-card-icon-box">
-                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"></circle>
-                                <polyline points="12 6 12 12 14 14"></polyline>
-                            </svg>
+                            @if($item['title'] === 'HIGH-TICKET FOCUS')
+                                <i class="fa-solid fa-sack-dollar"></i>
+                            @elseif($item['title'] === 'SPEED & EFFICIENCY')
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                            @elseif($item['title'] === 'CUSTOMIZED SOLUTIONS')
+                                <i class="fa-solid fa-sliders"></i>
+                            @elseif($item['title'] === 'TRANSPARENCY & INTEGRITY')
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            @elseif($item['title'] === 'STRONG LENDER NETWORK')
+                                <i class="fa-solid fa-building-columns"></i>
+                            @elseif($item['title'] === 'EXPERTISE YOU CAN TRUST')
+                                <i class="fa-solid fa-user-tie"></i>
+                            @elseif($item['title'] === 'PAN INDIA PRESENCE')
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            @elseif($item['title'] === 'COMPLETE CONFIDENTIALITY')
+                                <i class="fa-solid fa-lock"></i>
+                            @elseif($item['title'] === 'FLEXIBLE & INNOVATIVE SOLUTIONS')
+                                <i class="fa-solid fa-lightbulb"></i>
+                            @elseif($item['title'] === 'LONG TERM PARTNERSHIP')
+                                <i class="fa-solid fa-handshake-angle"></i>
+                            @else
+                                <i class="fa-solid fa-star"></i>
+                            @endif
                         </div>
                         <div class="why-card-body">
                             <h4 class="why-item-title">{{ $item['title'] }}</h4>
