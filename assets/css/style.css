@@ -3088,7 +3088,7 @@ body.drawer-open {
 
 /* Footer Main Grid */
 .footer-main-content {
-  padding: 4.5rem 2.5rem 2rem 2.5rem;
+  padding: 4.5rem 2.5rem 6.5rem 2.5rem;
 }
 
 .footer-grid {
@@ -3339,11 +3339,14 @@ body.drawer-open {
   justify-content: space-between;
   align-items: center;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1.5rem;
+  padding-top: 1.75rem;
+  padding-bottom: 0.5rem;
   font-size: 0.85rem;
   color: #94A3B8;
   gap: 1.5rem;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 10;
 }
 
 .footer-credit-line {
@@ -7118,7 +7121,7 @@ body.drawer-open {
     display: none !important; /* Hides claustrophobic duplicate liner bar */
   }
   .footer-main-content {
-    padding: 3rem 1.25rem 2rem 1.25rem !important;
+    padding: 3rem 1.25rem calc(6.5rem + env(safe-area-inset-bottom, 0px)) 1.25rem !important;
   }
   .footer-grid {
     grid-template-columns: 1fr !important;
