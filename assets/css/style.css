@@ -5294,6 +5294,10 @@ body.drawer-open {
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 100%;
+  max-width: 90vw;
+  padding: 1rem;
+  box-sizing: border-box;
   animation: preloaderZoomSequence 3.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform, opacity;
 }
@@ -5306,7 +5310,7 @@ body.drawer-open {
   }
   16% {
     opacity: 1;
-    transform: scale(1.06) translateY(0);
+    transform: scale(1.04) translateY(0);
     filter: blur(0px);
   }
   30% {
@@ -5315,12 +5319,12 @@ body.drawer-open {
   }
   75% {
     opacity: 1;
-    transform: scale(1.03) translateY(0);
+    transform: scale(1.02) translateY(0);
     filter: blur(0px);
   }
   90% {
     opacity: 1;
-    transform: scale(1.05) translateY(0);
+    transform: scale(1.03) translateY(0);
     filter: blur(0px);
   }
   100% {
@@ -5335,12 +5339,16 @@ body.drawer-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.5rem;
+  margin-bottom: clamp(0.75rem, 2vw, 1.5rem);
 }
 
 .preloader-crest-box .crest-official-img {
   animation: preloaderCrestFloat 3.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
   will-change: transform;
+  height: clamp(80px, 16vw, 180px) !important;
+  max-width: clamp(110px, 22vw, 240px) !important;
+  width: auto !important;
+  object-fit: contain !important;
 }
 
 @keyframes preloaderCrestFloat {
@@ -5349,7 +5357,7 @@ body.drawer-open {
     opacity: 0;
   }
   18% {
-    transform: perspective(600px) rotateY(0deg) scale(1.08);
+    transform: perspective(600px) rotateY(0deg) scale(1.06);
     opacity: 1;
   }
   35% {
@@ -5357,53 +5365,57 @@ body.drawer-open {
     opacity: 1;
   }
   75% {
-    transform: perspective(600px) rotateY(0deg) scale(1.03);
+    transform: perspective(600px) rotateY(0deg) scale(1.02);
     opacity: 1;
   }
   100% {
-    transform: perspective(600px) rotateY(12deg) scale(0.95);
+    transform: perspective(600px) rotateY(10deg) scale(0.95);
     opacity: 0.9;
   }
 }
 
 .preloader-halo {
   position: absolute;
-  width: 340px;
-  height: 340px;
+  width: clamp(160px, 40vw, 320px);
+  height: clamp(160px, 40vw, 320px);
   border-radius: 50%;
   background: radial-gradient(circle, rgba(212, 175, 55, 0.6) 0%, rgba(247, 228, 168, 0.25) 50%, transparent 75%);
-  filter: blur(34px);
+  filter: blur(28px);
   pointer-events: none;
   animation: preloaderHaloPulse 2.4s ease-in-out infinite alternate;
 }
 
 @keyframes preloaderHaloPulse {
   0% { transform: scale(0.88); opacity: 0.5; }
-  100% { transform: scale(1.28); opacity: 0.95; }
+  100% { transform: scale(1.22); opacity: 0.95; }
 }
 
 .preloader-brand-block {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .preloader-title-mask {
   overflow: hidden;
   display: inline-block;
-  padding: 0.2rem 2.5rem;
+  padding: 0.15rem 0.75rem;
+  max-width: 100%;
 }
 
 .preloader-brand-title {
-  font-size: 5rem;
+  font-size: clamp(2.4rem, 8vw, 4.8rem);
   font-weight: 900;
-  letter-spacing: 0.24em;
+  letter-spacing: clamp(0.12em, 2.5vw, 0.24em);
   background: var(--grad-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   filter: drop-shadow(0 4px 20px rgba(184, 134, 11, 0.5));
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.25rem;
   line-height: 1.1;
+  text-align: center;
   animation: gold-text-shimmer 3.5s linear infinite;
 }
 
@@ -5411,44 +5423,51 @@ body.drawer-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
-  margin-bottom: 0.75rem;
+  gap: clamp(0.35rem, 1.5vw, 0.85rem);
+  margin-bottom: clamp(0.35rem, 1.5vw, 0.75rem);
+  max-width: 100%;
+  flex-wrap: nowrap;
 }
 
 .preloader-brand-sub .sub-text {
   font-family: var(--font-serif);
-  font-size: 1.4rem;
-  letter-spacing: 0.45em;
+  font-size: clamp(0.72rem, 2.5vw, 1.3rem);
+  letter-spacing: clamp(0.16em, 1.8vw, 0.4em);
   color: var(--text-heading);
   font-weight: 700;
+  white-space: nowrap;
 }
 
 .preloader-brand-sub .ornament-dash {
   color: var(--gold-rich);
-  font-size: 0.95rem;
+  font-size: clamp(0.6rem, 1.8vw, 0.9rem);
+  flex-shrink: 0;
 }
 
 .preloader-tagline-mask {
   overflow: hidden;
   display: inline-block;
+  max-width: 100%;
 }
 
 .preloader-tagline {
   font-family: var(--font-serif);
-  font-size: 1.5rem;
+  font-size: clamp(0.78rem, 2.8vw, 1.4rem);
   font-weight: 700;
-  letter-spacing: 0.28em;
+  letter-spacing: clamp(0.12em, 1.8vw, 0.26em);
   color: var(--gold-deep);
   margin-bottom: 0;
+  white-space: nowrap;
+  text-align: center;
 }
 
 .preloader-progress-track {
-  width: 280px;
+  width: clamp(160px, 55vw, 280px);
   height: 3.5px;
   background: rgba(201, 151, 38, 0.2);
   border-radius: 10px;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: clamp(1rem, 3vw, 1.75rem);
   position: relative;
 }
 
@@ -7043,6 +7062,63 @@ body.drawer-open {
   .detail-hero-media {
     height: 210px;
   }
+
+  /* Preloader Mobile Responsiveness */
+  .luxury-preloader {
+    padding: 1rem !important;
+  }
+  .preloader-content {
+    max-width: 94vw !important;
+    padding: 0.5rem !important;
+  }
+  .preloader-ambient-glow {
+    width: 280px !important;
+    height: 280px !important;
+    filter: blur(45px) !important;
+  }
+  .preloader-ambient-glow-2 {
+    width: 190px !important;
+    height: 190px !important;
+    filter: blur(35px) !important;
+  }
+  .preloader-crest-box {
+    margin-bottom: 0.85rem !important;
+  }
+  .preloader-crest-box .crest-official-img {
+    height: 100px !important;
+    max-width: 140px !important;
+  }
+  .preloader-halo {
+    width: 200px !important;
+    height: 200px !important;
+  }
+  .preloader-title-mask {
+    padding: 0 0.4rem !important;
+  }
+  .preloader-brand-title {
+    font-size: 2.7rem !important;
+    letter-spacing: 0.16em !important;
+    margin-bottom: 0.15rem !important;
+  }
+  .preloader-brand-sub {
+    gap: 0.4rem !important;
+    margin-bottom: 0.45rem !important;
+  }
+  .preloader-brand-sub .sub-text {
+    font-size: 0.82rem !important;
+    letter-spacing: 0.22em !important;
+  }
+  .preloader-brand-sub .ornament-dash {
+    font-size: 0.65rem !important;
+  }
+  .preloader-tagline {
+    font-size: 0.92rem !important;
+    letter-spacing: 0.16em !important;
+  }
+  .preloader-progress-track {
+    width: 190px !important;
+    margin-top: 1.25rem !important;
+  }
 }
 
 /* --- 4. Small Mobile Devices (<= 480px) --- */
@@ -7152,6 +7228,35 @@ body.drawer-open {
   .bank-logo-box {
     width: 32px;
     height: 32px;
+  }
+
+  /* Preloader Small Mobile (< 480px) */
+  .preloader-crest-box .crest-official-img {
+    height: 80px !important;
+    max-width: 110px !important;
+  }
+  .preloader-halo {
+    width: 150px !important;
+    height: 150px !important;
+  }
+  .preloader-brand-title {
+    font-size: 2.1rem !important;
+    letter-spacing: 0.12em !important;
+  }
+  .preloader-brand-sub .sub-text {
+    font-size: 0.7rem !important;
+    letter-spacing: 0.16em !important;
+  }
+  .preloader-brand-sub .ornament-dash {
+    font-size: 0.55rem !important;
+  }
+  .preloader-tagline {
+    font-size: 0.76rem !important;
+    letter-spacing: 0.12em !important;
+  }
+  .preloader-progress-track {
+    width: 150px !important;
+    margin-top: 1rem !important;
   }
 }
 
