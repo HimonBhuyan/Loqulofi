@@ -145,24 +145,29 @@ document.addEventListener('DOMContentLoaded', function () {
                     particle: 'rgba(245, 199, 90, ',      // Luminous gold
                     particleAlt: 'rgba(255, 240, 179, ',   // Radiant champagne
                     line: 'rgba(229, 184, 66, ',           // Luxury gold filament
-                    lineAlt: 'rgba(96, 165, 250, '         // Electric sapphire shimmer
+                    lineAlt: 'rgba(96, 165, 250, ',        // Electric sapphire shimmer
+                    sparkleGold: 'rgba(245, 199, 90, ',    // Bright gold sparkle
+                    sparkleGlow: 'rgba(255, 240, 179, '    // Radiant diamond sparkle
                 };
             } else {
                 return {
                     particle: 'rgba(201, 151, 38, ',       // Warm bronze gold
                     particleAlt: 'rgba(180, 120, 20, ',    // Deep amber gold
                     line: 'rgba(201, 151, 38, ',           // Warm gold filament
-                    lineAlt: 'rgba(217, 119, 6, '          // Sunlight amber
+                    lineAlt: 'rgba(217, 119, 6, ',         // Sunlight amber
+                    sparkleGold: 'rgba(212, 175, 55, ',    // Royal 24K gold sparkle
+                    sparkleGlow: 'rgba(254, 243, 199, '    // Champagne sparkle glow
                 };
             }
         }
 
+        // --- 1. Golden Constellation Particle ---
         class Particle {
             constructor() {
                 this.x = Math.random() * (width || window.innerWidth);
                 this.y = Math.random() * (height || window.innerHeight);
-                this.vx = (Math.random() - 0.5) * 0.42;
-                this.vy = (Math.random() - 0.5) * 0.42;
+                this.vx = (Math.random() - 0.5) * 0.38;
+                this.vy = (Math.random() - 0.5) * 0.38;
                 this.radius = Math.random() * 2.2 + 0.8;
                 this.baseRadius = this.radius;
                 this.baseAlpha = Math.random() * 0.45 + 0.25;
@@ -219,11 +224,111 @@ document.addEventListener('DOMContentLoaded', function () {
             }
         }
 
+        // --- 2. Golden 4-Point Diamond Sparkle Star (Twinkle Effect) ---
+        class SparkleStar {
+            constructor(spawnNearMouse = false, spawnX = 0, spawnY = 0) {
+                this.reset(spawnNearMouse, spawnX, spawnY);
+            }
+
+            reset(spawnNearMouse = false, spawnX = 0, spawnY = 0) {
+                if (spawnNearMouse) {
+                    this.x = spawnX + (Math.random() - 0.5) * 35;
+                    this.y = spawnY + (Math.random() - 0.5) * 35;
+                    this.vx = (Math.random() - 0.5) * 0.8;
+                    this.vy = (Math.random() - 0.5) * 0.8 - 0.3;
+                    this.isCursorSparkle = true;
+                    this.life = 1.0;
+                    this.decay = Math.random() * 0.025 + 0.018;
+                    this.size = Math.random() * 5 + 3.5;
+                } else {
+                    this.x = Math.random() * (width || window.innerWidth);
+                    this.y = Math.random() * (height || window.innerHeight);
+                    this.vx = (Math.random() - 0.5) * 0.22;
+                    this.vy = (Math.random() - 0.5) * 0.22;
+                    this.isCursorSparkle = false;
+                    this.life = 1.0;
+                    this.decay = 0;
+                    this.size = Math.random() * 6.5 + 4;
+                }
+                this.rotation = Math.random() * Math.PI;
+                this.rotSpeed = (Math.random() - 0.5) * 0.018;
+                this.baseAlpha = Math.random() * 0.4 + 0.35;
+                this.alpha = this.baseAlpha;
+                this.twinkleSpeed = Math.random() * 0.03 + 0.012;
+                this.twinkleOffset = Math.random() * Math.PI * 2;
+            }
+
+            update(time) {
+                this.x += this.vx;
+                this.y += this.vy;
+                this.rotation += this.rotSpeed;
+
+                if (this.isCursorSparkle) {
+                    this.life -= this.decay;
+                    this.alpha = Math.max(0, this.life * 0.9);
+                } else {
+                    if (this.x < -20) this.x = width + 20;
+                    if (this.x > width + 20) this.x = -20;
+                    if (this.y < -20) this.y = height + 20;
+                    if (this.y > height + 20) this.y = -20;
+
+                    const sine = Math.sin(time * this.twinkleSpeed + this.twinkleOffset);
+                    this.alpha = this.baseAlpha + sine * 0.35;
+                    this.alpha = Math.max(0.05, Math.min(0.98, this.alpha));
+                }
+            }
+
+            draw(colors) {
+                if (this.alpha <= 0.01) return;
+
+                const cx = this.x;
+                const cy = this.y;
+                const outer = this.size * (0.6 + this.alpha * 0.4);
+                const inner = outer * 0.22;
+
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.rotate(this.rotation);
+
+                // Draw 4-point diamond star flare
+                ctx.beginPath();
+                for (let i = 0; i < 4; i++) {
+                    const angle = (i * Math.PI) / 2;
+                    ctx.lineTo(Math.cos(angle) * outer, Math.sin(angle) * outer);
+                    const subAngle = angle + Math.PI / 4;
+                    ctx.lineTo(Math.cos(subAngle) * inner, Math.sin(subAngle) * inner);
+                }
+                ctx.closePath();
+
+                ctx.fillStyle = colors.sparkleGold + this.alpha + ')';
+                ctx.shadowBlur = 8 * this.alpha;
+                ctx.shadowColor = colors.sparkleGlow + '0.75)';
+                ctx.fill();
+
+                // Core brilliant diamond glint
+                ctx.beginPath();
+                ctx.arc(0, 0, inner * 0.8, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + (this.alpha * 0.95) + ')';
+                ctx.fill();
+
+                ctx.restore();
+            }
+        }
+
+        let sparkles = [];
+        let cursorSparkles = [];
+
         function initParticles() {
             const count = Math.min(65, Math.max(26, Math.floor((width * height) / 22000)));
             particles = [];
             for (let i = 0; i < count; i++) {
                 particles.push(new Particle());
+            }
+
+            const sparkleCount = Math.min(36, Math.max(18, Math.floor((width * height) / 38000)));
+            sparkles = [];
+            for (let i = 0; i < sparkleCount; i++) {
+                sparkles.push(new SparkleStar());
             }
         }
 
@@ -274,14 +379,36 @@ document.addEventListener('DOMContentLoaded', function () {
                 particles[i].draw(colors);
             }
 
+            // Update and draw floating ambient sparkle stars
+            for (let i = 0; i < sparkles.length; i++) {
+                sparkles[i].update(timestamp * 0.05);
+                sparkles[i].draw(colors);
+            }
+
+            // Update and draw interactive cursor sparkle trail
+            for (let i = cursorSparkles.length - 1; i >= 0; i--) {
+                cursorSparkles[i].update(timestamp * 0.05);
+                cursorSparkles[i].draw(colors);
+                if (cursorSparkles[i].life <= 0) {
+                    cursorSparkles.splice(i, 1);
+                }
+            }
+
             animationFrameId = requestAnimationFrame(animate);
         }
 
         window.addEventListener('resize', resize, { passive: true });
 
+        let lastSparkleTime = 0;
         window.addEventListener('mousemove', (e) => {
             mouse.x = e.clientX;
             mouse.y = e.clientY;
+
+            const now = performance.now();
+            if (now - lastSparkleTime > 80 && cursorSparkles.length < 25) {
+                lastSparkleTime = now;
+                cursorSparkles.push(new SparkleStar(true, e.clientX, e.clientY));
+            }
         }, { passive: true });
 
         window.addEventListener('mouseleave', () => {
@@ -323,12 +450,12 @@ document.addEventListener('DOMContentLoaded', function () {
     updateScrollProgress();
 
     // =========================================================================
-    // 2. STICKY NAVBAR SCROLL STATE
+    // 2. FLOATING NAVBAR SCROLL STATE (DESKTOP & MOBILE)
     // =========================================================================
     const siteHeader = document.getElementById('main-header');
     function handleNavbarScroll() {
         if (siteHeader) {
-            if (window.scrollY > 40) {
+            if (window.scrollY > 10) {
                 siteHeader.classList.add('scrolled');
             } else {
                 siteHeader.classList.remove('scrolled');
@@ -336,6 +463,8 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
     window.addEventListener('scroll', handleNavbarScroll, { passive: true });
+    window.addEventListener('resize', handleNavbarScroll, { passive: true });
+    window.addEventListener('touchmove', handleNavbarScroll, { passive: true });
     handleNavbarScroll();
 
     // =========================================================================
@@ -1010,6 +1139,7 @@ document.addEventListener('DOMContentLoaded', function () {
         initCalculator();
         initConsultationModal();
         initWhatsAppConcierge();
+        handleNavbarScroll();
     }
     reinitPageComponents();
 

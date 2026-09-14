@@ -64,7 +64,7 @@ if ($postJson && ($postJson['status'] ?? '') === 'success') {
 }
 
 // Check subsectors on Smart Funding Solutions page
-$smartHtml = @file_get_contents('http://127.0.0.1:8088/?page=service&id=smart-funding-solutions');
+$smartHtml = @file_get_contents('http://127.0.0.1:8000/?page=service&id=smart-funding-solutions');
 $checks = [
     'Cold Storage Doodle Banner' => (strpos($smartHtml, 'cold-storage-doodle.jpg') !== false),
     'Warehouse Doodle Banner' => (strpos($smartHtml, 'warehouse-doodle.jpg') !== false),

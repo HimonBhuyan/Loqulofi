@@ -21,6 +21,14 @@
      ========================================================================= -->
 <section class="hero-section" id="hero">
     <div class="hero-ornament-bg"></div>
+    <div class="hero-sparkle-field" aria-hidden="true">
+        <span class="hero-sparkle sparkle-1">✦</span>
+        <span class="hero-sparkle sparkle-2">✦</span>
+        <span class="hero-sparkle sparkle-3">✦</span>
+        <span class="hero-sparkle sparkle-4">✦</span>
+        <span class="hero-sparkle sparkle-5">✦</span>
+        <span class="hero-sparkle sparkle-6">✦</span>
+    </div>
     <div class="container hero-container">
         <div class="hero-content text-center">
             
