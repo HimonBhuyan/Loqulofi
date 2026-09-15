@@ -52,6 +52,7 @@
     <div class="ambient-glow glow-top-left"></div>
     <div class="ambient-glow glow-center-right"></div>
     <div class="ambient-glow glow-bottom-left"></div>
+    <div class="ambient-glow glow-center-hero"></div>
 
     <!-- Cinematic Royal Preloader (Home Screen Only) -->
     @if(!empty($is_home) || (isset($page) && $page === 'home') || (!isset($page) && empty($_GET['page'])))

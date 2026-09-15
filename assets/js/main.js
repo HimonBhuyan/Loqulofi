@@ -166,15 +166,15 @@ document.addEventListener('DOMContentLoaded', function () {
             constructor() {
                 this.x = Math.random() * (width || window.innerWidth);
                 this.y = Math.random() * (height || window.innerHeight);
-                this.vx = (Math.random() - 0.5) * 0.38;
-                this.vy = (Math.random() - 0.5) * 0.38;
-                this.radius = Math.random() * 2.2 + 0.8;
+                this.vx = (Math.random() - 0.5) * 0.45;
+                this.vy = (Math.random() - 0.5) * 0.45;
+                this.radius = Math.random() * 2.5 + 1.0;
                 this.baseRadius = this.radius;
-                this.baseAlpha = Math.random() * 0.45 + 0.25;
+                this.baseAlpha = Math.random() * 0.55 + 0.35;
                 this.alpha = this.baseAlpha;
-                this.pulseSpeed = Math.random() * 0.02 + 0.008;
+                this.pulseSpeed = Math.random() * 0.025 + 0.01;
                 this.pulseOffset = Math.random() * Math.PI * 2;
-                this.isSpecial = Math.random() > 0.82;
+                this.isSpecial = Math.random() > 0.75;
             }
 
             update(time) {
@@ -186,8 +186,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (this.y < -15) this.y = height + 15;
                 if (this.y > height + 15) this.y = -15;
 
-                this.alpha = this.baseAlpha + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.22;
-                this.alpha = Math.max(0.08, Math.min(0.9, this.alpha));
+                this.alpha = this.baseAlpha + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.25;
+                this.alpha = Math.max(0.15, Math.min(0.95, this.alpha));
 
                 if (mouse.x !== null && mouse.y !== null) {
                     const dx = mouse.x - this.x;
@@ -195,10 +195,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     const distance = Math.sqrt(dx * dx + dy * dy);
 
                     if (distance < mouse.radius) {
-                        const force = (1 - distance / mouse.radius) * 0.5;
-                        this.x -= (dx / distance) * force * 1.6;
-                        this.y -= (dy / distance) * force * 1.6;
-                        this.radius = this.baseRadius * (1 + force * 0.9);
+                        const force = (1 - distance / mouse.radius) * 0.6;
+                        this.x -= (dx / distance) * force * 2.2;
+                        this.y -= (dy / distance) * force * 2.2;
+                        this.radius = this.baseRadius * (1 + force * 1.2);
                     } else {
                         if (this.radius > this.baseRadius) {
                             this.radius -= 0.04;
@@ -215,10 +215,10 @@ document.addEventListener('DOMContentLoaded', function () {
                 ctx.fillStyle = colPrefix + this.alpha + ')';
                 ctx.fill();
 
-                if (this.isSpecial && this.radius > 1.4) {
+                if (this.isSpecial && this.radius > 1.2) {
                     ctx.beginPath();
-                    ctx.arc(this.x, this.y, this.radius * 2.8, 0, Math.PI * 2);
-                    ctx.fillStyle = colPrefix + (this.alpha * 0.16) + ')';
+                    ctx.arc(this.x, this.y, this.radius * 3.2, 0, Math.PI * 2);
+                    ctx.fillStyle = colPrefix + (this.alpha * 0.22) + ')';
                     ctx.fill();
                 }
             }
@@ -232,29 +232,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
             reset(spawnNearMouse = false, spawnX = 0, spawnY = 0) {
                 if (spawnNearMouse) {
-                    this.x = spawnX + (Math.random() - 0.5) * 35;
-                    this.y = spawnY + (Math.random() - 0.5) * 35;
-                    this.vx = (Math.random() - 0.5) * 0.8;
-                    this.vy = (Math.random() - 0.5) * 0.8 - 0.3;
+                    this.x = spawnX + (Math.random() - 0.5) * 45;
+                    this.y = spawnY + (Math.random() - 0.5) * 45;
+                    this.vx = (Math.random() - 0.5) * 1.2;
+                    this.vy = (Math.random() - 0.5) * 1.2 - 0.4;
                     this.isCursorSparkle = true;
                     this.life = 1.0;
-                    this.decay = Math.random() * 0.025 + 0.018;
-                    this.size = Math.random() * 5 + 3.5;
+                    this.decay = Math.random() * 0.03 + 0.018;
+                    this.size = Math.random() * 7 + 4.5;
                 } else {
                     this.x = Math.random() * (width || window.innerWidth);
                     this.y = Math.random() * (height || window.innerHeight);
-                    this.vx = (Math.random() - 0.5) * 0.22;
-                    this.vy = (Math.random() - 0.5) * 0.22;
+                    this.vx = (Math.random() - 0.5) * 0.28;
+                    this.vy = (Math.random() - 0.5) * 0.28;
                     this.isCursorSparkle = false;
                     this.life = 1.0;
                     this.decay = 0;
-                    this.size = Math.random() * 6.5 + 4;
+                    this.size = Math.random() * 8 + 5;
                 }
                 this.rotation = Math.random() * Math.PI;
-                this.rotSpeed = (Math.random() - 0.5) * 0.018;
-                this.baseAlpha = Math.random() * 0.4 + 0.35;
+                this.rotSpeed = (Math.random() - 0.5) * 0.024;
+                this.baseAlpha = Math.random() * 0.45 + 0.4;
                 this.alpha = this.baseAlpha;
-                this.twinkleSpeed = Math.random() * 0.03 + 0.012;
+                this.twinkleSpeed = Math.random() * 0.035 + 0.015;
                 this.twinkleOffset = Math.random() * Math.PI * 2;
             }
 
@@ -265,7 +265,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (this.isCursorSparkle) {
                     this.life -= this.decay;
-                    this.alpha = Math.max(0, this.life * 0.9);
+                    this.alpha = Math.max(0, this.life * 0.95);
                 } else {
                     if (this.x < -20) this.x = width + 20;
                     if (this.x > width + 20) this.x = -20;
@@ -273,8 +273,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     if (this.y > height + 20) this.y = -20;
 
                     const sine = Math.sin(time * this.twinkleSpeed + this.twinkleOffset);
-                    this.alpha = this.baseAlpha + sine * 0.35;
-                    this.alpha = Math.max(0.05, Math.min(0.98, this.alpha));
+                    this.alpha = this.baseAlpha + sine * 0.4;
+                    this.alpha = Math.max(0.1, Math.min(1.0, this.alpha));
                 }
             }
 
@@ -283,7 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 const cx = this.x;
                 const cy = this.y;
-                const outer = this.size * (0.6 + this.alpha * 0.4);
+                const outer = this.size * (0.65 + this.alpha * 0.45);
                 const inner = outer * 0.22;
 
                 ctx.save();
@@ -301,43 +301,145 @@ document.addEventListener('DOMContentLoaded', function () {
                 ctx.closePath();
 
                 ctx.fillStyle = colors.sparkleGold + this.alpha + ')';
-                ctx.shadowBlur = 8 * this.alpha;
-                ctx.shadowColor = colors.sparkleGlow + '0.75)';
+                ctx.shadowBlur = 10 * this.alpha;
+                ctx.shadowColor = colors.sparkleGlow + '0.85)';
                 ctx.fill();
 
                 // Core brilliant diamond glint
                 ctx.beginPath();
-                ctx.arc(0, 0, inner * 0.8, 0, Math.PI * 2);
-                ctx.fillStyle = 'rgba(255, 255, 255, ' + (this.alpha * 0.95) + ')';
+                ctx.arc(0, 0, inner * 0.85, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(255, 255, 255, ' + (this.alpha * 0.98) + ')';
                 ctx.fill();
 
                 ctx.restore();
             }
         }
 
+        // --- 3. Luminous Floating Bokeh Orbs ---
+        class BokehOrb {
+            constructor() {
+                this.reset();
+            }
+            reset() {
+                this.x = Math.random() * (width || window.innerWidth);
+                this.y = Math.random() * (height || window.innerHeight);
+                this.vx = (Math.random() - 0.5) * 0.3;
+                this.vy = -Math.random() * 0.35 - 0.12;
+                this.radius = Math.random() * 32 + 14;
+                this.baseAlpha = Math.random() * 0.22 + 0.10;
+                this.pulseSpeed = Math.random() * 0.018 + 0.006;
+                this.pulseOffset = Math.random() * Math.PI * 2;
+                this.isGold = Math.random() > 0.45;
+            }
+            update(time) {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.y < -this.radius * 2) this.y = height + this.radius * 2;
+                if (this.x < -this.radius * 2) this.x = width + this.radius * 2;
+                if (this.x > width + this.radius * 2) this.x = -this.radius * 2;
+                this.alpha = this.baseAlpha + Math.sin(time * this.pulseSpeed + this.pulseOffset) * 0.09;
+                this.alpha = Math.max(0.04, Math.min(0.4, this.alpha));
+            }
+            draw(isDark) {
+                const grad = ctx.createRadialGradient(this.x, this.y, 0, this.x, this.y, this.radius);
+                if (this.isGold) {
+                    grad.addColorStop(0, 'rgba(245, 199, 90, ' + this.alpha + ')');
+                    grad.addColorStop(0.5, 'rgba(212, 175, 55, ' + (this.alpha * 0.45) + ')');
+                    grad.addColorStop(1, 'rgba(212, 175, 55, 0)');
+                } else {
+                    if (isDark) {
+                        grad.addColorStop(0, 'rgba(59, 130, 246, ' + (this.alpha * 1.3) + ')');
+                        grad.addColorStop(0.5, 'rgba(30, 64, 175, ' + (this.alpha * 0.55) + ')');
+                        grad.addColorStop(1, 'rgba(30, 64, 175, 0)');
+                    } else {
+                        grad.addColorStop(0, 'rgba(254, 215, 170, ' + this.alpha + ')');
+                        grad.addColorStop(0.5, 'rgba(243, 236, 225, ' + (this.alpha * 0.35) + ')');
+                        grad.addColorStop(1, 'rgba(243, 236, 225, 0)');
+                    }
+                }
+                ctx.fillStyle = grad;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
         let sparkles = [];
         let cursorSparkles = [];
+        let bokehOrbs = [];
 
         function initParticles() {
-            const count = Math.min(65, Math.max(26, Math.floor((width * height) / 22000)));
+            const count = Math.min(75, Math.max(30, Math.floor((width * height) / 20000)));
             particles = [];
             for (let i = 0; i < count; i++) {
                 particles.push(new Particle());
             }
 
-            const sparkleCount = Math.min(36, Math.max(18, Math.floor((width * height) / 38000)));
+            const sparkleCount = Math.min(45, Math.max(22, Math.floor((width * height) / 28000)));
             sparkles = [];
             for (let i = 0; i < sparkleCount; i++) {
                 sparkles.push(new SparkleStar());
+            }
+
+            const bokehCount = Math.min(24, Math.max(12, Math.floor((width * height) / 55000)));
+            bokehOrbs = [];
+            for (let i = 0; i < bokehCount; i++) {
+                bokehOrbs.push(new BokehOrb());
             }
         }
 
         function animate(timestamp) {
             ctx.clearRect(0, 0, width, height);
 
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             const colors = getThemeColors();
-            const maxDistance = width < 768 ? 90 : 130;
+            const maxDistance = width < 768 ? 95 : 140;
 
+            // --- 0. Dynamic Live Canvas Aurora Breathing Field ---
+            const t = timestamp * 0.0006;
+            const cx = width * 0.5 + Math.sin(t * 0.7) * (width * 0.15);
+            const cy = height * 0.35 + Math.cos(t * 0.5) * (height * 0.1);
+            const auraRadius = Math.min(width, height) * 0.45;
+            const breatheGlow = ctx.createRadialGradient(cx, cy, 0, cx, cy, auraRadius);
+            if (isDark) {
+                breatheGlow.addColorStop(0, 'rgba(30, 64, 175, 0.12)');
+                breatheGlow.addColorStop(0.5, 'rgba(14, 165, 233, 0.05)');
+                breatheGlow.addColorStop(1, 'rgba(6, 15, 30, 0)');
+            } else {
+                breatheGlow.addColorStop(0, 'rgba(245, 199, 90, 0.08)');
+                breatheGlow.addColorStop(0.5, 'rgba(254, 243, 199, 0.04)');
+                breatheGlow.addColorStop(1, 'rgba(243, 236, 225, 0)');
+            }
+            ctx.fillStyle = breatheGlow;
+            ctx.beginPath();
+            ctx.arc(cx, cy, auraRadius, 0, Math.PI * 2);
+            ctx.fill();
+
+            // --- 0.1 Interactive Volumetric Cursor Glow Halo ---
+            if (mouse.x !== null && mouse.y !== null) {
+                const cursorGlow = ctx.createRadialGradient(mouse.x, mouse.y, 0, mouse.x, mouse.y, 180);
+                if (isDark) {
+                    cursorGlow.addColorStop(0, 'rgba(59, 130, 246, 0.18)');
+                    cursorGlow.addColorStop(0.5, 'rgba(229, 184, 66, 0.06)');
+                    cursorGlow.addColorStop(1, 'rgba(6, 15, 30, 0)');
+                } else {
+                    cursorGlow.addColorStop(0, 'rgba(212, 175, 55, 0.16)');
+                    cursorGlow.addColorStop(0.5, 'rgba(254, 243, 199, 0.06)');
+                    cursorGlow.addColorStop(1, 'rgba(243, 236, 225, 0)');
+                }
+                ctx.fillStyle = cursorGlow;
+                ctx.beginPath();
+                ctx.arc(mouse.x, mouse.y, 180, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // --- 0.2 Floating Bokeh Ambient Orbs ---
+            for (let i = 0; i < bokehOrbs.length; i++) {
+                bokehOrbs[i].update(timestamp * 0.05);
+                bokehOrbs[i].draw(isDark);
+            }
+
+            // --- 1. Interconnecting Constellation Filaments ---
             for (let i = 0; i < particles.length; i++) {
                 for (let j = i + 1; j < particles.length; j++) {
                     const dx = particles[i].x - particles[j].x;
@@ -345,12 +447,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
                     if (dist < maxDistance) {
-                        const lineAlpha = (1 - dist / maxDistance) * 0.22;
+                        const lineAlpha = (1 - dist / maxDistance) * 0.26;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(particles[j].x, particles[j].y);
                         ctx.strokeStyle = colors.line + lineAlpha + ')';
-                        ctx.lineWidth = 0.85;
+                        ctx.lineWidth = 0.95;
                         ctx.stroke();
                     }
                 }
@@ -363,12 +465,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const dist = Math.sqrt(dx * dx + dy * dy);
 
                     if (dist < mouse.radius) {
-                        const mouseLineAlpha = (1 - dist / mouse.radius) * 0.38;
+                        const mouseLineAlpha = (1 - dist / mouse.radius) * 0.45;
                         ctx.beginPath();
                         ctx.moveTo(particles[i].x, particles[i].y);
                         ctx.lineTo(mouse.x, mouse.y);
                         ctx.strokeStyle = colors.lineAlt + mouseLineAlpha + ')';
-                        ctx.lineWidth = 1.1;
+                        ctx.lineWidth = 1.25;
                         ctx.stroke();
                     }
                 }
@@ -405,10 +507,11 @@ document.addEventListener('DOMContentLoaded', function () {
             mouse.y = e.clientY;
 
             const now = performance.now();
-            if (now - lastSparkleTime > 80 && cursorSparkles.length < 25) {
+            if (now - lastSparkleTime > 60 && cursorSparkles.length < 35) {
                 lastSparkleTime = now;
                 cursorSparkles.push(new SparkleStar(true, e.clientX, e.clientY));
             }
+        }, { passive: true });
         }, { passive: true });
 
         window.addEventListener('mouseleave', () => {
