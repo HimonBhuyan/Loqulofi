@@ -512,7 +512,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 cursorSparkles.push(new SparkleStar(true, e.clientX, e.clientY));
             }
         }, { passive: true });
-        }, { passive: true });
 
         window.addEventListener('mouseleave', () => {
             mouse.x = null;
