@@ -35,8 +35,12 @@ $company = [
     'short_name' => 'Liqulofi',
     'tagline' => 'CAPITAL BEYOND LIMITS',
     'offices' => 'Gujarat | Madhya Pradesh',
-    'address' => 'Office No. 203, Scheme No. 54, Dhan Trident, Vijay Nagar, Indore, Madhya Pradesh',
-    'headquarters' => 'Office No. 203, Scheme No. 54, Dhan Trident, Vijay Nagar, Indore, Madhya Pradesh',
+    'mp_address' => '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh',
+    'gujarat_address' => '15 Nataraj Empire, Anchana Chowk, Nikol, Ahmedabad, Gujarat',
+    'address' => '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh',
+    'headquarters' => '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh',
+    'quick_connect_phone' => '+91 88892 80848',
+    'quick_connect_raw' => '918889280848',
     'coverage' => 'Working PAN INDIA',
     'ticket_size_range' => '1 CR to 1000 CR',
     'email' => 'finance@liqulofipvtltd.com',
@@ -258,13 +262,13 @@ $services = [
         'subtitle' => 'Turn Your Dream Home into a Reality',
         'category' => 'Retail & High Net-Worth',
         'page_num' => 6,
-        'ticket_size' => '5 CR ONLY',
+        'ticket_size' => '1 CR TO 5 CR',
         'ticket_numeric_min' => 1,
         'ticket_numeric_max' => 5,
         'slogan' => 'MORE SPACE. MORE COMFORT. More Life.',
-        'short_desc' => 'Access substantial funding up to ₹5 Crore to own your luxury dream home with flexible repayment and fast approvals.',
+        'short_desc' => 'Access substantial funding from ₹1 Crore up to ₹5 Crore to own your luxury dream home with flexible repayment and fast approvals.',
         'key_points' => [
-            ['title' => 'Higher Loan Amounts', 'desc' => 'Access substantial funding up to ₹5 Crore to own your dream home.'],
+            ['title' => 'Higher Loan Amounts', 'desc' => 'Access substantial funding from ₹1 Crore up to ₹5 Crore to own your dream home.'],
             ['title' => 'Competitive Interest Rates', 'desc' => 'Enjoy attractive rates with flexible repayment options.'],
             ['title' => 'Quick & Hassle-Free Process', 'desc' => 'Minimal documentation and faster approvals.'],
             ['title' => 'Secure & Reliable', 'desc' => 'Backed by trusted financial partners for a worry-free experience.'],
@@ -325,9 +329,9 @@ $services = [
         'subtitle' => 'Fueling Your Projects. Building the Future.',
         'category' => 'Real Estate & Infrastructure',
         'page_num' => 8,
-        'ticket_size' => '1 CR TO 500 CR',
+        'ticket_size' => '1 CR TO 1000 CR',
         'ticket_numeric_min' => 1,
-        'ticket_numeric_max' => 500,
+        'ticket_numeric_max' => 1000,
         'slogan' => 'Strengthening Builders. Creating Landmarks.',
         'short_desc' => 'Tailored project financing structures for real estate developers and builders across residential, commercial, and industrial segments.',
         'empowering_points' => [
@@ -349,9 +353,9 @@ $services = [
         'subtitle' => 'Smart Funding for Your Dream Properties.',
         'category' => 'Real Estate',
         'page_num' => 9,
-        'ticket_size' => '1 CR TO 1000 CR',
+        'ticket_size' => '1 CR TO 500 CR',
         'ticket_numeric_min' => 1,
-        'ticket_numeric_max' => 1000,
+        'ticket_numeric_max' => 500,
         'slogan' => 'Your Property. Our Funding. Your Growth.',
         'short_desc' => 'End-to-end funding solutions for residential property acquisition, large-scale construction, loan takeover, and plot development.',
         'key_points' => [
@@ -371,7 +375,7 @@ $services = [
             'Plot + Construction'
         ],
         'why_points' => [
-            'Up to 1000 Cr Funding',
+            'Up to 500 Cr Funding',
             'Pan India Presence',
             'Transparent Process',
             'Expert Guidance at Every Step',
@@ -563,7 +567,7 @@ $services = [
         'short_desc' => 'Specialized infrastructure funding for Cold Storage facilities, Warehouses & Logistics Hubs, and Large-Scale Dairy Farms.',
         'sub_sectors' => [
             [
-                'id' => 'cold-storage',
+                'id' => 'cold-storage-funding',
                 'title' => 'COLD STORAGE FUNDING',
                 'tagline' => 'Powering Preservation. Securing Tomorrow.',
                 'icon' => 'fa-snowflake',
@@ -577,7 +581,7 @@ $services = [
                 'we_finance' => ['Land Purchase', 'Construction', 'Machinery & Equipment', 'Working Capital']
             ],
             [
-                'id' => 'warehouse',
+                'id' => 'warehouse-funding',
                 'title' => 'WAREHOUSE FUNDING',
                 'tagline' => 'Stronger Storage. Smoother Supply Chain.',
                 'icon' => 'fa-warehouse',
@@ -591,7 +595,7 @@ $services = [
                 'we_finance' => ['Land Purchase', 'Construction', 'Infrastructure & Equipment', 'Working Capital']
             ],
             [
-                'id' => 'dairy-farm',
+                'id' => 'dairy-farm-funding',
                 'title' => 'DAIRY FARM FUNDING',
                 'tagline' => 'Healthy Livestock. Profitable Future.',
                 'icon' => 'fa-cow',
@@ -614,8 +618,136 @@ $services = [
             'End to End Support – From approval to disbursement'
         ],
         'icon' => 'truck'
+    ],
+    'cold-storage-funding' => [
+        'id' => 'cold-storage-funding',
+        'title' => 'COLD STORAGE FUNDING',
+        'subtitle' => 'Powering Preservation. Securing Tomorrow.',
+        'category' => 'Agri-Infrastructure & Cold Chain',
+        'page_num' => 15,
+        'ticket_size' => '1 CR TO 1000 CR',
+        'ticket_numeric_min' => 1,
+        'ticket_numeric_max' => 1000,
+        'slogan' => 'Powering Preservation. Securing Tomorrow.',
+        'short_desc' => 'Comprehensive institutional funding for construction, modernization, and turnkey setup of modern cold storage facilities, atmosphere-controlled chambers, and cold-chain logistics.',
+        'key_points' => [
+            ['title' => 'Turnkey Facility Setup', 'desc' => 'End-to-end funding from land acquisition and civil construction to insulation and multi-commodity grading.'],
+            ['title' => 'Energy Efficient Technology', 'desc' => 'Financing state-of-the-art refrigeration systems, solar integration, and automated climate control.'],
+            ['title' => 'High Ticket Sizing', 'desc' => 'Sanctions from ₹1 Crore up to ₹1000 Crore with flexible moratorium and repayment schedules.'],
+            ['title' => 'Government Subsidies & Schemes', 'desc' => 'Guidance and structuring for capital subsidy programs under MoFPI, MIDH, and state industrial policies.'],
+            ['title' => 'PAN India Execution', 'desc' => 'Quick approvals and phased disbursals matching project construction milestones across all states.']
+        ],
+        'features_grid' => [
+            ['title' => 'LAND PURCHASE', 'desc' => 'Strategic plots & industrial zoning', 'icon' => 'map-pin'],
+            ['title' => 'CIVIL CONSTRUCTION', 'desc' => 'Heavy-duty insulated chambers', 'icon' => 'building'],
+            ['title' => 'PLANT & MACHINERY', 'desc' => 'Compressors, condensers & blast freezers', 'icon' => 'cpu'],
+            ['title' => 'WORKING CAPITAL', 'desc' => 'Seasonal stocking & operational liquidity', 'icon' => 'coins'],
+            ['title' => 'LONG MORATORIUM', 'desc' => 'Structured around harvest cycles', 'icon' => 'calendar']
+        ],
+        'purposes' => [
+            ['title' => 'LAND PURCHASE', 'desc' => 'Funding strategic land acquisition for cold chain facilities.'],
+            ['title' => 'CONSTRUCTION', 'desc' => 'Multi-chamber cold stores and controlled atmosphere (CA) storage.'],
+            ['title' => 'MACHINERY & REFRIGERATION', 'desc' => 'Freon / Ammonia refrigeration units, cooling towers, and gensets.'],
+            ['title' => 'EXPANSION & MODERNIZATION', 'desc' => 'Retrofitting older units with energy-efficient systems.'],
+            ['title' => 'WORKING CAPITAL & INVENTORY', 'desc' => 'Pre-harvest and post-harvest produce financing.']
+        ],
+        'why_points' => [
+            'High Ticket Sizing up to ₹1000 Crore',
+            'Customized Moratorium matching construction and harvest seasons',
+            'Direct tie-ups with leading nationalized and private banks',
+            'End-to-end appraisal including DPR (Detailed Project Report) & Valuation',
+            'Transparent processing with direct Director-level syndication'
+        ],
+        'icon' => 'snowflake'
+    ],
+    'warehouse-funding' => [
+        'id' => 'warehouse-funding',
+        'title' => 'WAREHOUSE FUNDING',
+        'subtitle' => 'Stronger Storage. Smoother Supply Chain.',
+        'category' => 'Logistics & Supply Chain Infrastructure',
+        'page_num' => 15,
+        'ticket_size' => '1 CR TO 1000 CR',
+        'ticket_numeric_min' => 1,
+        'ticket_numeric_max' => 1000,
+        'slogan' => 'Stronger Storage. Smoother Supply Chain.',
+        'short_desc' => 'Large-scale debt syndication and project finance for custom-built warehouses, modern Grade-A logistics parks, automated storage and fulfillment centres.',
+        'key_points' => [
+            ['title' => 'Grade-A Logistics Parks', 'desc' => 'Financing high-cube pre-engineered buildings (PEB), cross-docking bays, and multimodal hubs.'],
+            ['title' => 'Land & Pre-Construction', 'desc' => 'Funding land purchase, boundary infrastructure, heavy-duty internal roads, and utilities.'],
+            ['title' => 'High Ticket Scale', 'desc' => 'Structured project loans from ₹1 Crore to ₹1000 Crore for domestic and multinational 3PL / e-commerce hubs.'],
+            ['title' => 'Lease Rental Discounting (LRD)', 'desc' => 'Discounting future rent cashflows from verified corporate and e-commerce tenants for instant liquidity.'],
+            ['title' => 'Fast-Track Sanctions', 'desc' => 'Quick evaluation and milestone-based releases ensuring zero project bottlenecks.']
+        ],
+        'features_grid' => [
+            ['title' => 'LAND ACQUISITION', 'desc' => 'Strategic highway & corridor connectivity', 'icon' => 'map-pin'],
+            ['title' => 'PEB SHED CONSTRUCTION', 'desc' => 'Standard and high-bay Grade-A builds', 'icon' => 'warehouse'],
+            ['title' => 'MATERIAL HANDLING', 'desc' => 'Forklifts, conveyors & automated sorting', 'icon' => 'truck'],
+            ['title' => 'LRD CONVERSION', 'desc' => 'Monetize existing tenant leases', 'icon' => 'file-text'],
+            ['title' => 'WORKING CAPITAL', 'desc' => 'Operational cashflow facilities', 'icon' => 'coins']
+        ],
+        'purposes' => [
+            ['title' => 'LAND PURCHASE', 'desc' => 'Prime logistics land on highways, bypasses, and industrial corridors.'],
+            ['title' => 'CIVIL & PEB CONSTRUCTION', 'desc' => 'Flooring with high load capacity, fire safety systems, and docking.'],
+            ['title' => 'INFRASTRUCTURE & EQUIPMENT', 'desc' => 'Modern racking systems, CCTV security, docks, and solar rooftops.'],
+            ['title' => 'EXPANSION & REFINANCING', 'desc' => 'Takeover of existing high-interest facilities with debt elongation.'],
+            ['title' => 'WORKING CAPITAL LIMITS', 'desc' => 'CC/OD lines for facility operations and vendor management.']
+        ],
+        'why_points' => [
+            'Ticket Size from ₹1 Crore up to ₹1000 Crore',
+            'Competitive interest rates through consortium and multi-bank tie-ups',
+            'LRD (Lease Rental Discounting) structuring capability',
+            'Pan India coverage across Tier-1, Tier-2, and strategic freight corridors',
+            'Hands-on support from feasibility study to final disbursement'
+        ],
+        'icon' => 'warehouse'
+    ],
+    'dairy-farm-funding' => [
+        'id' => 'dairy-farm-funding',
+        'title' => 'DAIRY FARM FUNDING',
+        'subtitle' => 'Healthy Livestock. Profitable Future.',
+        'category' => 'Agri-Allied & Livestock Enterprise',
+        'page_num' => 15,
+        'ticket_size' => '1 CR TO 1000 CR',
+        'ticket_numeric_min' => 1,
+        'ticket_numeric_max' => 1000,
+        'slogan' => 'Healthy Livestock. Profitable Future.',
+        'short_desc' => 'Turnkey financing for modern commercial dairy projects, high-yield cattle purchase, automated milking parlors, cattle feed processing units, and milk chilling infrastructure.',
+        'key_points' => [
+            ['title' => 'Commercial Dairy Setup', 'desc' => 'Comprehensive capital for sheds, silage pits, bio-gas plants, and water infrastructure.'],
+            ['title' => 'High-Yield Livestock Acquisition', 'desc' => 'Funding quality indigenous and cross-breed cows/buffaloes with veterinary safety checks.'],
+            ['title' => 'Milking & Processing Automation', 'desc' => 'Financing rotary parlors, bulk milk coolers (BMC), chilling units, and value-add processing (ghee, paneer).'],
+            ['title' => 'Animal Husbandry Subsidies', 'desc' => 'Structuring under AHIDF, NABARD, and State Livestock Development schemes for interest subventions.'],
+            ['title' => 'Working Capital Facilities', 'desc' => 'Revolving lines for feed, fodder cultivation, veterinary healthcare, and labor.']
+        ],
+        'features_grid' => [
+            ['title' => 'LAND & FARM SETUP', 'desc' => 'Pasture land, housing sheds & silos', 'icon' => 'map-pin'],
+            ['title' => 'LIVESTOCK PURCHASE', 'desc' => 'High-milking pedigree breeds', 'icon' => 'shield'],
+            ['title' => 'DAIRY AUTOMATION', 'desc' => 'Bulk coolers, pipelines & pasteurization', 'icon' => 'cpu'],
+            ['title' => 'FEED UNITS & TMR', 'desc' => 'Total mixed ration machines & fodder', 'icon' => 'tool'],
+            ['title' => 'WORKING CAPITAL', 'desc' => 'Day-to-day herd maintenance & supply chain', 'icon' => 'coins']
+        ],
+        'purposes' => [
+            ['title' => 'LAND PURCHASE', 'desc' => 'Acquiring agricultural land for dairy sheds and fodder crops.'],
+            ['title' => 'SHED & INFRASTRUCTURE', 'desc' => 'Freestall housing, cooling fans, misting systems, and biogas plants.'],
+            ['title' => 'EQUIPMENT & PROCESSING', 'desc' => 'Bulk milk coolers, milking machines, processing plants, and packaging.'],
+            ['title' => 'LIVESTOCK PROCUREMENT', 'desc' => 'Certified high genetic merit dairy cows and buffaloes.'],
+            ['title' => 'OPERATING CAPITAL', 'desc' => 'Cashflow for nutrition, vaccination, silage production, and transport.']
+        ],
+        'why_points' => [
+            'Ticket Size from ₹1 Crore up to ₹1000 Crore',
+            'Flexible repayment mapped to milk procurement contracts and lactations',
+            'Expert guidance on government dairy infrastructure funds and subsidy integration',
+            'Pan India footprint covering both greenfield and operational expansions',
+            'Director-led advisory ensuring seamless credit sanction'
+        ],
+        'icon' => 'cow'
     ]
 ];
+
+// Service ID Aliases for easy URL routing
+$services['cold-storage'] = &$services['cold-storage-funding'];
+$services['warehouse'] = &$services['warehouse-funding'];
+$services['dairy-farm'] = &$services['dairy-farm-funding'];
 
 // Bank Tie-Up Partners from Page 16
 $banks = [

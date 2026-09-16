@@ -71,9 +71,23 @@
                         </svg>
                     </div>
                     <div class="corp-info">
-                        <span class="corp-lbl">OFFICE ADDRESS</span>
-                        <span class="corp-val">{{ $company['address'] ?? 'Office No. 203, Scheme No. 54, Dhan Trident, Vijay Nagar, Indore, Madhya Pradesh' }}</span>
-                        <span class="corp-sub">Regional Hubs: Gujarat | Madhya Pradesh (Operating Across All States PAN INDIA)</span>
+                        <span class="corp-lbl">MADHYA PRADESH OFFICE</span>
+                        <span class="corp-val">{{ $company['mp_address'] ?? '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh' }}</span>
+                        <span class="corp-sub">Regional Operating Headquarters</span>
+                    </div>
+                </div>
+
+                <div class="corp-detail-card">
+                    <div class="corp-icon">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                            <circle cx="12" cy="10" r="3"></circle>
+                        </svg>
+                    </div>
+                    <div class="corp-info">
+                        <span class="corp-lbl">GUJARAT OFFICE</span>
+                        <span class="corp-val">{{ $company['gujarat_address'] ?? '15 Nataraj Empire, Anchana Chowk, Nikol, Ahmedabad, Gujarat' }}</span>
+                        <span class="corp-sub">Western Region Operating Hub</span>
                     </div>
                 </div>
 
@@ -85,23 +99,9 @@
                         </svg>
                     </div>
                     <div class="corp-info">
-                        <span class="corp-lbl">OFFICIAL EMAIL</span>
+                        <span class="corp-lbl">OFFICIAL EMAIL &amp; QUICK CONNECT</span>
                         <a href="mailto:{{ $company['email'] }}" class="corp-val link-gold">{{ $company['email'] }}</a>
-                        <span class="corp-sub">Fast response within 24 business hours</span>
-                    </div>
-                </div>
-
-                <div class="corp-detail-card">
-                    <div class="corp-icon">
-                        <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"></circle>
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
-                        </svg>
-                    </div>
-                    <div class="corp-info">
-                        <span class="corp-lbl">OFFICIAL WEB PORTAL</span>
-                        <a href="https://{{ $company['website'] }}" target="_blank" class="corp-val link-gold">{{ $company['website'] }}</a>
-                        <span class="corp-sub">CAPITAL BEYOND LIMITS</span>
+                        <span class="corp-sub"><i class="fa-brands fa-whatsapp"></i> Quick Connect: <strong style="color: #22C55E;">+91 88892 80848</strong></span>
                     </div>
                 </div>
 
@@ -112,7 +112,7 @@
                     <div class="corp-info">
                         <span class="corp-lbl">STANDARD TICKET RANGE</span>
                         <span class="corp-val highlight-gold">{{ $company['ticket_size_range'] }}</span>
-                        <span class="corp-sub">Secured Loans, Project Finance, Corporate Lines</span>
+                        <span class="corp-sub">Secured Loans, Project Finance, Corporate Lines (PAN INDIA)</span>
                     </div>
                 </div>
             </div>

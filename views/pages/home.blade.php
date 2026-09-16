@@ -140,7 +140,7 @@
             <span class="ticker-item"><span class="ticker-gem">✦</span> HIGH-TICKET FUNDING ₹1 CR TO ₹1000 CR</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> PAN INDIA CAPITAL DISBURSAL</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> 15+ LEADING BANK & NBFC TIE-UPS</span>
-            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (5 CR ONLY)</span>
+            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (1-5 CR)</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> BUILDER & REAL ESTATE PROJECT FINANCE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> COMMERCIAL & INDUSTRIAL INFRASTRUCTURE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> HOTEL & HOSPITAL PROPERTY FUNDING</span>
@@ -150,7 +150,7 @@
             <span class="ticker-item"><span class="ticker-gem">✦</span> HIGH-TICKET FUNDING ₹1 CR TO ₹1000 CR</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> PAN INDIA CAPITAL DISBURSAL</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> 15+ LEADING BANK & NBFC TIE-UPS</span>
-            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (5 CR ONLY)</span>
+            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (1-5 CR)</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> BUILDER & REAL ESTATE PROJECT FINANCE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> COMMERCIAL & INDUSTRIAL INFRASTRUCTURE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> HOTEL & HOSPITAL PROPERTY FUNDING</span>
@@ -489,7 +489,7 @@
                         @if(isset($srv['sub_sectors']))
                             <div class="sub-sectors-grid">
                                 @foreach($srv['sub_sectors'] as $sub)
-                                    <div class="sub-sector-box">
+                                    <a href="index.php?page=service&id={{ $sub['id'] }}" class="sub-sector-box sub-sector-clickable-card" title="Explore {{ $sub['title'] }} Dedicated Page">
                                         @if(isset($sub['banner_img']))
                                             <div class="sub-sector-thumb-wrap">
                                                 <img src="{{ $sub['banner_img'] }}" alt="{{ $sub['title'] }}" class="sub-sector-thumb" loading="lazy">
@@ -503,8 +503,11 @@
                                                     <span class="wf-tag">{{ $wf }}</span>
                                                 @endforeach
                                             </div>
+                                            <div class="sub-sector-action-link mt-2" style="font-size: 0.78rem; font-weight: 700; color: var(--gold-dark); display: flex; align-items: center; gap: 0.35rem;">
+                                                <span>Explore Dedicated Page &rarr;</span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 @endforeach
                             </div>
                         @endif

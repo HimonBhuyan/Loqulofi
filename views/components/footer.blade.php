@@ -109,10 +109,10 @@
             <div class="footer-col">
                 <h4 class="footer-heading">FUNDING PORTFOLIOS</h4>
                 <ul class="footer-links">
-                    <li><a href="index.php?page=service&id=prime-home-loans">Prime Home Loans (5 Cr)</a></li>
+                    <li><a href="index.php?page=service&id=prime-home-loans">Prime Home Loans (1-5 Cr)</a></li>
                     <li><a href="index.php?page=service&id=mortgage-loans">Mortgage Loans (1-500 Cr)</a></li>
-                    <li><a href="index.php?page=service&id=builder-project-finance">Builder Project Finance</a></li>
-                    <li><a href="index.php?page=service&id=residential-property-funding">Residential Property Funding</a></li>
+                    <li><a href="index.php?page=service&id=builder-project-finance">Builder Project Finance (1-1000 Cr)</a></li>
+                    <li><a href="index.php?page=service&id=residential-property-funding">Residential Property Funding (1-500 Cr)</a></li>
                     <li><a href="index.php?page=service&id=commercial-project-funding">Commercial Project Funding</a></li>
                     <li><a href="index.php?page=service&id=industrial-property-funding">Industrial Property Funding</a></li>
                     <li><a href="index.php?page=service&id=hotel-resort-property-funding">Hotel & Resort Funding</a></li>
@@ -125,9 +125,9 @@
                 <h4 class="footer-heading">SOLUTIONS & TOOLS</h4>
                 <ul class="footer-links">
                     <li><a href="index.php?page=service&id=working-capital-solutions">Working Capital (CC/OD)</a></li>
-                    <li><a href="index.php?page=service&id=smart-funding-solutions">Cold Storage Funding</a></li>
-                    <li><a href="index.php?page=service&id=smart-funding-solutions">Warehouse Logistics Funding</a></li>
-                    <li><a href="index.php?page=service&id=smart-funding-solutions">Dairy Farm Infrastructure</a></li>
+                    <li><a href="index.php?page=service&id=cold-storage-funding">Cold Storage Funding</a></li>
+                    <li><a href="index.php?page=service&id=warehouse-funding">Warehouse Logistics Funding</a></li>
+                    <li><a href="index.php?page=service&id=dairy-farm-funding">Dairy Farm Infrastructure</a></li>
                     <li><a href="index.php?page=service&id=mortgage-loans">Valuation & Project Report (VP)</a></li>
                     <li><a href="index.php?page=calculator">Loan & EMI Calculator</a></li>
                     <li><a href="index.php?page=partners">Bank & NBFC Network</a></li>
@@ -140,6 +140,12 @@
                 <h4 class="footer-heading">CORPORATE CONNECT</h4>
                 <div class="footer-contact-details">
                     <div class="contact-item">
+                        <span class="c-label">QUICK CONNECT HOTLINE</span>
+                        <a href="https://wa.me/918889280848" target="_blank" rel="noopener noreferrer" class="c-val" style="color: #22C55E; font-weight: 800;">
+                            <i class="fa-brands fa-whatsapp"></i> +91 88892 80848
+                        </a>
+                    </div>
+                    <div class="contact-item">
                         <span class="c-label">EMAIL ID</span>
                         <a href="mailto:{{ $companyData['email'] ?? 'finance@liqulofipvtltd.com' }}" class="c-val">{{ $companyData['email'] ?? 'finance@liqulofipvtltd.com' }}</a>
                     </div>
@@ -148,9 +154,12 @@
                         <a href="https://{{ $companyData['website'] ?? 'www.liqulofi.com' }}" target="_blank" class="c-val">{{ $companyData['website'] ?? 'www.liqulofi.com' }}</a>
                     </div>
                     <div class="contact-item">
-                        <span class="c-label">HEADQUARTERS & HUBS</span>
-                        <span class="c-val text-white">{{ $companyData['address'] ?? 'Office No. 203, Scheme No. 54, Dhan Trident, Vijay Nagar, Indore, Madhya Pradesh' }}</span>
-                        <span class="c-sub" style="font-size: 0.78rem; color: #94A3B8; margin-top: 3px; display: block;">Regional Hubs: Gujarat | Madhya Pradesh (Serving PAN INDIA)</span>
+                        <span class="c-label"><i class="fa-solid fa-location-dot"></i> MADHYA PRADESH OFFICE</span>
+                        <span class="c-val text-white">{{ $companyData['mp_address'] ?? '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh' }}</span>
+                    </div>
+                    <div class="contact-item mt-2">
+                        <span class="c-label"><i class="fa-solid fa-location-dot"></i> GUJARAT OFFICE</span>
+                        <span class="c-val text-white">{{ $companyData['gujarat_address'] ?? '15 Nataraj Empire, Anchana Chowk, Nikol, Ahmedabad, Gujarat' }}</span>
                     </div>
                 </div>
 

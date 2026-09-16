@@ -1,37 +1,11 @@
 @php
     $companyData = $company ?? [];
-    $directorsList = [
-        [
-            'name' => 'Ritu Rami',
-            'designation' => 'Director',
-            'phone' => '+91 8780181897',
-            'raw_phone' => '918780181897',
-            'role_tag' => 'Corporate Debt & Strategic Finance',
-            'image' => 'assets/images/directors/ritu-rami.jpg',
-            'initials' => 'RR'
-        ],
-        [
-            'name' => 'Abhishek Bhatnagar',
-            'designation' => 'Director',
-            'phone' => '+91 62320 46473',
-            'raw_phone' => '916232046473',
-            'role_tag' => 'Real Estate & Project Syndication',
-            'image' => 'assets/images/directors/abhishek-bhatnagar.jpg',
-            'initials' => 'AB'
-        ],
-        [
-            'name' => 'Saket Dubey',
-            'designation' => 'Director',
-            'phone' => '+91 92329 78262',
-            'raw_phone' => '919232978262',
-            'role_tag' => 'Working Capital & Institutional Tie-ups',
-            'image' => 'assets/images/directors/saket-dubey.jpg',
-            'initials' => 'SD'
-        ]
-    ];
+    $quickConnectNum = '8889280848';
+    $quickConnectDisplay = '+91 88892 80848';
+    $quickConnectRaw = '918889280848';
 @endphp
 
-<!-- Luxury Multi-Director WhatsApp Concierge Widget -->
+<!-- Luxury Quick Connect WhatsApp Widget -->
 <div class="whatsapp-concierge-container" id="whatsapp-concierge-widget">
     <!-- Backdrop Overlay (Closes drawer on outside tap) -->
     <div class="whatsapp-concierge-backdrop" id="whatsapp-concierge-backdrop" aria-hidden="true"></div>
@@ -42,11 +16,11 @@
         <div class="wc-drawer-header">
             <div class="wc-header-brand">
                 <div class="wc-crest-gem">
-                    <i class="fa-solid fa-crown"></i>
+                    <i class="fa-solid fa-bolt"></i>
                 </div>
                 <div class="wc-header-titles">
-                    <span class="wc-super-tag"><span class="wc-live-pulse-dot"></span> DIRECTORS DESK</span>
-                    <h3 class="wc-title" id="concierge-title">WhatsApp Concierge</h3>
+                    <span class="wc-super-tag"><span class="wc-live-pulse-dot"></span> QUICK CONNECT</span>
+                    <h3 class="wc-title" id="concierge-title">Quick Connect Desk</h3>
                 </div>
             </div>
             <button type="button" class="wc-close-btn" id="wc-drawer-close-btn" aria-label="Close Concierge Drawer">
@@ -55,36 +29,51 @@
         </div>
 
         <div class="wc-drawer-intro">
-            <p>Select a Director below for immediate evaluation of your funding requirement (<strong>₹1 CR to ₹1000 CR</strong>).</p>
+            <p>Connect instantly with our executive desk for high-ticket funding solutions (<strong>₹1 CR to ₹1000 CR</strong>).</p>
         </div>
 
-        <!-- 3 Directors List -->
+        <!-- Single Dedicated Quick Connect Link -->
         <div class="wc-directors-list">
-            @foreach($directorsList as $dir)
-                <a href="https://wa.me/{{ $dir['raw_phone'] }}?text={{ urlencode('Hello ' . $dir['name'] . ' Ji, I am reaching out via the official Liqulofi portal regarding a high-ticket funding requirement (₹1 Cr - ₹1000 Cr). Please guide me on next steps.') }}" 
-                   target="_blank" 
-                   rel="noopener noreferrer" 
-                   class="wc-director-card-link"
-                   title="Direct WhatsApp chat with {{ $dir['name'] }} (Director)">
-                    <div class="wc-dir-avatar-ring">
-                        <img src="{{ $dir['image'] }}" alt="{{ $dir['name'] }}" class="wc-dir-avatar-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-                        <span class="wc-dir-avatar-fallback" style="display:none;">{{ $dir['initials'] }}</span>
-                        <span class="wc-status-indicator" title="Available for Evaluation"></span>
+            <a href="https://wa.me/{{ $quickConnectRaw }}?text={{ urlencode('Hello Liqulofi Team, I am reaching out via Quick Connect regarding a funding requirement (₹1 Cr - ₹1000 Cr). Please guide me on next steps.') }}" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="wc-director-card-link"
+               title="Direct WhatsApp Quick Connect ({{ $quickConnectDisplay }})">
+                <div class="wc-dir-avatar-ring">
+                    <div class="wc-dir-avatar-fallback" style="display:flex; background: linear-gradient(135deg, #10B981, #047857); color: #FFFFFF; font-size: 1.25rem;">
+                        <i class="fa-brands fa-whatsapp"></i>
                     </div>
-                    
-                    <div class="wc-dir-content">
-                        <div class="wc-dir-name-row">
-                            <span class="wc-dir-name">{{ $dir['name'] }}</span>
-                            <span class="wc-dir-designation-badge">{{ $dir['designation'] }}</span>
-                        </div>
-                        <span class="wc-dir-role-tag">{{ $dir['role_tag'] }}</span>
-                        <div class="wc-dir-bottom-row">
-                            <span class="wc-dir-phone-num"><i class="fa-brands fa-whatsapp"></i> {{ $dir['phone'] }}</span>
-                            <span class="wc-chat-cta">Chat <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
-                        </div>
+                    <span class="wc-status-indicator" title="Available Online Now"></span>
+                </div>
+                
+                <div class="wc-dir-content">
+                    <div class="wc-dir-name-row">
+                        <span class="wc-dir-name">Quick Connect Hotline</span>
+                        <span class="wc-dir-designation-badge" style="background: rgba(34, 197, 94, 0.15); color: #15803D; border-color: rgba(34, 197, 94, 0.3);">Instant WhatsApp</span>
                     </div>
-                </a>
-            @endforeach
+                    <span class="wc-dir-role-tag">Dedicated Quick Link Desk</span>
+                    <div class="wc-dir-bottom-row">
+                        <span class="wc-dir-phone-num"><i class="fa-solid fa-phone"></i> {{ $quickConnectDisplay }}</span>
+                        <span class="wc-chat-cta">Chat Now <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <!-- Direct Action Buttons Row -->
+        <div style="display: flex; gap: 0.6rem; padding: 0.75rem 1.25rem 0.25rem;">
+            <a href="https://wa.me/{{ $quickConnectRaw }}?text={{ urlencode('Hello Liqulofi Team, I am reaching out via Quick Connect regarding a funding requirement (₹1 Cr - ₹1000 Cr). Please guide me on next steps.') }}" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn-gold btn-block" 
+               style="display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.65rem 1rem; font-size: 0.88rem; font-weight: 700; border-radius: 8px; flex: 1;">
+                <i class="fa-brands fa-whatsapp"></i> WhatsApp Chat
+            </a>
+            <a href="tel:+91{{ $quickConnectNum }}" 
+               class="btn-outline-gold" 
+               style="display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem; padding: 0.65rem 1rem; font-size: 0.88rem; font-weight: 700; border-radius: 8px;">
+                <i class="fa-solid fa-phone"></i> Call
+            </a>
         </div>
 
         <!-- Drawer Footer Trust & Alternate Route -->
@@ -107,15 +96,14 @@
             id="whatsapp-concierge-trigger" 
             aria-expanded="false" 
             aria-controls="whatsapp-concierge-drawer" 
-            aria-label="Toggle Multi-Director WhatsApp Concierge">
+            aria-label="Toggle Quick Connect Desk">
         <div class="wc-trigger-icon-box">
             <i class="fa-brands fa-whatsapp wc-icon-wa"></i>
             <i class="fa-solid fa-xmark wc-icon-close"></i>
         </div>
         <div class="wc-trigger-text">
             <span class="wc-trigger-main">Quick Connect</span>
-            <span class="wc-trigger-sub"><span class="wc-live-dot"></span> 3 Directors Online</span>
+            <span class="wc-trigger-sub"><span class="wc-live-dot"></span> {{ $quickConnectDisplay }}</span>
         </div>
-        <span class="wc-trigger-badge" title="3 Directors Available">3</span>
     </button>
 </div>

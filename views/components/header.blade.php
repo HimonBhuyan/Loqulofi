@@ -40,7 +40,7 @@
                                     <div class="link-icon">🏠</div>
                                     <div class="link-text">
                                         <span class="title">Prime Home Loans</span>
-                                        <span class="sub">5 CR ONLY • Up to 20 Yrs</span>
+                                        <span class="sub">1 to 5 CR • Up to 20 Yrs</span>
                                     </div>
                                 </a>
                                 <a href="index.php?page=service&id=mortgage-loans" class="dropdown-link">
@@ -54,7 +54,7 @@
                                     <div class="link-icon">🏘️</div>
                                     <div class="link-text">
                                         <span class="title">Residential Property</span>
-                                        <span class="sub">1 CR to 1000 CR • Purchase/Build</span>
+                                        <span class="sub">1 CR to 500 CR • Purchase/Build</span>
                                     </div>
                                 </a>
                             </div>
@@ -65,7 +65,7 @@
                                     <div class="link-icon">🏗️</div>
                                     <div class="link-text">
                                         <span class="title">Builder Project Finance</span>
-                                        <span class="sub">1 CR to 500 CR • Landmarks</span>
+                                        <span class="sub">1 CR to 1000 CR • Landmarks</span>
                                     </div>
                                 </a>
                                 <a href="index.php?page=service&id=commercial-project-funding" class="dropdown-link">

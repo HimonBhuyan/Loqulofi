@@ -188,6 +188,13 @@
                                                 @endforeach
                                             </div>
                                         </div>
+
+                                        <div class="mt-3 pt-2" style="border-top: 1px dashed rgba(201, 151, 38, 0.25);">
+                                            <a href="index.php?page=service&id={{ $sub['id'] }}" class="btn-ghost-gold btn-sm" style="display: inline-flex; align-items: center; gap: 0.4rem; font-weight: 700;">
+                                                <span>View Dedicated {{ $sub['title'] }} Page</span>
+                                                <i class="fa-solid fa-arrow-right"></i>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

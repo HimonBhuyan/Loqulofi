@@ -107,7 +107,7 @@
                         @if(isset($srv['sub_sectors']))
                             <div class="sub-sectors-grid">
                                 @foreach($srv['sub_sectors'] as $sub)
-                                    <div class="sub-sector-box">
+                                    <a href="index.php?page=service&id={{ $sub['id'] }}" class="sub-sector-box sub-sector-clickable-card" title="Explore {{ $sub['title'] }} Dedicated Page">
                                         @if(isset($sub['banner_img']))
                                             <div class="sub-sector-thumb-wrap">
                                                 <img src="{{ $sub['banner_img'] }}" alt="{{ $sub['title'] }}" class="sub-sector-thumb" loading="lazy">
@@ -121,8 +121,11 @@
                                                     <span class="wf-tag">{{ $wf }}</span>
                                                 @endforeach
                                             </div>
+                                            <div class="sub-sector-action-link mt-2" style="font-size: 0.78rem; font-weight: 700; color: var(--gold-dark); display: flex; align-items: center; gap: 0.35rem;">
+                                                <span>Explore Dedicated Page &rarr;</span>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                 @endforeach
                             </div>
                         @endif
@@ -150,6 +153,23 @@
                     </div>
                 </div>
             @endforeach
+        </div>
+
+        <!-- Official Brochure Download Box Strip -->
+        <div class="contact-brochure-card mt-5">
+            <div class="cb-icon">📄</div>
+            <div class="cb-text">
+                <h4 class="cb-title">DOWNLOAD COMPLETE OFFICIAL BROCHURE</h4>
+                <p class="cb-desc">Get the complete 16-page catalog PDF detailing all funding portfolios, sub-sectors, and institutional banking tie-ups.</p>
+            </div>
+            <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-gold btn-lg">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                    <polyline points="7 10 12 15 17 10"></polyline>
+                    <line x1="12" y1="15" x2="12" y2="3"></line>
+                </svg>
+                Download Official Brochure (PDF)
+            </a>
         </div>
     </div>
 </section>
