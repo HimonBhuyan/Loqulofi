@@ -262,13 +262,13 @@ $services = [
         'subtitle' => 'Turn Your Dream Home into a Reality',
         'category' => 'Retail & High Net-Worth',
         'page_num' => 6,
-        'ticket_size' => '1 CR TO 5 CR',
+        'ticket_size' => '1 CR TO 50 CR',
         'ticket_numeric_min' => 1,
-        'ticket_numeric_max' => 5,
+        'ticket_numeric_max' => 50,
         'slogan' => 'MORE SPACE. MORE COMFORT. More Life.',
-        'short_desc' => 'Access substantial funding from ₹1 Crore up to ₹5 Crore to own your luxury dream home with flexible repayment and fast approvals.',
+        'short_desc' => 'Access substantial funding from ₹1 Crore up to ₹50 Crore to own your luxury dream home with flexible repayment and fast approvals.',
         'key_points' => [
-            ['title' => 'Higher Loan Amounts', 'desc' => 'Access substantial funding from ₹1 Crore up to ₹5 Crore to own your dream home.'],
+            ['title' => 'Higher Loan Amounts', 'desc' => 'Access substantial funding from ₹1 Crore up to ₹50 Crore to own your dream home.'],
             ['title' => 'Competitive Interest Rates', 'desc' => 'Enjoy attractive rates with flexible repayment options.'],
             ['title' => 'Quick & Hassle-Free Process', 'desc' => 'Minimal documentation and faster approvals.'],
             ['title' => 'Secure & Reliable', 'desc' => 'Backed by trusted financial partners for a worry-free experience.'],
@@ -554,71 +554,6 @@ $services = [
         ],
         'icon' => 'dollar-sign'
     ],
-    'smart-funding-solutions' => [
-        'id' => 'smart-funding-solutions',
-        'title' => 'SMART FUNDING SOLUTIONS',
-        'subtitle' => 'For Your Business Growth',
-        'category' => 'Agri & Logistics',
-        'page_num' => 15,
-        'ticket_size' => '1 CR TO 1000 CR',
-        'ticket_numeric_min' => 1,
-        'ticket_numeric_max' => 1000,
-        'slogan' => 'QUICK APPROVALS • FLEXIBLE FINANCING • COMPETITIVE RATES • TRUSTED PARTNER',
-        'short_desc' => 'Specialized infrastructure funding for Cold Storage facilities, Warehouses & Logistics Hubs, and Large-Scale Dairy Farms.',
-        'sub_sectors' => [
-            [
-                'id' => 'cold-storage-funding',
-                'title' => 'COLD STORAGE FUNDING',
-                'tagline' => 'Powering Preservation. Securing Tomorrow.',
-                'icon' => 'fa-snowflake',
-                'banner_img' => 'assets/images/services/cold-storage-doodle.jpg',
-                'photo_img' => 'assets/images/services/cold-storage-photo.jpg',
-                'features' => [
-                    'Construction / Setup of Cold Storage Facilities',
-                    'Modern & Energy Efficient Infrastructure',
-                    'Refrigeration Solutions for Every Need'
-                ],
-                'we_finance' => ['Land Purchase', 'Construction', 'Machinery & Equipment', 'Working Capital']
-            ],
-            [
-                'id' => 'warehouse-funding',
-                'title' => 'WAREHOUSE FUNDING',
-                'tagline' => 'Stronger Storage. Smoother Supply Chain.',
-                'icon' => 'fa-warehouse',
-                'banner_img' => 'assets/images/services/warehouse-doodle.jpg',
-                'photo_img' => 'assets/images/services/warehouse-photo.jpg',
-                'features' => [
-                    'Custom Built Warehouse Solutions',
-                    'Advanced & Durable Infrastructure',
-                    'Efficient Space for Maximum Productivity'
-                ],
-                'we_finance' => ['Land Purchase', 'Construction', 'Infrastructure & Equipment', 'Working Capital']
-            ],
-            [
-                'id' => 'dairy-farm-funding',
-                'title' => 'DAIRY FARM FUNDING',
-                'tagline' => 'Healthy Livestock. Profitable Future.',
-                'icon' => 'fa-cow',
-                'banner_img' => 'assets/images/services/dairy-farm-doodle.jpg',
-                'photo_img' => 'assets/images/services/dairy-farm-photo.jpg',
-                'features' => [
-                    'Dairy Farm Setup & Expansion',
-                    'Modern Equipment & Milking Systems',
-                    'Feed Units, Infrastructure & Working Capital'
-                ],
-                'we_finance' => ['Land Purchase', 'Construction', 'Equipment & Infrastructure', 'Working Capital']
-            ]
-        ],
-        'why_points' => [
-            'High Ticket Size – Up to 1000 Cr',
-            'Flexible Solutions tailored to your needs',
-            'Competitive Rates – Best terms for your business',
-            'Quick Turnaround Time – Hassle-free process',
-            'Expert Team – Industry experts by your side',
-            'End to End Support – From approval to disbursement'
-        ],
-        'icon' => 'truck'
-    ],
     'cold-storage-funding' => [
         'id' => 'cold-storage-funding',
         'title' => 'COLD STORAGE FUNDING',
@@ -785,11 +720,11 @@ $banks = [
             'type' => 'NBFC',
             'icon' => 'coins',
             'banks' => [
-                ['name' => 'Bajaj Finserv', 'short' => 'Bajaj', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/bajaj.svg'],
-                ['name' => 'Tata Capital', 'short' => 'Tata', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/tata.svg'],
-                ['name' => 'Piramal Finance', 'short' => 'Piramal', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/piramal.svg'],
-                ['name' => 'Cholamandalam Finance', 'short' => 'Chola', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/chola.svg'],
-                ['name' => 'L&T Finance', 'short' => 'L&T', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/lnt.svg']
+                ['name' => 'Bajaj Finserv', 'short' => 'Bajaj', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/bajaj.png'],
+                ['name' => 'Tata Capital', 'short' => 'Tata', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/tata.png'],
+                ['name' => 'Piramal Finance', 'short' => 'Piramal', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/piramal.png'],
+                ['name' => 'Cholamandalam Finance', 'short' => 'Chola', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/chola.png'],
+                ['name' => 'L&T Finance', 'short' => 'L&T', 'badge' => 'Top NBFC', 'logo' => 'assets/images/banks/lnt.png']
             ]
         ]
     ],
@@ -874,6 +809,9 @@ switch ($page) {
 
     case 'service':
         $service_id = $_GET['id'] ?? 'prime-home-loans';
+        if ($service_id === 'smart-funding-solutions') {
+            $service_id = 'cold-storage-funding';
+        }
         if (!isset($services[$service_id])) {
             $service_id = 'prime-home-loans';
         }

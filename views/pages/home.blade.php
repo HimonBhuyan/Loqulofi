@@ -140,7 +140,7 @@
             <span class="ticker-item"><span class="ticker-gem">✦</span> HIGH-TICKET FUNDING ₹1 CR TO ₹1000 CR</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> PAN INDIA CAPITAL DISBURSAL</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> 15+ LEADING BANK & NBFC TIE-UPS</span>
-            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (1-5 CR)</span>
+            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (1-50 CR)</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> BUILDER & REAL ESTATE PROJECT FINANCE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> COMMERCIAL & INDUSTRIAL INFRASTRUCTURE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> HOTEL & HOSPITAL PROPERTY FUNDING</span>
@@ -150,7 +150,7 @@
             <span class="ticker-item"><span class="ticker-gem">✦</span> HIGH-TICKET FUNDING ₹1 CR TO ₹1000 CR</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> PAN INDIA CAPITAL DISBURSAL</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> 15+ LEADING BANK & NBFC TIE-UPS</span>
-            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (1-5 CR)</span>
+            <span class="ticker-item"><span class="ticker-gem">✦</span> PRIME HOME LOANS (1-50 CR)</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> BUILDER & REAL ESTATE PROJECT FINANCE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> COMMERCIAL & INDUSTRIAL INFRASTRUCTURE</span>
             <span class="ticker-item"><span class="ticker-gem">✦</span> HOTEL & HOSPITAL PROPERTY FUNDING</span>

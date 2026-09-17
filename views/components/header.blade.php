@@ -42,7 +42,7 @@
                                     <div class="link-icon">🏠</div>
                                     <div class="link-text">
                                         <span class="title">Prime Home Loans</span>
-                                        <span class="sub">1 to 5 CR • Up to 20 Yrs</span>
+                                        <span class="sub">1 CR to 50 CR • Up to 20 Yrs</span>
                                     </div>
                                 </a>
                                 <a href="index.php?page=service&id=mortgage-loans" class="dropdown-link">
@@ -59,36 +59,32 @@
                                         <span class="sub">1 CR to 500 CR • Purchase/Build</span>
                                     </div>
                                 </a>
-                            </div>
-
-                            <div class="dropdown-col">
-                                <span class="dropdown-cat-title">COMMERCIAL & INSTITUTIONAL</span>
-                                <a href="index.php?page=service&id=builder-project-finance" class="dropdown-link">
-                                    <div class="link-icon">🏗️</div>
+                                <a href="index.php?page=service&id=commercial-property-funding" class="dropdown-link">
+                                    <div class="link-icon">🏬</div>
                                     <div class="link-text">
-                                        <span class="title">Builder Project Finance</span>
-                                        <span class="sub">1 CR to 1000 CR • Landmarks</span>
-                                    </div>
-                                </a>
-                                <a href="index.php?page=service&id=commercial-project-funding" class="dropdown-link">
-                                    <div class="link-icon">🏙️</div>
-                                    <div class="link-text">
-                                        <span class="title">Commercial Project Funding</span>
-                                        <span class="sub">1 CR to 1000 CR • IT / Malls</span>
+                                        <span class="title">Commercial Property</span>
+                                        <span class="sub">1 CR to 1000 CR • High Value</span>
                                     </div>
                                 </a>
                                 <a href="index.php?page=service&id=industrial-property-funding" class="dropdown-link">
                                     <div class="link-icon">🏭</div>
                                     <div class="link-text">
                                         <span class="title">Industrial Property</span>
-                                        <span class="sub">1 CR to 1000 CR • Plants & LRD</span>
+                                        <span class="sub">1 CR to 1000 CR • Manufacturing</span>
+                                    </div>
+                                </a>
+                                <a href="index.php?page=service&id=builder-project-finance" class="dropdown-link">
+                                    <div class="link-icon">🏗️</div>
+                                    <div class="link-text">
+                                        <span class="title">Builder Project Finance</span>
+                                        <span class="sub">1 CR to 1000 CR • RERA Projects</span>
                                     </div>
                                 </a>
                             </div>
 
                             <div class="dropdown-col">
-                                <span class="dropdown-cat-title">HOSPITALITY, HEALTH & SPECIAL</span>
-                                <a href="index.php?page=service&id=hotel-resort-property-funding" class="dropdown-link">
+                                <span class="dropdown-cat-title">COMMERCIAL & INSTITUTIONAL</span>
+                                <a href="index.php?page=service&id=hotel-resort-funding" class="dropdown-link">
                                     <div class="link-icon">🏨</div>
                                     <div class="link-text">
                                         <span class="title">Hotel & Resort Funding</span>
@@ -109,11 +105,25 @@
                                         <span class="sub">1 CR to 1000 CR • CC/OD/CGTMSE</span>
                                     </div>
                                 </a>
-                                <a href="index.php?page=service&id=smart-funding-solutions" class="dropdown-link">
+                                <a href="index.php?page=service&id=cold-storage-funding" class="dropdown-link">
                                     <div class="link-icon">❄️</div>
                                     <div class="link-text">
-                                        <span class="title">Smart Agri & Logistics</span>
-                                        <span class="sub">Cold Storage, Warehouse, Dairy</span>
+                                        <span class="title">Cold Storage Funding</span>
+                                        <span class="sub">1 CR to 1000 CR • Cold Chain</span>
+                                    </div>
+                                </a>
+                                <a href="index.php?page=service&id=warehouse-funding" class="dropdown-link">
+                                    <div class="link-icon">📦</div>
+                                    <div class="link-text">
+                                        <span class="title">Warehouse Funding</span>
+                                        <span class="sub">1 CR to 1000 CR • Logistics Hubs</span>
+                                    </div>
+                                </a>
+                                <a href="index.php?page=service&id=dairy-farm-funding" class="dropdown-link">
+                                    <div class="link-icon">🥛</div>
+                                    <div class="link-text">
+                                        <span class="title">Dairy Farm Funding</span>
+                                        <span class="sub">1 CR to 1000 CR • Agri Infra</span>
                                     </div>
                                 </a>
                             </div>

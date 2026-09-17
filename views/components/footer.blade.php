@@ -122,7 +122,7 @@
             <div class="footer-col">
                 <h4 class="footer-heading">FUNDING PORTFOLIOS</h4>
                 <ul class="footer-links">
-                    <li><a href="index.php?page=service&id=prime-home-loans">Prime Home Loans (1-5 Cr)</a></li>
+                    <li><a href="index.php?page=service&id=prime-home-loans">Prime Home Loans (1-50 Cr)</a></li>
                     <li><a href="index.php?page=service&id=mortgage-loans">Mortgage Loans (1-500 Cr)</a></li>
                     <li><a href="index.php?page=service&id=builder-project-finance">Builder Project Finance (1-1000
                             Cr)</a></li>
