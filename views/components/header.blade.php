@@ -23,12 +23,14 @@
                 <li class="nav-item">
                     <a href="index.php" class="nav-link {{ $currentPage === 'home' ? 'active' : '' }}">Home</a>
                 </li>
-                
+
                 <!-- Services Mega Dropdown -->
                 <li class="nav-item has-dropdown">
-                    <a href="index.php?page=services" class="nav-link {{ $currentPage === 'services' || $currentPage === 'service' ? 'active' : '' }}">
+                    <a href="index.php?page=services"
+                        class="nav-link {{ $currentPage === 'services' || $currentPage === 'service' ? 'active' : '' }}">
                         Funding Solutions
-                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <polyline points="6 9 12 15 18 9"></polyline>
                         </svg>
                     </a>
@@ -119,7 +121,8 @@
                         <div class="dropdown-footer">
                             <a href="index.php?page=services" class="view-all-services-link">
                                 <span>Explore All 10 Funding Portfolios</span>
-                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                                    stroke-width="2">
                                     <line x1="5" y1="12" x2="19" y2="12"></line>
                                     <polyline points="12 5 19 12 12 19"></polyline>
                                 </svg>
@@ -129,13 +132,17 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="index.php?page=calculator" class="nav-link {{ $currentPage === 'calculator' ? 'active' : '' }}">EMI Calculator</a>
+                    <a href="index.php?page=calculator"
+                        class="nav-link {{ $currentPage === 'calculator' ? 'active' : '' }}">EMI Calculator</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?page=partners" class="nav-link {{ $currentPage === 'partners' ? 'active' : '' }}">Bank Tie-Ups</a>
+                    <a href="index.php?page=partners"
+                        class="nav-link {{ $currentPage === 'partners' ? 'active' : '' }}">Bank Tie-Ups</a>
                 </li>
                 <li class="nav-item">
-                    <a href="index.php?page=about" class="nav-link {{ $currentPage === 'about' || $currentPage === 'contact' ? 'active' : '' }}">About &amp; Contact</a>
+                    <a href="index.php?page=about"
+                        class="nav-link {{ $currentPage === 'about' || $currentPage === 'contact' ? 'active' : '' }}">About
+                        &amp; Contact</a>
                 </li>
 
             </ul>
@@ -144,7 +151,8 @@
         <!-- Right Header Actions -->
         <div class="header-action-group">
             <!-- Theme Toggle Button (Light/Dark Mode) -->
-            <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark / Light Theme" title="Toggle Theme (Dark / Light)">
+            <button type="button" class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle Dark / Light Theme"
+                title="Toggle Theme (Dark / Light)">
                 <span class="theme-toggle-track">
                     <span class="theme-icon theme-sun" aria-hidden="true">
                         <i class="fa-solid fa-sun"></i>
@@ -156,7 +164,8 @@
                 </span>
             </button>
 
-            <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-gold header-download-btn" title="Download Official Brochure">
+            <a href="assets/docs/Liqulofi_Private_Limited.pdf?v={{ time() }}" download="Liqulofi_Private_Limited.pdf"
+                class="btn-gold header-download-btn" title="Download Official Brochure">
                 <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
@@ -221,7 +230,8 @@
         </div>
 
         <div class="drawer-actions">
-            <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-gold btn-block">Download Brochure (PDF)</a>
+            <a href="assets/docs/Liqulofi_Private_Limited.pdf?v={{ time() }}" download="Liqulofi_Private_Limited.pdf"
+                class="btn-gold btn-block">Download Brochure (PDF)</a>
         </div>
     </div>
 </div>

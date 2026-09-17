@@ -33,14 +33,18 @@
             <div class="liner-left-info">
                 <span class="liner-badge"><span class="pulse-dot"></span> PAN INDIA REACH</span>
                 <span class="liner-divider">|</span>
-                <span class="liner-offices">Offices: <strong>{{ $companyData['offices'] ?? 'Gujarat | Madhya Pradesh' }}</strong></span>
+                <span class="liner-offices">Offices:
+                    <strong>{{ $companyData['offices'] ?? 'Gujarat | Madhya Pradesh' }}</strong></span>
                 <span class="liner-divider">|</span>
-                <span class="liner-ticket-highlight">Ticket Size: <strong>{{ $companyData['ticket_size_range'] ?? '1 CR to 1000 CR' }}</strong></span>
+                <span class="liner-ticket-highlight">Ticket Size:
+                    <strong>{{ $companyData['ticket_size_range'] ?? '1 CR to 1000 CR' }}</strong></span>
             </div>
             <div class="liner-right-contact">
                 <span class="liner-dir-label">
                     <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                        <path
+                            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                        </path>
                     </svg>
                     Directors Contact:
                 </span>
@@ -61,7 +65,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="container footer-main-content">
         <div class="footer-grid">
             <!-- Col 1: Brand & Overview -->
@@ -75,32 +79,41 @@
                     </div>
                 </div>
                 <p class="footer-bio">
-                    Trusted and dynamic financial solutions provider, empowering individuals, businesses, and institutions with reliable and customized funding solutions from <strong>₹1 CR to ₹1,000 CR</strong> across India.
+                    Trusted and dynamic financial solutions provider, empowering individuals, businesses, and
+                    institutions with reliable and customized funding solutions from <strong>₹1 CR to ₹1,000 CR</strong>
+                    across India.
                 </p>
-                
+
                 <div class="footer-key-specs">
                     <div class="spec-row">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                             <circle cx="12" cy="10" r="3"></circle>
                         </svg>
-                        <span>Offices: <strong>{{ $companyData['offices'] ?? 'Gujarat | Madhya Pradesh' }}</strong></span>
+                        <span>Offices:
+                            <strong>{{ $companyData['offices'] ?? 'Gujarat | Madhya Pradesh' }}</strong></span>
                     </div>
                     <div class="spec-row">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="2" y1="12" x2="22" y2="12"></line>
-                            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                            <path
+                                d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z">
+                            </path>
                         </svg>
                         <span>Coverage: <strong>{{ $companyData['coverage'] ?? 'Working PAN INDIA' }}</strong></span>
                     </div>
                     <div class="spec-row">
-                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <rect x="2" y="4" width="20" height="16" rx="2"></rect>
                             <line x1="12" y1="8" x2="12" y2="16"></line>
                             <line x1="8" y1="12" x2="16" y2="12"></line>
                         </svg>
-                        <span>Ticket Size: <strong>{{ $companyData['ticket_size_range'] ?? '1 CR to 1000 CR' }}</strong></span>
+                        <span>Ticket Size:
+                            <strong>{{ $companyData['ticket_size_range'] ?? '1 CR to 1000 CR' }}</strong></span>
                     </div>
                 </div>
             </div>
@@ -111,11 +124,16 @@
                 <ul class="footer-links">
                     <li><a href="index.php?page=service&id=prime-home-loans">Prime Home Loans (1-5 Cr)</a></li>
                     <li><a href="index.php?page=service&id=mortgage-loans">Mortgage Loans (1-500 Cr)</a></li>
-                    <li><a href="index.php?page=service&id=builder-project-finance">Builder Project Finance (1-1000 Cr)</a></li>
-                    <li><a href="index.php?page=service&id=residential-property-funding">Residential Property Funding (1-500 Cr)</a></li>
-                    <li><a href="index.php?page=service&id=commercial-project-funding">Commercial Project Funding</a></li>
-                    <li><a href="index.php?page=service&id=industrial-property-funding">Industrial Property Funding</a></li>
-                    <li><a href="index.php?page=service&id=hotel-resort-property-funding">Hotel & Resort Funding</a></li>
+                    <li><a href="index.php?page=service&id=builder-project-finance">Builder Project Finance (1-1000
+                            Cr)</a></li>
+                    <li><a href="index.php?page=service&id=residential-property-funding">Residential Property Funding
+                            (1-500 Cr)</a></li>
+                    <li><a href="index.php?page=service&id=commercial-project-funding">Commercial Project Funding</a>
+                    </li>
+                    <li><a href="index.php?page=service&id=industrial-property-funding">Industrial Property Funding</a>
+                    </li>
+                    <li><a href="index.php?page=service&id=hotel-resort-property-funding">Hotel & Resort Funding</a>
+                    </li>
                     <li><a href="index.php?page=service&id=hospital-property-funding">Hospital Property Funding</a></li>
                 </ul>
             </div>
@@ -131,7 +149,8 @@
                     <li><a href="index.php?page=service&id=mortgage-loans">Valuation & Project Report (VP)</a></li>
                     <li><a href="index.php?page=calculator">Loan & EMI Calculator</a></li>
                     <li><a href="index.php?page=partners">Bank & NBFC Network</a></li>
-                    <li><a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf">Download Official Brochure</a></li>
+                    <li><a href="assets/docs/Liqulofi_Private_Limited.pdf?v={{ time() }}"
+                            download="Liqulofi_Private_Limited.pdf">Download Official Brochure</a></li>
                 </ul>
             </div>
 
@@ -141,29 +160,36 @@
                 <div class="footer-contact-details">
                     <div class="contact-item">
                         <span class="c-label">QUICK CONNECT HOTLINE</span>
-                        <a href="https://wa.me/918889280848" target="_blank" rel="noopener noreferrer" class="c-val" style="color: #22C55E; font-weight: 800;">
+                        <a href="https://wa.me/918889280848" target="_blank" rel="noopener noreferrer" class="c-val"
+                            style="color: #22C55E; font-weight: 800;">
                             <i class="fa-brands fa-whatsapp"></i> +91 88892 80848
                         </a>
                     </div>
                     <div class="contact-item">
                         <span class="c-label">EMAIL ID</span>
-                        <a href="mailto:{{ $companyData['email'] ?? 'finance@liqulofipvtltd.com' }}" class="c-val">{{ $companyData['email'] ?? 'finance@liqulofipvtltd.com' }}</a>
+                        <a href="mailto:{{ $companyData['email'] ?? 'finance@liqulofipvtltd.com' }}" class="c-val">{{
+                            $companyData['email'] ?? 'finance@liqulofipvtltd.com' }}</a>
                     </div>
                     <div class="contact-item">
                         <span class="c-label">OFFICIAL WEBSITE</span>
-                        <a href="https://{{ $companyData['website'] ?? 'www.liqulofi.com' }}" target="_blank" class="c-val">{{ $companyData['website'] ?? 'www.liqulofi.com' }}</a>
+                        <a href="https://{{ $companyData['website'] ?? 'www.liqulofi.com' }}" target="_blank"
+                            class="c-val">{{ $companyData['website'] ?? 'www.liqulofi.com' }}</a>
                     </div>
                     <div class="contact-item">
                         <span class="c-label"><i class="fa-solid fa-location-dot"></i> MADHYA PRADESH OFFICE</span>
-                        <span class="c-val text-white">{{ $companyData['mp_address'] ?? '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh' }}</span>
+                        <span
+                            class="c-val text-white">{{ $companyData['mp_address'] ?? '203 Dhan Trident, AB Road, Vijay Nagar, Indore, Madhya Pradesh' }}</span>
                     </div>
                     <div class="contact-item mt-2">
                         <span class="c-label"><i class="fa-solid fa-location-dot"></i> GUJARAT OFFICE</span>
-                        <span class="c-val text-white">{{ $companyData['gujarat_address'] ?? '15 Nataraj Empire, Anchana Chowk, Nikol, Ahmedabad, Gujarat' }}</span>
+                        <span
+                            class="c-val text-white">{{ $companyData['gujarat_address'] ?? '15 Nataraj Empire, Anchana Chowk, Nikol, Ahmedabad, Gujarat' }}</span>
                     </div>
                 </div>
 
-                <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="footer-brochure-download-card" title="Download Official Brochure">
+                <a href="assets/docs/Liqulofi_Private_Limited.pdf?v={{ time() }}"
+                    download="Liqulofi_Private_Limited.pdf" class="footer-brochure-download-card"
+                    title="Download Official Brochure">
                     <div class="card-left-content">
                         <span class="card-doc-icon">📄</span>
                         <div class="card-text-single">
@@ -172,7 +198,8 @@
                         </div>
                     </div>
                     <span class="btn-download-sm">
-                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                            stroke-width="2">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                             <polyline points="7 10 12 15 17 10"></polyline>
                             <line x1="12" y1="15" x2="12" y2="3"></line>
@@ -196,12 +223,13 @@
         <!-- Bottom Copyright -->
         <div class="footer-bottom-bar">
             <div class="copyright-text">
-                &copy; {{ date('Y') }} <strong>LIQULOFI PRIVATE LIMITED</strong>. All Rights Reserved. Capital Beyond Limits.
+                &copy; {{ date('Y') }} <strong>LIQULOFI PRIVATE LIMITED</strong>. All Rights Reserved. Capital Beyond
+                Limits.
             </div>
             <div class="footer-credit-line">
-                Designed &amp; Developed by <a href="https://ziagotechnologies.com/" target="_blank" rel="noopener noreferrer" class="credit-brand-link"><strong>Ziago Technologies</strong></a>
+                Designed &amp; Developed by <a href="https://ziagotechnologies.com/" target="_blank"
+                    rel="noopener noreferrer" class="credit-brand-link"><strong>Ziago Technologies</strong></a>
             </div>
         </div>
     </div>
 </footer>
-

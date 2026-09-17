@@ -162,7 +162,7 @@
                 <h4 class="cb-title">DOWNLOAD COMPLETE OFFICIAL BROCHURE</h4>
                 <p class="cb-desc">Get the complete 16-page catalog PDF detailing all funding portfolios, sub-sectors, and institutional banking tie-ups.</p>
             </div>
-            <a href="assets/docs/Liqulofi_Private_Limited_Brochure.pdf" download="Liqulofi_Private_Limited_Brochure.pdf" class="btn-gold btn-lg">
+            <a href="assets/docs/Liqulofi_Private_Limited.pdf?v={{ time() }}" download="Liqulofi_Private_Limited.pdf" class="btn-gold btn-lg">
                 <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
                     <polyline points="7 10 12 15 17 10"></polyline>
