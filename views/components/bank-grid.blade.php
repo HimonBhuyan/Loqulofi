@@ -56,7 +56,7 @@
                             <div class="bank-pill-item">
                                 <div class="bank-logo-box">
                                     @if(!empty($bank['logo']))
-                                        <img src="{{ $bank['logo'] }}" alt="{{ $bank['name'] }} logo" class="bank-logo-img" loading="lazy">
+                                        <img src="{{ $bank['logo'] }}?v=2" alt="{{ $bank['name'] }} logo" class="bank-logo-img" loading="lazy">
                                     @else
                                         <div class="bank-bullet"></div>
                                     @endif
