@@ -8420,132 +8420,150 @@ body.drawer-open {
 }
 
 /* ==========================================================================
-   COMIC BUBBLE BLINKER: NO ADVANCE CONSULTATION FEES
+   COMIC BUBBLE BLINKER: NO UPFRONT FEES (PROMINENT & HIGHLIGHTED)
    ========================================================================== */
 .comic-bubble-blinker-wrap {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.6rem auto 1.6rem;
+  margin: 1.8rem auto 2.2rem;
   position: relative;
-  z-index: 15;
+  z-index: 20;
 }
 
 .comic-bubble-blinker {
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.65rem;
-  background: linear-gradient(135deg, #FFF176 0%, #FFD54F 40%, #FFB300 75%, #FF8F00 100%);
-  color: #050F1E;
+  justify-content: center;
+  gap: 0.9rem;
+  background: linear-gradient(135deg, #FFF9C4 0%, #FFEB3B 22%, #FFC107 55%, #FF9800 82%, #FF5722 100%);
+  background-size: 200% 200%;
+  color: #040A14;
   font-family: var(--font-heading), 'Cinzel', 'Inter', serif, sans-serif;
-  font-size: 0.96rem;
-  font-weight: 800;
-  letter-spacing: 0.04em;
-  padding: 0.65rem 1.45rem;
-  border-radius: 50px;
-  border: 2.5px solid #FFFFFF;
-  box-shadow: 0 0 24px rgba(255, 179, 0, 0.65),
-              0 6px 18px rgba(0, 0, 0, 0.35),
-              inset 0 1px 2px rgba(255, 255, 255, 0.9);
-  animation: comic-float 3.2s ease-in-out infinite, comic-bubble-glow 2s ease-in-out infinite alternate;
+  font-size: 1.32rem;
+  font-weight: 900;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.85rem 2.6rem;
+  border-radius: 60px;
+  border: 3.5px solid #FFFFFF;
+  box-shadow: 0 0 0 3.5px rgba(255, 193, 7, 0.45),
+              0 0 36px rgba(255, 179, 0, 0.85),
+              0 10px 28px rgba(0, 0, 0, 0.4),
+              inset 0 2px 4px rgba(255, 255, 255, 0.95);
+  animation: comic-float 3s ease-in-out infinite, 
+             comic-bubble-glow 2.2s ease-in-out infinite alternate,
+             comic-shimmer-bg 6s ease infinite;
   cursor: default;
   user-select: none;
-  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+  overflow: visible;
+  transition: transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease;
+}
+
+/* Diagonal animated light sheen highlight */
+.comic-bubble-blinker::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 65%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.75) 50%, transparent 100%);
+  transform: skewX(-25deg);
+  border-radius: 60px;
+  pointer-events: none;
+  animation: comic-sheen-sweep 3.8s ease-in-out infinite;
 }
 
 .comic-bubble-blinker:hover {
-  transform: translateY(-4px) scale(1.04) rotate(-0.5deg);
-  box-shadow: 0 0 38px rgba(255, 193, 7, 0.9), 0 8px 25px rgba(0, 0, 0, 0.45);
+  transform: translateY(-5px) scale(1.06) rotate(-0.5deg);
+  box-shadow: 0 0 0 5px rgba(255, 193, 7, 0.65),
+              0 0 55px rgba(255, 193, 7, 1),
+              0 14px 34px rgba(0, 0, 0, 0.5),
+              inset 0 2px 4px rgba(255, 255, 255, 1);
 }
 
 /* Live Active Blinker Dot */
 .bubble-blinker-dot {
-  width: 10px;
-  height: 10px;
+  width: 13px;
+  height: 13px;
   background: #00E676;
   border-radius: 50%;
   position: relative;
   flex-shrink: 0;
-  box-shadow: 0 0 10px #00E676, 0 0 16px #00E676;
+  box-shadow: 0 0 12px #00E676, 0 0 20px #00E676;
   animation: blink-dot-core 1.2s infinite ease-in-out;
 }
 
 .bubble-blinker-dot::after {
   content: '';
   position: absolute;
-  top: -4px;
-  left: -4px;
-  width: 18px;
-  height: 18px;
+  top: -5px;
+  left: -5px;
+  width: 23px;
+  height: 23px;
   border-radius: 50%;
-  background: rgba(0, 230, 118, 0.45);
+  background: rgba(0, 230, 118, 0.5);
   animation: blink-radar-wave 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
 }
 
+/* Sparkle lightning icon */
 .bubble-sparkle-icon {
-  font-size: 1rem;
-  color: #D84315;
-  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.6));
-  animation: sparkle-spin 3s ease-in-out infinite;
+  font-size: 1.35rem;
+  color: #BF360C;
+  filter: drop-shadow(0 2px 3px rgba(255, 255, 255, 0.8));
+  animation: sparkle-spin 2.8s ease-in-out infinite;
   display: inline-flex;
 }
 
+/* Main Text */
 .bubble-main-text {
-  color: #06101E;
+  color: #040B16;
   font-weight: 900;
-  letter-spacing: 0.03em;
-  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
-}
-
-/* Comic Pill Tag */
-.bubble-tag {
-  background: #06101E;
-  color: #FFE082;
-  font-size: 0.7rem;
-  font-weight: 800;
-  padding: 0.22rem 0.65rem;
-  border-radius: 20px;
-  letter-spacing: 0.08em;
-  border: 1px solid rgba(255, 224, 130, 0.5);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
-  white-space: nowrap;
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+  position: relative;
+  z-index: 2;
 }
 
 /* Comic Speech Bubble Tail */
 .comic-bubble-tail {
   position: absolute;
-  bottom: -11px;
+  bottom: -14px;
   left: 50%;
   transform: translateX(-50%);
   width: 0;
   height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 11px solid #FF8F00;
-  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  border-left: 13px solid transparent;
+  border-right: 13px solid transparent;
+  border-top: 15px solid #FF5722;
+  filter: drop-shadow(0 3px 4px rgba(0, 0, 0, 0.35));
 }
 
 .comic-bubble-tail::before {
   content: '';
   position: absolute;
-  bottom: 2.5px;
-  left: -7.5px;
+  bottom: 3.5px;
+  left: -9.5px;
   width: 0;
   height: 0;
-  border-left: 7.5px solid transparent;
-  border-right: 7.5px solid transparent;
-  border-top: 8.5px solid #FFFFFF;
+  border-left: 9.5px solid transparent;
+  border-right: 9.5px solid transparent;
+  border-top: 11px solid #FFFFFF;
 }
 
 /* Dark Mode Harmonization */
 [data-theme="dark"] .comic-bubble-blinker {
-  background: linear-gradient(135deg, #FFE082 0%, #FFCA28 40%, #FFA000 80%, #FF6F00 100%);
-  box-shadow: 0 0 28px rgba(255, 179, 0, 0.75), 0 8px 22px rgba(0, 0, 0, 0.6);
+  background: linear-gradient(135deg, #FFF59D 0%, #FFD54F 25%, #FFA000 60%, #FF6F00 85%, #E65100 100%);
+  box-shadow: 0 0 0 3.5px rgba(255, 179, 0, 0.55),
+              0 0 45px rgba(255, 179, 0, 0.95),
+              0 10px 28px rgba(0, 0, 0, 0.65),
+              inset 0 2px 4px rgba(255, 255, 255, 0.9);
 }
 
 [data-theme="dark"] .comic-bubble-tail {
-  border-top-color: #FF6F00;
+  border-top-color: #E65100;
 }
 
 /* Keyframe Animations */
@@ -8554,16 +8572,41 @@ body.drawer-open {
     transform: translateY(0);
   }
   50% {
-    transform: translateY(-7px);
+    transform: translateY(-8px);
   }
 }
 
 @keyframes comic-bubble-glow {
   0% {
-    box-shadow: 0 0 16px rgba(255, 179, 0, 0.45), 0 4px 14px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.35),
+                0 0 24px rgba(255, 179, 0, 0.65),
+                0 8px 20px rgba(0, 0, 0, 0.35);
   }
   100% {
-    box-shadow: 0 0 34px rgba(255, 193, 7, 0.88), 0 8px 22px rgba(0, 0, 0, 0.45);
+    box-shadow: 0 0 0 5px rgba(255, 193, 7, 0.6),
+                0 0 48px rgba(255, 160, 0, 0.95),
+                0 12px 30px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@keyframes comic-shimmer-bg {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes comic-sheen-sweep {
+  0%, 20% {
+    left: -120%;
+  }
+  60%, 100% {
+    left: 180%;
   }
 }
 
@@ -8573,7 +8616,7 @@ body.drawer-open {
     transform: scale(1);
   }
   50% {
-    opacity: 0.55;
+    opacity: 0.5;
     transform: scale(0.85);
   }
 }
@@ -8584,7 +8627,7 @@ body.drawer-open {
     opacity: 1;
   }
   100% {
-    transform: scale(2.4);
+    transform: scale(2.6);
     opacity: 0;
   }
 }
@@ -8594,37 +8637,40 @@ body.drawer-open {
     transform: rotate(0deg) scale(1);
   }
   25% {
-    transform: rotate(12deg) scale(1.15);
+    transform: rotate(14deg) scale(1.2);
   }
   75% {
-    transform: rotate(-12deg) scale(1.15);
+    transform: rotate(-14deg) scale(1.2);
   }
 }
 
 /* Mobile Responsive Adjustments */
 @media (max-width: 768px) {
   .comic-bubble-blinker-wrap {
-    margin: 1.2rem auto 1.3rem;
+    margin: 1.4rem auto 1.6rem;
   }
   .comic-bubble-blinker {
-    font-size: 0.84rem;
-    padding: 0.55rem 1.1rem;
-    gap: 0.5rem;
+    font-size: 1.05rem;
+    padding: 0.7rem 1.8rem;
+    gap: 0.7rem;
+    border-width: 3px;
   }
-  .bubble-tag {
-    font-size: 0.65rem;
-    padding: 0.18rem 0.5rem;
+  .bubble-sparkle-icon {
+    font-size: 1.15rem;
   }
 }
 
 @media (max-width: 480px) {
   .comic-bubble-blinker {
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 26px;
-    padding: 0.55rem 0.9rem;
-    font-size: 0.78rem;
-    text-align: center;
+    font-size: 0.92rem;
+    padding: 0.6rem 1.4rem;
+    gap: 0.55rem;
+    border-radius: 40px;
+    letter-spacing: 0.04em;
+  }
+  .bubble-blinker-dot {
+    width: 10px;
+    height: 10px;
   }
 }
 
