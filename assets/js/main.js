@@ -816,8 +816,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     const filterVal = this.getAttribute('data-filter');
 
                     serviceCards.forEach(card => {
-                        const cardCat = card.getAttribute('data-category');
-                        if (filterVal === 'all' || cardCat === filterVal) {
+                        const cardCat = card.getAttribute('data-category') || '';
+                        const isMatch = (filterVal === 'all') || 
+                                        (cardCat === filterVal) || 
+                                        (filterVal === 'Agri & Logistics' && (cardCat.includes('Agri') || cardCat.includes('Logistics') || cardCat.includes('Cold Chain')));
+
+                        if (isMatch) {
                             card.style.display = 'flex';
                             card.style.opacity = '0';
                             card.style.transform = 'translateY(24px)';

@@ -679,11 +679,6 @@ $services = [
     ]
 ];
 
-// Service ID Aliases for easy URL routing
-$services['cold-storage'] = &$services['cold-storage-funding'];
-$services['warehouse'] = &$services['warehouse-funding'];
-$services['dairy-farm'] = &$services['dairy-farm-funding'];
-
 // Bank Tie-Up Partners from Page 16
 $banks = [
     'title' => 'CONNECTING ALL BANKS',
@@ -809,8 +804,12 @@ switch ($page) {
 
     case 'service':
         $service_id = $_GET['id'] ?? 'prime-home-loans';
-        if ($service_id === 'smart-funding-solutions') {
+        if ($service_id === 'smart-funding-solutions' || $service_id === 'cold-storage') {
             $service_id = 'cold-storage-funding';
+        } elseif ($service_id === 'warehouse') {
+            $service_id = 'warehouse-funding';
+        } elseif ($service_id === 'dairy-farm') {
+            $service_id = 'dairy-farm-funding';
         }
         if (!isset($services[$service_id])) {
             $service_id = 'prime-home-loans';

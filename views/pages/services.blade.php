@@ -31,7 +31,7 @@
         <!-- Filter Tabs with Mobile Scroll Wrapper -->
         <div class="filter-tabs-scroll-wrap">
             <div class="service-filter-tabs">
-                <button class="filter-tab-btn active" data-filter="all">All Portfolios (10)</button>
+                <button class="filter-tab-btn active" data-filter="all">All Portfolios (12)</button>
                 <button class="filter-tab-btn" data-filter="Retail & High Net-Worth">Retail & Prime</button>
                 <button class="filter-tab-btn" data-filter="Secured Finance">Mortgage & Secured</button>
                 <button class="filter-tab-btn" data-filter="Real Estate & Infrastructure">Builders & Real Estate</button>
