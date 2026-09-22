@@ -8419,6 +8419,215 @@ body.drawer-open {
   color: #94A3B8;
 }
 
+/* ==========================================================================
+   COMIC BUBBLE BLINKER: NO ADVANCE CONSULTATION FEES
+   ========================================================================== */
+.comic-bubble-blinker-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.6rem auto 1.6rem;
+  position: relative;
+  z-index: 15;
+}
+
+.comic-bubble-blinker {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: linear-gradient(135deg, #FFF176 0%, #FFD54F 40%, #FFB300 75%, #FF8F00 100%);
+  color: #050F1E;
+  font-family: var(--font-heading), 'Cinzel', 'Inter', serif, sans-serif;
+  font-size: 0.96rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  padding: 0.65rem 1.45rem;
+  border-radius: 50px;
+  border: 2.5px solid #FFFFFF;
+  box-shadow: 0 0 24px rgba(255, 179, 0, 0.65),
+              0 6px 18px rgba(0, 0, 0, 0.35),
+              inset 0 1px 2px rgba(255, 255, 255, 0.9);
+  animation: comic-float 3.2s ease-in-out infinite, comic-bubble-glow 2s ease-in-out infinite alternate;
+  cursor: default;
+  user-select: none;
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.comic-bubble-blinker:hover {
+  transform: translateY(-4px) scale(1.04) rotate(-0.5deg);
+  box-shadow: 0 0 38px rgba(255, 193, 7, 0.9), 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+/* Live Active Blinker Dot */
+.bubble-blinker-dot {
+  width: 10px;
+  height: 10px;
+  background: #00E676;
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+  box-shadow: 0 0 10px #00E676, 0 0 16px #00E676;
+  animation: blink-dot-core 1.2s infinite ease-in-out;
+}
+
+.bubble-blinker-dot::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(0, 230, 118, 0.45);
+  animation: blink-radar-wave 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+}
+
+.bubble-sparkle-icon {
+  font-size: 1rem;
+  color: #D84315;
+  filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.6));
+  animation: sparkle-spin 3s ease-in-out infinite;
+  display: inline-flex;
+}
+
+.bubble-main-text {
+  color: #06101E;
+  font-weight: 900;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+
+/* Comic Pill Tag */
+.bubble-tag {
+  background: #06101E;
+  color: #FFE082;
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 0.22rem 0.65rem;
+  border-radius: 20px;
+  letter-spacing: 0.08em;
+  border: 1px solid rgba(255, 224, 130, 0.5);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+}
+
+/* Comic Speech Bubble Tail */
+.comic-bubble-tail {
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 0;
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 11px solid #FF8F00;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.comic-bubble-tail::before {
+  content: '';
+  position: absolute;
+  bottom: 2.5px;
+  left: -7.5px;
+  width: 0;
+  height: 0;
+  border-left: 7.5px solid transparent;
+  border-right: 7.5px solid transparent;
+  border-top: 8.5px solid #FFFFFF;
+}
+
+/* Dark Mode Harmonization */
+[data-theme="dark"] .comic-bubble-blinker {
+  background: linear-gradient(135deg, #FFE082 0%, #FFCA28 40%, #FFA000 80%, #FF6F00 100%);
+  box-shadow: 0 0 28px rgba(255, 179, 0, 0.75), 0 8px 22px rgba(0, 0, 0, 0.6);
+}
+
+[data-theme="dark"] .comic-bubble-tail {
+  border-top-color: #FF6F00;
+}
+
+/* Keyframe Animations */
+@keyframes comic-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-7px);
+  }
+}
+
+@keyframes comic-bubble-glow {
+  0% {
+    box-shadow: 0 0 16px rgba(255, 179, 0, 0.45), 0 4px 14px rgba(0, 0, 0, 0.35);
+  }
+  100% {
+    box-shadow: 0 0 34px rgba(255, 193, 7, 0.88), 0 8px 22px rgba(0, 0, 0, 0.45);
+  }
+}
+
+@keyframes blink-dot-core {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.55;
+    transform: scale(0.85);
+  }
+}
+
+@keyframes blink-radar-wave {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(2.4);
+    opacity: 0;
+  }
+}
+
+@keyframes sparkle-spin {
+  0%, 100% {
+    transform: rotate(0deg) scale(1);
+  }
+  25% {
+    transform: rotate(12deg) scale(1.15);
+  }
+  75% {
+    transform: rotate(-12deg) scale(1.15);
+  }
+}
+
+/* Mobile Responsive Adjustments */
+@media (max-width: 768px) {
+  .comic-bubble-blinker-wrap {
+    margin: 1.2rem auto 1.3rem;
+  }
+  .comic-bubble-blinker {
+    font-size: 0.84rem;
+    padding: 0.55rem 1.1rem;
+    gap: 0.5rem;
+  }
+  .bubble-tag {
+    font-size: 0.65rem;
+    padding: 0.18rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .comic-bubble-blinker {
+    flex-wrap: wrap;
+    justify-content: center;
+    border-radius: 26px;
+    padding: 0.55rem 0.9rem;
+    font-size: 0.78rem;
+    text-align: center;
+  }
+}
+
 
 
 

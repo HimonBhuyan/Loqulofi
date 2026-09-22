@@ -107,6 +107,17 @@
 
             </div>
 
+            <!-- Comic Bubble Blinker: No Advance Consultation Fees -->
+            <div class="comic-bubble-blinker-wrap">
+                <div class="comic-bubble-blinker" title="Zero Upfront Fees Guaranteed">
+                    <span class="bubble-blinker-dot" aria-hidden="true"></span>
+                    <span class="bubble-sparkle-icon" aria-hidden="true"><i class="fa-solid fa-bolt-lightning"></i></span>
+                    <span class="bubble-main-text">NO ADVANCE CONSULTATION FEES</span>
+                    <span class="bubble-tag">100% ZERO UPFRONT</span>
+                    <div class="comic-bubble-tail" aria-hidden="true"></div>
+                </div>
+            </div>
+
             <!-- Hero Action Buttons -->
             <div class="hero-cta-buttons">
                 <a href="index.php?page=services" class="btn-gold btn-xl magnetic-btn">
