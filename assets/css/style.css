@@ -1066,14 +1066,14 @@ body.drawer-open {
 }
 
 .hero-brand-title {
-  font-size: 3.5rem;
+  font-size: 4.2rem;
   font-weight: 900;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   background: var(--grad-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  filter: drop-shadow(0 3px 12px rgba(184, 134, 11, 0.45));
-  margin-bottom: 0.2rem;
+  filter: drop-shadow(0 4px 14px rgba(184, 134, 11, 0.45));
+  margin-bottom: 0.25rem;
   line-height: 1.1;
   display: inline-block;
   animation: heroTitleSlideUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) forwards, gold-text-shimmer 7s linear infinite;
@@ -1095,14 +1095,14 @@ body.drawer-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 0.35rem;
+  gap: 0.85rem;
+  margin-bottom: 0.4rem;
 }
 
 .hero-brand-sub .sub-text {
   font-family: var(--font-serif);
-  font-size: 1.1rem;
-  letter-spacing: 0.35em;
+  font-size: 1.22rem;
+  letter-spacing: 0.38em;
   background: var(--grad-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1122,7 +1122,7 @@ body.drawer-open {
   100% {
     opacity: 1;
     transform: translateY(0);
-    letter-spacing: 0.35em;
+    letter-spacing: 0.38em;
   }
 }
 
@@ -1130,7 +1130,7 @@ body.drawer-open {
   background: var(--grad-gold-text);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   display: inline-block;
   filter: drop-shadow(0 0 5px rgba(201, 151, 38, 0.5));
 }
@@ -1138,14 +1138,14 @@ body.drawer-open {
 .hero-tagline-mask {
   overflow: hidden;
   display: inline-block;
-  padding: 0.1rem 1.2rem;
+  padding: 0.1rem 1.4rem;
 }
 
 .hero-tagline {
   font-family: var(--font-serif);
-  font-size: 1.25rem;
+  font-size: 1.38rem;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.22em;
   color: var(--gold-deep);
   margin-bottom: 0;
   display: inline-block;
@@ -8441,21 +8441,21 @@ body.drawer-open {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.9rem;
-  background: linear-gradient(135deg, #FFF9C4 0%, #FFEB3B 22%, #FFC107 55%, #FF9800 82%, #FF5722 100%);
+  gap: 0.85rem;
+  background: linear-gradient(135deg, #FFFDE7 0%, #FFF59D 15%, #FFD54F 45%, #FFB300 75%, #FF8F00 100%);
   background-size: 200% 200%;
-  color: #040A14;
-  font-family: var(--font-heading), 'Cinzel', 'Inter', serif, sans-serif;
-  font-size: 1.32rem;
+  color: #030812;
+  font-family: var(--font-serif), 'Cinzel', 'Outfit', serif, sans-serif;
+  font-size: 1.22rem;
   font-weight: 900;
-  letter-spacing: 0.07em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  padding: 0.85rem 2.6rem;
+  padding: 0.75rem 2.4rem;
   border-radius: 60px;
-  border: 3.5px solid #FFFFFF;
-  box-shadow: 0 0 0 3.5px rgba(255, 193, 7, 0.45),
+  border: 3px solid #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(255, 193, 7, 0.45),
               0 0 36px rgba(255, 179, 0, 0.85),
-              0 10px 28px rgba(0, 0, 0, 0.4),
+              0 10px 28px rgba(0, 0, 0, 0.35),
               inset 0 2px 4px rgba(255, 255, 255, 0.95);
   animation: comic-float 3s ease-in-out infinite, 
              comic-bubble-glow 2.2s ease-in-out infinite alternate,
@@ -8491,8 +8491,8 @@ body.drawer-open {
 
 /* Live Active Blinker Dot */
 .bubble-blinker-dot {
-  width: 13px;
-  height: 13px;
+  width: 12px;
+  height: 12px;
   background: #00E676;
   border-radius: 50%;
   position: relative;
@@ -8506,8 +8506,8 @@ body.drawer-open {
   position: absolute;
   top: -5px;
   left: -5px;
-  width: 23px;
-  height: 23px;
+  width: 22px;
+  height: 22px;
   border-radius: 50%;
   background: rgba(0, 230, 118, 0.5);
   animation: blink-radar-wave 1.5s cubic-bezier(0, 0.2, 0.8, 1) infinite;
@@ -8515,7 +8515,7 @@ body.drawer-open {
 
 /* Sparkle lightning icon */
 .bubble-sparkle-icon {
-  font-size: 1.35rem;
+  font-size: 1.25rem;
   color: #BF360C;
   filter: drop-shadow(0 2px 3px rgba(255, 255, 255, 0.8));
   animation: sparkle-spin 2.8s ease-in-out infinite;
@@ -8524,10 +8524,12 @@ body.drawer-open {
 
 /* Main Text */
 .bubble-main-text {
-  color: #040B16;
+  color: #030812;
+  font-family: var(--font-serif), 'Cinzel', serif;
+  font-size: 1.22rem;
   font-weight: 900;
-  letter-spacing: 0.06em;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.85);
+  letter-spacing: 0.08em;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.95), 0 0 12px rgba(255, 255, 255, 0.5);
   position: relative;
   z-index: 2;
 }
