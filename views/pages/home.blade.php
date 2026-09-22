@@ -109,11 +109,10 @@
 
             <!-- Comic Bubble Blinker: No Upfront Fees -->
             <div class="comic-bubble-blinker-wrap">
-                <div class="comic-bubble-blinker" title="Zero Upfront Fees Guaranteed">
+                <div class="comic-bubble-blinker" title="No Upfront Fees Guaranteed">
                     <span class="bubble-blinker-dot" aria-hidden="true"></span>
                     <span class="bubble-sparkle-icon" aria-hidden="true"><i class="fa-solid fa-bolt-lightning"></i></span>
                     <span class="bubble-main-text">NO UPFRONT FEES</span>
-                    <span class="bubble-tag">100% SUCCESS BASED</span>
                     <div class="comic-bubble-tail" aria-hidden="true"></div>
                 </div>
             </div>
