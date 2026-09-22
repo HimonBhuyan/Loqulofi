@@ -692,10 +692,10 @@ $banks = [
             'icon' => 'landmark',
             'banks' => [
                 ['name' => 'State Bank of India', 'short' => 'SBI', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/sbi.svg'],
-                ['name' => 'Bank of Baroda', 'short' => 'BOB', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/bob.svg'],
-                ['name' => 'Punjab National Bank', 'short' => 'PNB', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/pnb.svg'],
-                ['name' => 'Union Bank of India', 'short' => 'UBI', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/ubi.svg'],
-                ['name' => 'Canara Bank', 'short' => 'Canara', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/canara.svg']
+                ['name' => 'Bank of Baroda', 'short' => 'BOB', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/bob.png'],
+                ['name' => 'Punjab National Bank', 'short' => 'PNB', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/pnb.png'],
+                ['name' => 'Union Bank of India', 'short' => 'UBI', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/ubi.png'],
+                ['name' => 'Canara Bank', 'short' => 'Canara', 'badge' => 'Govt PSU', 'logo' => 'assets/images/banks/canara.png']
             ]
         ],
         [
@@ -703,11 +703,11 @@ $banks = [
             'type' => 'Private',
             'icon' => 'building',
             'banks' => [
-                ['name' => 'HDFC Bank', 'short' => 'HDFC', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/hdfc.svg'],
-                ['name' => 'ICICI Bank', 'short' => 'ICICI', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/icici.svg'],
-                ['name' => 'Axis Bank', 'short' => 'Axis', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/axis.svg'],
-                ['name' => 'Kotak Mahindra Bank', 'short' => 'Kotak', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/kotak.svg'],
-                ['name' => 'IndusInd Bank', 'short' => 'IndusInd', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/indusind.svg']
+                ['name' => 'HDFC Bank', 'short' => 'HDFC', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/hdfc.png'],
+                ['name' => 'ICICI Bank', 'short' => 'ICICI', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/icici.png'],
+                ['name' => 'Axis Bank', 'short' => 'Axis', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/axis.png'],
+                ['name' => 'Kotak Mahindra Bank', 'short' => 'Kotak', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/kotak.png'],
+                ['name' => 'IndusInd Bank', 'short' => 'IndusInd', 'badge' => 'Private Leading', 'logo' => 'assets/images/banks/indusind.png']
             ]
         ],
         [
