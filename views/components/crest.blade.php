@@ -6,7 +6,7 @@
         'small'  => 'height: 44px; max-width: 60px;',
         'header' => 'height: 64px; max-width: 85px;',
         'large'  => 'height: 160px; max-width: 220px;',
-        'hero'   => 'height: 200px; max-width: 280px;',
+        'hero'   => 'height: 140px; max-width: 200px;',
         'footer' => 'height: 80px; max-width: 105px;',
         default  => 'height: 64px; max-width: 85px;'
     };
